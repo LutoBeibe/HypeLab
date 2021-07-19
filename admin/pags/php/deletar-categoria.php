@@ -1,0 +1,1 @@
+<?php website::website_admin_delCategoria($explode['1']);?>

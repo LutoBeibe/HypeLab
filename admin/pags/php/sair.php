@@ -1,0 +1,1 @@
+<?php website::website_logout();?>

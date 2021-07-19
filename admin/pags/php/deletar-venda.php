@@ -1,0 +1,1 @@
+<?php website::website_admin_delCompras($explode['1']);?>

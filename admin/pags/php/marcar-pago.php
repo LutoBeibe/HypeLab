@@ -1,0 +1,1 @@
+<?php website::website_admin_updateFatura($explode['1'], "gerenciar-faturas");?>

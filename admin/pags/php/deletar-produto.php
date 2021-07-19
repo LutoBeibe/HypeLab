@@ -1,0 +1,1 @@
+<?php website::website_admin_delete("produtos", "id", $explode['1'], "gerenciar-produtos");?>

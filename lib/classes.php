@@ -568,6 +568,10 @@
 			}
 		}
 
+		public function website_paginaCarrinho() {
+			
+		}
+
 
 		public function website_verficaFaturaCliente($id){
 			$id_cliente = $this->website_getDetailsCompra($id, "id_comprador");

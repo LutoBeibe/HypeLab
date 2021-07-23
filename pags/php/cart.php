@@ -1,6 +1,6 @@
 <?php 
     include('components/header-component.php');
-    include('components/slider-component.php');
+    include('components/cart.php');
 ?>
 
 

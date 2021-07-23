@@ -1,4 +1,12 @@
-﻿/*************************
+﻿/* 
+
+    #ff0000 - vermelho
+    #00ffff - azul
+    #191919 - preto
+
+*/
+
+/*************************
 *******Typography******
 **************************/
 
@@ -58,13 +66,17 @@ h6 {
 }
 
 a#scrollUp {
-    bottom: 0px;
-    right: 10px;
+    bottom: 14px;
+    right: 14px;
     padding: 5px 10px;
-    background: #000000;
+    background: #171225;
     color: #FFF;
-    -webkit-animation: bounce 2s ease infinite;
-    animation: bounce 2s ease infinite;
+    border-radius: .6rem;
+    transition: .3s;
+}
+
+a#scrollUp:hover {
+    border-radius: .9rem;
 }
 
 a#scrollUp i {
@@ -81,9 +93,9 @@ a#scrollUp i {
 }
 
 .header_top {
-    background: none repeat scroll 0 0 #F0F0E9;
+    background: none repeat scroll 0 0 #191919;
 
-    padding: .1rem 0;
+    padding: .4rem 0;
 }
 
 .contactinfo ul li:first-child {
@@ -92,7 +104,7 @@ a#scrollUp i {
 
 .contactinfo ul li a {
     font-size: 12px;
-    color: #696763;
+    color: #e0e7f5;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -103,7 +115,7 @@ a#scrollUp i {
 .social-icons ul li a {
     border: 0 none;
     border-radius: 0;
-    color: #696763;
+    color: #e0e7f5;
     padding: 0px;
 }
 
@@ -195,14 +207,14 @@ a#scrollUp i {
 }
 
 .usa:hover {
-    background: #000000;
+    background: #171225;
     color: #fff;
-    border-color: #000000;
+    border-color: #171225;
 }
 
 .usa:active,
 .usa.active {
-    background: none repeat scroll 0 0 #000000;
+    background: none repeat scroll 0 0 #171225;
     -webkit-box-shadow: inherit;
     box-shadow: inherit;
     outline: 0 none;
@@ -216,7 +228,7 @@ a#scrollUp i {
 
 .dropdown-menu li a:hover,
 .dropdown-menu li a:focus {
-    background-color: #000000;
+    background-color: #171225;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
@@ -233,7 +245,7 @@ a#scrollUp i {
 }
 
 .shop-menu ul li a {
-    color: #696763;
+    color: #d4dbe7;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
@@ -252,12 +264,13 @@ a#scrollUp i {
     align-items: center;
 
     font-size: 80%;
+    font-weight: 500;
     width: 14px;
     height: 14px;
     border-radius: 50%;
 
-    color: white;
-    background-color: #000000;
+    color: #191919;
+    background-color: #00ffff;
 }
 
 .shop-menu ul li a i {
@@ -265,7 +278,8 @@ a#scrollUp i {
 }
 
 .shop-menu ul li a:hover {
-    color: #fe980f;
+    color: #ffffff;
+    background: none;
 }
 
 .header-bottom {
@@ -302,9 +316,10 @@ a#scrollUp i {
 }
 
 .search_box input {
-    background: #F0F0E9;
+    background: #ffffff;
+    color: #191919;
     border: medium none;
-    color: #B2B2B2;
+    border-radius: .3rem;
     font-family: 'roboto';
     font-size: 12px;
     font-weight: 300;
@@ -312,9 +327,22 @@ a#scrollUp i {
     outline: medium none;
     padding-left: 10px;
     width: 155px;
+
+    position: relative;
+    box-shadow: 
+        0 0 0 1.5px #00ffff,
+        0 0 0 2.75px #ff0000;
+
     background-image: url(../images/home/searchicon.png);
     background-repeat: no-repeat;
     background-position: 130px;
+
+    transition: .3s;
+}
+
+.search_box input:focus {
+    width: 185px;
+    background-position: 160px;
 }
 
 
@@ -402,14 +430,19 @@ ul.sub-menu {
 }
 
 .companyinfo h2 {
-    color: #B4B1AB;
-    font-family: abel;
-    font-size: 27px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(25, 25, 25);
+    text-decoration: none;
+    line-height: 0.75;
+    letter-spacing: 0.071em;
+    font-size: 40px;
     text-transform: uppercase;
+    text-shadow: rgb(0 255 255) 1.60771px -0.371169px 0px, rgb(255 0 0) -1.60771px 0.371169px 0px;
 }
 
 .companyinfo h2 span {
-    color: #000000;
+    color: #171225;
 }
 
 .companyinfo p {
@@ -447,7 +480,7 @@ ul.sub-menu {
     top: 0;
     width: 100%;
     height: 61px;
-    background: #000000;
+    background: #171225;
     border-radius: 3px;
     color: #FFF;
     font-size: 20px;
@@ -541,7 +574,7 @@ ul.sub-menu {
 
 .single-widget ul li a:hover {
     background: none;
-    color: #000000;
+    color: #171225;
 }
 
 .searchform input {
@@ -556,7 +589,7 @@ ul.sub-menu {
 }
 
 .searchform button {
-    background: #000000;
+    background: #171225;
     border: medium none;
     border-radius: 0;
     margin-left: -5px;
@@ -571,7 +604,7 @@ ul.sub-menu {
 
 .searchform button:hover,
 .searchform button:focus {
-    background-color: #000000;
+    background-color: #171225;
 }
 
 .searchform p {
@@ -595,7 +628,7 @@ ul.sub-menu {
 }
 
 .footer-bottom p span a {
-    color: #000000;
+    color: #171225;
     font-style: italic;
     text-decoration: underline;
 }
@@ -627,6 +660,8 @@ ul.sub-menu {
     height: 100%;
 }
 
+
+
 #slider #slider-carousel .carousel-inner {
     height: 100%;
 
@@ -643,7 +678,7 @@ ul.sub-menu {
 }
 
 .carousel-indicators li.active {
-    background: #000000;
+    background: #171225;
 }
 
 .item {
@@ -696,7 +731,7 @@ ul.sub-menu {
 }
 
 .item h1 span {
-    color: #000000;
+    color: #171225;
 }
 
 .item h2 {
@@ -716,7 +751,7 @@ ul.sub-menu {
 }
 
 .get {
-    background: #000000;
+    background: #171225;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -727,7 +762,7 @@ ul.sub-menu {
 }
 
 .item button:hover {
-    background: #000000;
+    background: #171225;
 }
 
 .control-carousel {
@@ -738,7 +773,7 @@ ul.sub-menu {
 }
 
 .control-carousel:hover {
-    color: #000000;
+    color: #171225;
 }
 
 .right {
@@ -754,7 +789,7 @@ ul.sub-menu {
 
 .left-sidebar h2,
 .brands_products h2 {
-    color: #000000;
+    color: #171225;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -900,7 +935,7 @@ h2.title:before {
 }
 
 .tooltip-inner {
-    background-color: #000000;
+    background-color: #171225;
     border-radius: 4px;
     color: #FFFFFF;
     max-width: 200px;
@@ -910,7 +945,7 @@ h2.title:before {
 }
 
 .tooltip.top .tooltip-arrow {
-    border-top-color: #000000;
+    border-top-color: #171225;
     border-width: 5px 5px 0;
     bottom: 0;
     left: 50%;
@@ -926,7 +961,7 @@ h2.title:before {
 }
 
 h2.title {
-    color: #000000;
+    color: #171225;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -954,7 +989,7 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #000000;
+    color: #171225;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -1011,7 +1046,7 @@ h2.title {
     background: #fff;
     border: 0 none;
     border-radius: 0;
-    color: #000000;
+    color: #171225;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-bottom: 25px;
@@ -1019,7 +1054,7 @@ h2.title {
 
 .product-overlay .add-to-cart:hover {
     background: #fff;
-    color: #000000;
+    color: #171225;
 }
 
 .product-overlay p {
@@ -1040,7 +1075,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-    background: #000000;
+    background: #171225;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1055,7 +1090,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
 }
 
@@ -1082,7 +1117,7 @@ h2.title {
 
 .choose ul li a:hover, .choose ul li button:hover {
     background: none;
-    color: #000000;
+    color: #171225;
 }
 
 .category-tab {
@@ -1091,7 +1126,7 @@ h2.title {
 
 .category-tab ul {
     background: #40403E;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #171225;
     list-style: none outside none;
     margin: 0 0 30px;
     padding: 0;
@@ -1109,7 +1144,7 @@ h2.title {
 }
 
 .category-tab ul li a:hover {
-    background: #000000;
+    background: #171225;
     color: #fff;
 }
 
@@ -1120,7 +1155,7 @@ h2.title {
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background-color: #000000;
+    background-color: #171225;
     border: 0px;
     color: #FFFFFF;
     cursor: default;
@@ -1137,6 +1172,7 @@ h2.title {
 
 .recommended_items {
     overflow: hidden;
+    padding-left: 3rem;
 }
 
 #recommended-item-carousel {
@@ -1149,14 +1185,18 @@ h2.title {
 }
 
 .recommended-item-control i {
-    background: none repeat scroll 0 0 #000000;
+    background: none repeat scroll 0 0 #171225;
     color: #FFFFFF;
     font-size: 20px;
     padding: 4px 10px;
+
+    border-radius: .4rem;
+
+    transition: .3s;
 }
 
 .recommended-item-control i:hover {
-    background: #ccccc6;
+    background: #241d3a;
 }
 
 .recommended_items h2 {}
@@ -1213,8 +1253,8 @@ h2.title {
 .pagination .active span:hover,
 .pagination .active a:focus,
 .pagination .active span:focus {
-    background-color: #000000;
-    border-color: #000000;
+    background-color: #171225;
+    border-color: #171225;
     color: #FFFFFF;
     cursor: default;
     z-index: 2;
@@ -1235,7 +1275,7 @@ h2.title {
 }
 
 .pagination li a:hover {
-    background: #000000;
+    background: #171225;
     color: #fff;
 }
 
@@ -1274,7 +1314,7 @@ h2.title {
 }
 
 .view-product h3 {
-    background: #000000;
+    background: #171225;
     bottom: 0;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -1286,13 +1326,12 @@ h2.title {
     right: 0;
 }
 
-#similar-product .carousel-inner .item {
+.carousel-inner .item {
     padding-left: 0px;
 }
 
-#similar-product .carousel-inner .item img {
+.carousel-inner .item img {
     display: inline-block;
-    margin-left: 15px;
 }
 
 .item-control {
@@ -1301,7 +1340,7 @@ h2.title {
 }
 
 .item-control i {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
     font-size: 20px;
     padding: 5px 10px;
@@ -1346,7 +1385,7 @@ h2.title {
 }
 
 .product-information span span {
-    color: #000000;
+    color: #171225;
     float: left;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
@@ -1379,7 +1418,7 @@ h2.title {
 }
 
 .cart {
-    background: #000000;
+    background: #171225;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1423,13 +1462,13 @@ h2.title {
 }
 
 #reviews ul li a i {
-    color: #000000;
+    color: #171225;
     padding-right: 8px;
 }
 
 #reviews ul li a:hover {
     background: #fff;
-    color: #000000;
+    color: #171225;
 }
 
 #reviews p {
@@ -1470,7 +1509,7 @@ h2.title {
 }
 
 #reviews button {
-    background: #000000;
+    background: #171225;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1526,7 +1565,7 @@ h2.title {
 }
 
 .content-404 h2 a {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 44px;
@@ -1650,7 +1689,7 @@ h2.title {
 
 .login-form form button,
 .signup-form form button {
-    background: #000000;
+    background: #171225;
     border: medium none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1671,7 +1710,7 @@ h2.title {
 }
 
 .or {
-    background: #000000;
+    background: #171225;
     border-radius: 40px;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -1703,7 +1742,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb li a {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
     padding: 3px 7px;
 }
@@ -1714,7 +1753,7 @@ h2.title {
     width: auto;
     border-width: 8px;
     border-style: solid;
-    border-color: transparent transparent transparent #000000;
+    border-color: transparent transparent transparent #171225;
     position: absolute;
     top: 11px;
     left: 48px;
@@ -1730,7 +1769,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_menu {
-    background: #000000;
+    background: #171225;
     color: #fff;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
@@ -1780,7 +1819,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_total_price {
-    color: #000000;
+    color: #171225;
     font-size: 24px;
 }
 
@@ -1824,7 +1863,7 @@ h2.title {
 }
 
 .cart_delete a:hover {
-    background: #000000
+    background: #171225
 }
 
 .bg h2.title {
@@ -1926,7 +1965,7 @@ textarea {
 
 .update,
 .check_out {
-    background: #000000;
+    background: #171225;
     border-radius: 0;
     color: #FFFFFF;
     margin-top: 18px;
@@ -1993,7 +2032,7 @@ textarea {
 }
 
 .checkout-options .nav li a {
-    color: #000000;
+    color: #171225;
     font-size: 18px;
     font-weight: normal;
     padding: 0
@@ -2007,7 +2046,7 @@ textarea {
     margin-right: 10px;
     border-radius: 50%;
     padding: 5px;
-    background: #000000;
+    background: #171225;
     color: #fff;
     font-size: 14px;
     padding: 2px 3px;
@@ -2033,7 +2072,7 @@ textarea {
 }
 
 .shopper-info .btn-primary {
-    background: #000000;
+    background: #171225;
     border: 0 none;
     border-radius: 0;
     margin-right: 15px;
@@ -2112,7 +2151,7 @@ textarea {
 }
 
 #cart_items .cart_info .table.table-condensed.total-result span {
-    color: #000000;
+    color: #171225;
     font-weight: 700;
     font-size: 16px
 }
@@ -2169,7 +2208,7 @@ textarea {
 }
 
 .blog-post-area .post-meta ul li i {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
     margin-left: -4px;
     margin-right: 7px;
@@ -2182,7 +2221,7 @@ textarea {
     position: absolute;
     width: auto;
     height: auto;
-    border-color: transparent transparent transparent #000000;
+    border-color: transparent transparent transparent #171225;
     border-width: 4px;
     border-style: solid;
     top: 6px;
@@ -2191,7 +2230,7 @@ textarea {
 
 .blog-post-area .post-meta ul span {
     float: right;
-    color: #000000
+    color: #171225
 }
 
 .post-meta span {
@@ -2199,11 +2238,11 @@ textarea {
 }
 
 .post-meta span i {
-    color: #000000
+    color: #171225
 }
 
 .blog-post-area .single-blog-post .btn-primary {
-    background: #000000;
+    background: #171225;
     border: medium none;
     border-radius: 0;
     color: #FFFFFF;
@@ -2226,7 +2265,7 @@ textarea {
 
 .pagination-area .pagination li a:hover,
 .pagination-area .pagination li .active {
-    background: #000000;
+    background: #171225;
     color: #fff
 }
 
@@ -2252,7 +2291,7 @@ textarea {
 }
 
 .pager-area .pager li a:hover {
-    background: #000000;
+    background: #171225;
     color: #fff
 }
 
@@ -2287,7 +2326,7 @@ textarea {
 
 .rating-area .ratings .color,
 .rating-area .color {
-    color: #000000
+    color: #171225
 }
 
 .rating-area .tag {
@@ -2371,7 +2410,7 @@ textarea {
 
 .blog-socials ul li a:hover {
     color: #fff;
-    background: #000000
+    background: #171225
 }
 
 .media-list .btn-primary,
@@ -2431,7 +2470,7 @@ textarea {
 }
 
 .sinlge-post-meta li i {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
     margin-right: 10px;
     padding: 8px 10px;
@@ -2457,7 +2496,7 @@ textarea {
 }
 
 .replay-box label {
-    background: #000000;
+    background: #171225;
     color: #FFFFFF;
     margin-bottom: 15px;
     padding: 3px 15px;
@@ -2466,7 +2505,7 @@ textarea {
 }
 
 .replay-box span {
-    color: #000000;
+    color: #171225;
     float: right;
     font-weight: 700;
     margin-top: 21px;
@@ -2483,7 +2522,7 @@ textarea {
 
 .replay-box form input:hover,
 .text-area textarea:hover {
-    border: 1px solid #000000;
+    border: 1px solid #171225;
 }
 
 .text-area {
@@ -2496,7 +2535,7 @@ textarea {
 }
 
 .btn.btn-primary {
-    background: #000000;
+    background: #171225;
     border: 0 none;
     border-radius: 0;
     margin-top: 16px;
@@ -2513,7 +2552,7 @@ textarea {
     height: auto;
     border-style: solid;
     border-width: 8px;
-    border-color: #000000 transparent transparent transparent;
+    border-color: #171225 transparent transparent transparent;
     top: 25px;
     left: 5px
 }
@@ -2624,7 +2663,7 @@ textarea {
 }
 
 .contact-info .social-networks ul li a:hover {
-    color: #000000;
+    color: #171225;
 }
 
 

@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-4 clearfix">
                     <div class="logo pull-left">
-                        <a href="inicio"><img src="images/home/logo.png" alt="<?php echo titulo; ?> Logo" /></a>
+                        <a href="inicio"><img src="images/home/logo-secondary.png" alt="<?php echo titulo; ?> Logo" /></a>
                     </div>
                 </div>
                 <div class="clearfix">

@@ -317,7 +317,7 @@
                                             <h2>R$ {$dados['preco']}</h2>
                                             <p>".self::website_limitaCaracteres($dados['nome'])."</p>
 											<a href='cart/{$dados['id']}'>
-                                            <button type='submit' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add ao carrinho
+                                            <button type='submit' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
 											</button>
 												</a>
                                         </div>
@@ -326,7 +326,7 @@
                                                 <h2>R$ {$dados['preco']}</h2>
                                                 <p>".self::website_limitaCaracteres($dados['nome'])."</p>
 												<a href='cart/{$dados['id']}'>
-                                                <button type='submit' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add ao carrinho
+                                                <button type='submit' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
 												</button>
 												</a>
                                             </div>
@@ -335,7 +335,7 @@
                                     <input type='hidden' name='id_produto' value='{$dados['id']}'>
                                     <input type='hidden' name='env' value='adicionarAoCarrinho'>
                                 </form>
-                                <div class='choose'>
+                                <!--<div class='choose'>
                                     <ul class='nav nav-pills nav-justified'>
                                         <li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
                                         
@@ -348,7 +348,7 @@
                                                 </form>
                                             </li>
                                     </ul>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     ";

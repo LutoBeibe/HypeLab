@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73" height="47" viewBox="0 0 73 47">
+    <defs>
+        <linearGradient id="c" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFF"/>
+            <stop offset="100%" stop-color="#E0E0E0"/>
+        </linearGradient>
+        <rect id="b" width="65" height="39" rx="3"/>
+        <filter id="a" width="121.5%" height="135.9%" x="-10.8%" y="-12.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+        </filter>
+        <path id="d" d="M.273.257H6.43v4.189H.273z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(4 2)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="url(#c)" xlink:href="#b"/>
+        </g>
+        <g transform="translate(20.9 5.9)">
+            <circle cx="15.6" cy="15.6" r="15.6" fill="#231F20"/>
+            <path fill="#FEFEFE" d="M10.596 17.98c-.518.503-1.22.81-1.996.799a2.77 2.77 0 0 1-1.443-.433L6.12 20c.71.45 1.55.716 2.453.73a4.723 4.723 0 0 0 3.388-1.351l-1.364-1.4zM5.867 16.278a2.794 2.794 0 0 1 4.91-2.096l-4.91 2.096zm2.85-5.04A4.743 4.743 0 0 0 3.9 15.912c-.016.981.269 1.9.767 2.663l8.596-3.673a4.748 4.748 0 0 0-4.548-3.662zM15.96 9.1v9.164l1.59.658-.752 1.808-1.572-.653a1.785 1.785 0 0 1-.775-.652c-.175-.27-.304-.639-.304-1.137V9.1h1.813z"/>
+            <g transform="translate(20.8 10.98)">
+                <mask id="e" fill="#fff">
+                    <use xlink:href="#d"/>
+                </mask>
+                <path fill="#00A4DF" d="M.892 2.354a2.793 2.793 0 0 1 3.622 2.092l1.915-.39A4.748 4.748 0 0 0 .273.5l.62 1.854z" mask="url(#e)"/>
+            </g>
+            <path fill="#FFF100" d="M19.433 19.539l1.294-1.463a2.786 2.786 0 0 1-.942-2.093c0-.832.364-1.579.941-2.09l-1.294-1.464c-.982.87-1.601 2.14-1.601 3.554 0 1.416.62 2.686 1.602 3.556"/>
+            <path fill="#EE4123" d="M25.314 16.544a2.794 2.794 0 0 1-3.622 2.088l-.62 1.854a4.749 4.749 0 0 0 6.157-3.549l-1.915-.393z"/>
+        </g>
+    </g>
+</svg>

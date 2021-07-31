@@ -66,10 +66,10 @@ h6 {
 }
 
 a#scrollUp {
-    bottom: 14px;
-    right: 14px;
+    bottom: 22px;
+    right: 25px;
     padding: 5px 10px;
-    background: #171225;
+    background: #000000;
     color: #FFF;
     border-radius: .6rem;
     transition: .3s;
@@ -197,6 +197,10 @@ a#scrollUp i {
     padding-right: 0;
 }
 
+.header-middle .logo a img {
+    width: 95px;
+}
+
 .usa {
     border-radius: 0;
     color: #B4B1AB;
@@ -301,18 +305,20 @@ a#scrollUp i {
 }
 
 .mainmenu ul li a {
-    color: #696763;
+    color: #333;
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 500;
     padding: 0;
+
+    transition: color .3s;
 }
 
 .mainmenu ul li a:hover,
 .mainmenu ul li a.active,
 .shop-menu ul li a.active {
     background: none;
-    color: #fdb45e;
+    color: #000000;
 }
 
 .search_box input {
@@ -417,22 +423,80 @@ ul.sub-menu {
 **************************/
 
 #footer {
-    background: #F0F0E9;
+    background: #191919;
 }
 
 .footer-top .container {
-    border-bottom: 1px solid #E0E0DA;
     padding-bottom: 20px;
+    width: 100%;
+}
+
+.footer-top .container .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.footer-top .social-networks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end !important;
+}
+
+.footer-top .social-networks-container h2 {
+    color: #b9b9b0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 1.1rem;
+    text-transform: uppercase;
+}
+
+.footer-top .social-networks-container .social-networks-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+    gap: 1.6rem !important;
+}
+
+.footer-top .social-networks-container .social-networks-content a {
+    color: #8C8C88;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+
+    transition: color .3s;
+}
+
+.footer-top .social-networks-container .social-networks-content a:hover {
+    color: white;
+    background: none;
+}
+
+.footer-top .social-networks-container .social-networks-content a i {
+    background: none;
 }
 
 .companyinfo {
     margin-top: 57px;
 }
 
+.companyinfo img {
+    width: 100px;
+    margin-bottom: .75rem;
+}
+
 .companyinfo h2 {
+    display: flex;
+    flex-direction: column;
+    
+    gap: .5rem;
     font-weight: 700;
     font-style: italic;
-    color: rgb(25, 25, 25);
+    color: #161515;
     text-decoration: none;
     line-height: 0.75;
     letter-spacing: 0.071em;
@@ -441,12 +505,8 @@ ul.sub-menu {
     text-shadow: rgb(0 255 255) 1.60771px -0.371169px 0px, rgb(255 0 0) -1.60771px 0.371169px 0px;
 }
 
-.companyinfo h2 span {
-    color: #171225;
-}
-
 .companyinfo p {
-    color: #B3B3AD;
+    color: #8C8C88;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
@@ -543,12 +603,12 @@ ul.sub-menu {
 }
 
 .footer-widget .container {
-    border-top: 1px solid #FFFFFF;
+    border-top: 1px solid #494947;
     padding-top: 15px;
 }
 
 .single-widget h2 {
-    color: #666663;
+    color: #b9b9b0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -574,7 +634,25 @@ ul.sub-menu {
 
 .single-widget ul li a:hover {
     background: none;
-    color: #171225;
+    color: #ffffff;
+}
+
+.single-widget ul li a:focus {
+    background: none;
+}
+
+.single-widget.payment-methods-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.single-widget.payment-methods-container .payment-methods-content img {
+    width: 40px;
+}
+
+.single-widget.payment-methods-container .payment-methods-content img+img {
+    margin-left: .6rem;
 }
 
 .searchform input {
@@ -616,12 +694,12 @@ ul.sub-menu {
 }
 
 .footer-bottom {
-    background: #D6D6D0;
+    background: #202020;
     padding-top: 10px;
 }
 
 .footer-bottom p {
-    color: #363432;
+    color: #8C8C88;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     margin-left: 15px;

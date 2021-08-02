@@ -42,7 +42,7 @@
                                     <li><a href="product-details.html">Produtos Recentes</a></li> 
                                     <li><a href="product-details.html">Produtos Recomendados</a></li> 
                                     <li><a href="">Produtos Exclusivos</a></li>
-                                    <li><a href="">Tênis</a></li>
+                                    <li><a href="">Tênis</a></li> 
                                 </ul>
                             </li> 
                             <li><a href="">Masculino</a></li>

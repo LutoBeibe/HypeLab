@@ -1,4 +1,4 @@
-<?php include_once("lib/includes.php"); $website = new website(); //ok?>
+<?php include_once("lib/includes.php"); $website = new website(); // amanhã aulinha com Gabriel?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

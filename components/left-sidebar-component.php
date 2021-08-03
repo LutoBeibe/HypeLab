@@ -4,8 +4,7 @@
         <?php
             include('components/category-component.php');
             include('components/brands-products-component.php');
-            include('components/price-range-component.php');
-            include('components/shipping-component.php');
+            include('components/price-range-component.php'); 
         ?>
 
     </div>

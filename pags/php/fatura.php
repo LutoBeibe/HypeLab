@@ -5,28 +5,22 @@
   $website->website_verficaFaturaCliente($explode['1']);
 ?>
 
-<div id="r-content">
-  <div class="r-title">Central / Fatura</div>
-  <br>
-  <div class="r-description">Minha Fatura</div>
-</div>
-
     <div id="invoice">
     <div class="color-invoice">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-6">
-          <h1>FATURA #<?php echo $explode['1'];?></h1>
-          <strong>Email: </strong> vendas@tutoriaiseinformatica.com
+          <h1>Fatura Nº<?php echo $explode['1'];?></h1>
+          <strong>Email: </strong> Hypelab@vendas.com
           <br />
-          <strong>Telefone: </strong> +55 (21) 98012-7711
+          <strong>Telefone: </strong> +55 (11) 98012-7711
           <br><br>
         </div>
 
         <div class="col-sm-6">
-          <h3> Tutoriais e Informática</h3> Rua Leonardo VilasBoas 100 C/ 32
-          <br> 22775-150 - Curicica - Jacarepaguá
-          <br> Rio de Janeiro - RJ
+          <h3> HypeLab </h3> 1941 Av. Paulista - Bela Vista
+          <br> CEP: 01310-200
+          <br> São Paulo - SP
         </div><br>
       </div>
       <hr>

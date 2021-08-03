@@ -236,15 +236,13 @@
 				echo "
                     <li><a href='dashboard'><i class='fa fa-user'></i> Conta</a></li>
                     <li><a href='checkout.html'><i class='fa fa-bell'></i> Acompanhar Pedidos</a></li>
-                    <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li>
-                    <li><a href='cart'><i class='fa fa-shopping-cart'></i> <span class='numero-itens'>". produtos::produtos_quantidade_adicionado_ao_carrinho($_SESSION['userId']) ."</span></a></li>
+                    <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li> 
                 ";
 			}else{
 				echo "
                     <li><a href='enter'><i class='fa fa-user'></i> Login &bull; Cadastro</a></li>
                     <li><a href='checkout.html'><i class='fa fa-bell'></i> Acompanhar Pedidos</a></li>
                     <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li>
-                    <li><a href='cart'><i class='fa fa-shopping-cart'></i> <span class='numero-itens'>0</span></a></li>
                 ";
 			}
 		}
@@ -317,18 +315,17 @@
                                             <h2>R$ {$dados['preco']}</h2>
                                             <p>".self::website_limitaCaracteres($dados['nome'])."</p>
 											<a href='cart/{$dados['id']}'>
-                                            <button type='submit' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
-											</button>
-												</a>
+                                            <button class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
+											</a></button>
+												
                                         </div>
                                         <div class='product-overlay'>
                                             <div class='overlay-content'>
                                                 <h2>R$ {$dados['preco']}</h2>
                                                 <p>".self::website_limitaCaracteres($dados['nome'])."</p>
 												<a href='cart/{$dados['id']}'>
-                                                <button type='submit' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
-												</button>
-												</a>
+                                            	<button class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
+												</a></button>
                                             </div>
                                         </div>
                                     </div>
@@ -500,7 +497,7 @@
 			}
 		}
 
-		public function website_getDadosFatura($id, $val){
+		public static function website_getDadosFatura($id, $val){
 			$pdo = db::pdo();
 
 				$stmt = $pdo->prepare("SELECT * FROM faturas WHERE id = :id");
@@ -524,7 +521,7 @@
 			}
 		}
 
-		public function website_getDetailsCompra($id_fatura, $val){
+		public static function website_getDetailsCompra($id_fatura, $val){
 			$pdo = db::pdo();
 
 				$stmt = $pdo->prepare("SELECT * FROM compras WHERE id_fatura = :id_fatura");

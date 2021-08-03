@@ -12,28 +12,23 @@
   $produtos ->produtos_vefica_login();
 ?>
 <form method="POST">
-    <div id="r-content">
-    <div class="r-title">Eshop / Carrinho</div>
-    <br>
     <div class="r-description">
         Revise antes de continuar
-    </div>
     </div>
 
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
-                <th>#</th>
+                
                 <th>Produto</th>
                 <th width="20%">Quantidade</th>
                 <th>Preço</th>
             </tr>
             <?php $produtos->produtos_verificaEstoque();?>
             <tr>
-                <td>1</td>
                 <td><?php echo $produtos->nome;?></td>
                 <td align="center"><input type="number" id="quantity" min="1" max="<?php $produtos->produtos_getMax();?>" class="col-sm-7" value="1"></td>
-    <input type="hidden" id="valor_produto" value="<?php echo $produtos->preco;?>">
+            <input type="hidden" id="valor_produto" value="<?php echo $produtos->preco;?>">
                 <td>R$ <?php echo $produtos->preco;?></td>
             </tr>
         </table>
@@ -53,8 +48,7 @@
     <input type="hidden" name="nome_produto" value="<?php echo $produtos->nome;?>">
     <input type="hidden" name="env" value="compra">
 </form>
-                <?php $produtos->produtos_finalizar_compra($explode['1']); ?>
-                <?php website::website_categorias(); ?>
+                <?php $produtos->produtos_finalizar_compra($explode['1']); ?> 
             </div>
 
         </div>

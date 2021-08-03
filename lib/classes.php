@@ -235,13 +235,13 @@
 			if(isset($_SESSION['userEmail'])){
 				echo "
                     <li><a href='dashboard'><i class='fa fa-user'></i> Conta</a></li>
-                    <li><a href='checkout.html'><i class='fa fa-bell'></i> Acompanhar Pedidos</a></li>
+                    <li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'><i class='fa fa-bell'></i>Rastrear Pedidos</a></li>
                     <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li> 
                 ";
 			}else{
 				echo "
                     <li><a href='enter'><i class='fa fa-user'></i> Login &bull; Cadastro</a></li>
-                    <li><a href='checkout.html'><i class='fa fa-bell'></i> Acompanhar Pedidos</a></li>
+                    <li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'><i class='fa fa-bell'></i> Rastrear Pedidos</a></li>
                     <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li>
                 ";
 			}

@@ -1,16 +1,16 @@
-# <h1 align="center"><a href=""><img src="https://github.com/FelipePDS/hypelab/blob/main/github/icons/Hypelab_Logotipo_Secondary_Black.png" width=116/></a></h1>
+# <h1 align="center"><a href=""><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/icons/Hypelab_Logotipo_Secondary_Black.png" width=116/></a></h1>
 <p align="center"><kbd><a href="">Hypelab</a></kbd>'s<br>:stars: Store with exclusive products for Streetwear buyers and resellers. <a href="#about">Learn more</a></p>
 
 <p align="center">
-  <a href="https://github.com/FelipePDS/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/FelipePDS/hypelab"/></a> 
-  <img src="https://img.shields.io/github/last-commit/FelipePDS/hypelab"/> 
-  <img src="https://img.shields.io/snyk/vulnerabilities/github/FelipePDS/hypelab"/> 
-  <img src="https://img.shields.io/appveyor/build/FelipePDS/hypelab?logo=github"/>
+  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/hypelab"/></a> 
+  <img src="https://img.shields.io/github/last-commit/LutoBeibe/hypelab"/> 
+  <img src="https://img.shields.io/snyk/vulnerabilities/github/LutoBeibe/hypelab"/> 
+  <img src="https://img.shields.io/appveyor/build/LutoBeibe/hypelab?logo=github"/>
   <br>
-  <img src="https://img.shields.io/github/contributors/FelipePDS/hypelab"/> 
-  <img src="https://img.shields.io/github/issues/FelipePDS/hypelab"/> 
-  <img src="https://img.shields.io/github/forks/FelipePDS/hypelab?style=social"/> 
-  <img src="https://img.shields.io/github/stars/FelipePDS/hypelab?style=social"/>
+  <img src="https://img.shields.io/github/contributors/LutoBeibe/hypelab"/> 
+  <img src="https://img.shields.io/github/issues/LutoBeibe/hypelab"/> 
+  <img src="https://img.shields.io/github/forks/LutoBeibe/hypelab?style=social"/> 
+  <img src="https://img.shields.io/github/stars/LutoBeibe/hypelab?style=social"/>
 </p>
 
 <blockquote>Status: :construction: Starting Project :construction:</blockquote>
@@ -144,15 +144,15 @@
 <p>Thanks to the Hypelab team :blush:</p>
 <table>
   <tr align="center">
-    <td><img src="https://github.com/FelipePDS/hypelab/blob/main/github/images/contributors/contributor_felipepinto.jpg" width=116/> <br> <sub><a href="https://github.com/FelipePDS"><img src="https://img.shields.io/static/v1?label=+&message=Felipe+Pinto&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/FelipePDS/hypelab/blob/main/github/images/contributors/contributor_gabrielfeitosa.jpg" width=115/> <br> <sub><a href="https://github.com/Gabrielphp"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Feitosa&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/FelipePDS/hypelab/blob/main/github/images/contributors/contributor_gabrielfernando.jpg" width=105/> <br> <sub><a href="https://github.com/Gabriel-2470"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Fernando&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/FelipePDS/hypelab/blob/main/github/images/contributors/contributor_giovanidosreis.jpg" width=118/> <br> <sub><a href="https://github.com/GiovaniReis157"><img src="https://img.shields.io/static/v1?label=+&message=Giovani+Dos+Reis&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/FelipePDS/hypelab/blob/main/github/images/contributors/contributor_guilhermemedeiros.jpg" width=115/> <br> <sub><a href="https://github.com/LutoBeibe"><img src="https://img.shields.io/static/v1?label=+&message=Guilherme+Medeiros&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_felipepinto.jpg" width=116/> <br> <sub><a href="https://github.com/FelipePDS"><img src="https://img.shields.io/static/v1?label=+&message=Felipe+Pinto&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_gabrielfeitosa.jpg" width=115/> <br> <sub><a href="https://github.com/Gabrielphp"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Feitosa&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_gabrielfernando.jpg" width=105/> <br> <sub><a href="https://github.com/Gabriel-2470"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Fernando&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_giovanidosreis.jpg" width=118/> <br> <sub><a href="https://github.com/GiovaniReis157"><img src="https://img.shields.io/static/v1?label=+&message=Giovani+Dos+Reis&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_guilhermemedeiros.jpg" width=115/> <br> <sub><a href="https://github.com/LutoBeibe"><img src="https://img.shields.io/static/v1?label=+&message=Guilherme+Medeiros&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
   </tr>
 </table>
 <br>
 
 <h2 id="license">:page_with_curl: License</h2>
 <!--<p>Repository made by :relaxed: <a href="https://felipepds.github.io/felipepds-resume/">FelipePDS</a></p>-->
-<p align="center"><a href="https://github.com/FelipePDS/hypelab/blob/main/LICENSE">MIT License</a> &bull; &copy; <a href="">Hypelab</a></p>
+<p align="center"><a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE">MIT License</a> &bull; &copy; <a href="">Hypelab</a></p>

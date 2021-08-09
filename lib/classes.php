@@ -315,17 +315,18 @@
                                             <h2>R$ {$dados['preco']}</h2>
                                             <p>".self::website_limitaCaracteres($dados['nome'])."</p>
 											<a href='cart/{$dados['id']}'>
-                                            <button class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
-											</a></button>
+                                            <h1 class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
+											</h1></a>
 												
                                         </div>
                                         <div class='product-overlay'>
                                             <div class='overlay-content'>
                                                 <h2>R$ {$dados['preco']}</h2>
                                                 <p>".self::website_limitaCaracteres($dados['nome'])."</p>
+												
 												<a href='cart/{$dados['id']}'>
-                                            	<button class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
-												</a></button>
+                                            	<h1 class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
+												</h1></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1727,7 +1728,7 @@
         }
     }
 
-    public function produtos_adicionado_aos_favoritos($idProduto, $idCliente) {
+    public static function produtos_adicionado_aos_favoritos($idProduto, $idCliente) {
         $pdo = db::pdo();
 
         $stmt = $pdo->prepare("SELECT * FROM produtosFavoritos WHERE idProduto = :idProduto AND idCliente = :idCliente");

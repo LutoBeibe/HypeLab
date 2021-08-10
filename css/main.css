@@ -38,6 +38,7 @@ a:hover {
 a:focus {
     outline: none;
     outline-offset: 0;
+    background: none !important;
 }
 
 a {
@@ -346,10 +347,10 @@ a#scrollUp i {
     transition: .3s;
 }
 
-.search_box input:focus {
+/* .search_box input:focus {
     width: 185px;
     background-position: 160px;
-}
+} */
 
 
 /*  Dropdown menu*/

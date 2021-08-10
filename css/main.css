@@ -360,7 +360,7 @@ a#scrollUp i {
 }
 
 .nav.navbar-nav>li:hover>ul.sub-menu {
-    display: block;
+    display: block !important;
     -webkit-animation: fadeInUp 400ms;
     animation: fadeInUp 400ms;
 }
@@ -376,7 +376,7 @@ ul.sub-menu {
     width: 220px;
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
-    display: none;
+    display: none !important;
     z-index: 999;
 }
 

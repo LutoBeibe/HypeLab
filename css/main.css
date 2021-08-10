@@ -431,6 +431,24 @@ ul.sub-menu {
     width: 100%;
 }
 
+.footer-top.container::before,
+.footer-top.container::after {
+    display: none;
+    content: none;
+}
+
+.footer-top .container::before,
+.footer-top .container::after {
+    display: none;
+    content: none;
+}
+
+.footer-top .container .row::before,
+.footer-top .container .row::after {
+    display: none;
+    content: none;
+}
+
 .footer-top .container .row {
     display: flex;
     justify-content: space-between;

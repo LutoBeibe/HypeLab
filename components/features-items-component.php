@@ -388,8 +388,8 @@
         <h2 class="title text-center">Produtos Recentes</h2>
         <?php 
             website::website_produtos_home();
-            produtos::produtos_adicionar_ao_carrinho(); 
-            produtos::produtos_adicionar_aos_favoritos(); 
+            // produtos::produtos_adicionar_ao_carrinho(); 
+            // produtos::produtos_adicionar_aos_favoritos(); 
         ?>
         
     </div><!--features_items-->

@@ -314,18 +314,17 @@
                                             <img src='{$dados['foto']}' alt='{$dados['nome']}' />
                                             <h2>R$ {$dados['preco']}</h2>
                                             <p>".self::website_limitaCaracteres($dados['nome'])."</p>
-											<a href='cart/{$dados['id']}'>
-                                            <button class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
-											</a></button>
-												
+											<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+												<i class='fa fa-shopping-cart'></i>Comprar
+											</a>
                                         </div>
                                         <div class='product-overlay'>
                                             <div class='overlay-content'>
                                                 <h2>R$ {$dados['preco']}</h2>
                                                 <p>".self::website_limitaCaracteres($dados['nome'])."</p>
-												<a href='cart/{$dados['id']}'>
-                                            	<button class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Comprar
-												</a></button>
+												<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+													<i class='fa fa-shopping-cart'></i>Comprar
+												</a>
                                             </div>
                                         </div>
                                     </div>

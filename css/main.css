@@ -90,11 +90,11 @@ a#scrollUp i {
 
 #header {
     margin-bottom: 4rem;
+    
 }
 
 .header_top {
     background: none repeat scroll 0 0 #191919;
-
     padding: .4rem 0;
 }
 
@@ -404,6 +404,7 @@ ul.sub-menu {
     padding-left: 5px;
 }
 
+/*
 @-webkit-keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -416,7 +417,7 @@ ul.sub-menu {
         transform: translateY(0);
     }
 }
-
+*/
 
 /*************************
 *******Footer CSS******
@@ -1114,7 +1115,7 @@ h2.title {
 }
 
 .product-overlay {
-    background: rgba(254, 152, 15, .8);
+    background: rgba(78, 72, 63, 0.8);
     top: 0;
     display: none;
     height: 0;
@@ -1295,7 +1296,7 @@ h2.title {
     background: #241d3a;
 }
 
-.recommended_items h2 {}
+/*.recommended_items h2 {} */
 
 .our_partners {
     overflow: hidden;
@@ -1311,9 +1312,9 @@ h2.title {
 }
 
 
-/*************************
+/************************
 *******Shop CSS******
-**************************/
+*************************/
 
 #advertisement {
     padding-bottom: 45px;
@@ -1682,7 +1683,7 @@ h2.title {
     overflow: hidden;
 }
 
-.login-form {}
+/*.login-form {}*/
 
 .signup-form .register-user-form-container .form-content-row {
     display: flex;
@@ -1794,7 +1795,7 @@ h2.title {
     padding: 6px 25px;
 }
 
-.login-form label {}
+/*.login-form label {}*/
 
 .login-form label input {
     border: medium none;
@@ -1933,7 +1934,7 @@ h2.title {
     overflow: hidden;
     text-align: center;
     width: 35px;
-    float: left;
+    /*float: left; */
     line-height: 28px;
 }
 
@@ -2037,7 +2038,7 @@ h2.title {
     margin-right: 10px
 }
 
-.user_info>li>span {}
+/*.user_info>li>span {}*/
 
 .user_info input,
 select,
@@ -2270,7 +2271,7 @@ textarea {
     margin-bottom: 17px;
 }
 
-.single-blog-post>a {}
+/*.single-blog-post>a {}*/
 
 .blog-post-area .single-blog-post a img {
     border: 1px solid #F7F7F0;

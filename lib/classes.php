@@ -1726,7 +1726,7 @@
         }
     }
 
-    public function produtos_adicionado_aos_favoritos($idProduto, $idCliente) {
+    public static function produtos_adicionado_aos_favoritos($idProduto, $idCliente) {
         $pdo = db::pdo();
 
         $stmt = $pdo->prepare("SELECT * FROM produtosFavoritos WHERE idProduto = :idProduto AND idCliente = :idCliente");

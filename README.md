@@ -2,15 +2,13 @@
 <p align="center"><kbd><a href="">Hypelab</a></kbd>'s<br>:stars: Store with exclusive products for Streetwear buyers and resellers. <a href="#about">Learn more</a></p>
 
 <p align="center">
-  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/hypelab"/></a> 
-  <img src="https://img.shields.io/github/last-commit/LutoBeibe/hypelab"/> 
-  <img src="https://img.shields.io/snyk/vulnerabilities/github/LutoBeibe/hypelab"/> 
-  <img src="https://img.shields.io/appveyor/build/LutoBeibe/hypelab?logo=github"/>
+  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/hypelab?style=for-the-badge"/></a> 
+  <img src="https://img.shields.io/github/last-commit/LutoBeibe/hypelab?style=for-the-badge"/>
   <br>
-  <img src="https://img.shields.io/github/contributors/LutoBeibe/hypelab"/> 
-  <img src="https://img.shields.io/github/issues/LutoBeibe/hypelab"/> 
-  <img src="https://img.shields.io/github/forks/LutoBeibe/hypelab?style=social"/> 
-  <img src="https://img.shields.io/github/stars/LutoBeibe/hypelab?style=social"/>
+  <img src="https://img.shields.io/github/contributors/LutoBeibe/hypelab?style=for-the-badge"/> 
+  <img src="https://img.shields.io/github/issues/LutoBeibe/hypelab?style=for-the-badge"/> 
+  <img src="https://img.shields.io/github/forks/LutoBeibe/hypelab?style=for-the-badge"/> 
+  <img src="https://img.shields.io/github/stars/LutoBeibe/hypelab?style=for-the-badge"/>
 </p>
 
 <blockquote>Status: :construction: Starting Project :construction:</blockquote>

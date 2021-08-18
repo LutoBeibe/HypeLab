@@ -58,7 +58,6 @@
                 'images/template/banco_bradesco.png'
             ];
 
-
 			switch($banco){
 				case 0:
 				echo "<img src='{$bancos[0]}' width='180' height='50' />";
@@ -263,13 +262,15 @@
 				$total = $stmt->rowCount();
 
 				if($total <= 0){
-					echo "<span class='text-danger'>Email ou senha inválidos</span>";
+					$mensagemHtml = "<span class='text-danger'>Email ou senha inválidos</span>";
+					self::website_pop_up($mensagemHtml);
 				}else{
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
-					echo "<span class='text-success'>Logado com sucesso!</span>";
+					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
+					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
                     $_SESSION['userId'] = $dados['id'];
-					self::website_direciona("dashboard");
+					self::website_direciona("inicio");
 				}
 			}
 		}
@@ -283,13 +284,15 @@
 				$total = $stmt->rowCount();
 
 				if($total <= 0){
-					echo "<span class='text-danger'>Email ou senha inválidos</span>";
+					$mensagemHtml = "<span class='text-danger'>Email ou senha inválidos</span>";
+					self::website_pop_up($mensagemHtml);
 				}else{
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
-					echo "<span class='text-success'>Logado com sucesso!</span>";
+					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
+					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
                     $_SESSION['userId'] = $dados['id'];
-					self::website_direciona("dashboard");
+					self::website_direciona("inicio");
 				}
 			}
 		}
@@ -1142,44 +1145,54 @@
 
 			if($total > 0){
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			echo "<tr>
-                  <td>{$dados['id']}</td>
-                  <td>{$dados['subcategoria']}</td>
-                  <td>
-                    <a href='deletar-subcategoria/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar Subcategoria</a>
-                  </td>
-                </tr>";
+					echo "<tr>
+						<td>{$dados['id']}</td>
+						<td>{$dados['subcategoria']}</td>
+						<td>
+							<a href='deletar-subcategoria/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar Subcategoria</a>
+						</td>
+						</tr>";
 				}
 			}
 		}
 
 		public static function website_admin_getDadosCliente($id, $val){
-				$pdo = db::pdo();
+			$pdo = db::pdo();
 
-				$stmt = $pdo->prepare("SELECT * FROM clientes WHERE email = :email");
-				$stmt->execute([':email' => $id]);
+			$stmt = $pdo->prepare("SELECT * FROM clientes WHERE email = :email");
+			$stmt->execute([':email' => $id]);
 
-				$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+			$dados = $stmt->fetch(PDO::FETCH_ASSOC);
 
-				return $dados[$val];
+			return $dados[$val];
+		}
+
+		public static function website_pop_up($html) {
+			echo "
+				<div class='pop-up'>
+					<span>
+						{$html}
+					</span>
+				</div>
+			";
 		}
 
 		public static function website_admin_modalDetailProduto($id, $informacoes){
-				echo "<div class='modal fade' id='exampleModal{$id}' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel{$id}' aria-hidden='true'>
-				  <div class='modal-dialog' role='document'>
-				    <div class='modal-content'>
-				      <div class='modal-header'>
-				        <h5 class='modal-title' id='exampleModalLabel{$id}'>Informações Adicionais</h5>
-				        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-				          <span aria-hidden='true'>&times;</span>
-				        </button>
-				      </div>
-				      <div class='modal-body'>
-				       {$informacoes}
-				      </div>
-				    </div>
-				  </div>
-				</div>";
+			echo "<div class='modal fade' id='exampleModal{$id}' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel{$id}' aria-hidden='true'>
+				<div class='modal-dialog' role='document'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+					<h5 class='modal-title' id='exampleModalLabel{$id}'>Informações Adicionais</h5>
+					<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+						<span aria-hidden='true'>&times;</span>
+					</button>
+					</div>
+					<div class='modal-body'>
+					{$informacoes}
+					</div>
+				</div>
+				</div>
+			</div>";
 		}
 
 		public static function website_admin_modalDetailCliente($id, $cliente){

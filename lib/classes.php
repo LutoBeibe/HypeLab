@@ -708,10 +708,19 @@
 			}
 		}
 
-		public static function website_verifica_cadastro($email){
+		public static function website_verifica_cadastro_vendedor($email){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("SELECT * FROM vendedores WHERE email = :email");
+			$stmt->execute([':email' => $email]);
+
+			return $stmt->rowCount();
+		}
+
+		public static function website_verifica_cadastro($email){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM clientes WHERE email = :email");
 			$stmt->execute([':email' => $email]);
 
 			return $stmt->rowCount();
@@ -722,7 +731,8 @@
 				$userAlreadyExists = self::website_verifica_cadastro($_POST['email']);
 
 				if($userAlreadyExists > 0){
-					echo "<div class='alert alert-danger'>Email já cadastrado! Por favor, tente outro!</div>";
+					$mensagemHtml = "Email já cadastrado! Por favor, tente outro!";
+					self::website_pop_up($mensagemHtml);
 				}else{
 					$pdo = db::pdo();
 
@@ -767,30 +777,30 @@
 					$result = $stmt->rowCount();
 
 					if($result > 0){
-                        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-                        $_SESSION['userEmail'] = $dados['email'];
-                        $_SESSION['userId'] = $dados['id'];
-						echo "<div class='alert alert-success'>Cadastro Efetuado com sucesso!</div>";
-						self::website_direciona("dashboard");
+						$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+						$_SESSION['userEmail'] = $dados['email'];
+						$_SESSION['userId'] = $dados['id'];
+						$mensagemHtml = "Cadastro Efetuado com sucesso!";
+						self::website_pop_up($mensagemHtml);
+						self::website_direciona("inicio");
 					}
-
+					else {
+						$mensagemHtml = "Erro ao realizar cadastro!";
+						self::website_pop_up($mensagemHtml);
+					}
 				}
 			}
 		}
 
-        public static function website_register_seller(){
+    public static function website_register_seller(){
 			if(isset($_POST['cad']) && $_POST['cad'] == "astroVendedor"){
-				$userAlreadyExists = self::website_verifica_cadastro($_POST['email']);
+				$userAlreadyExists = self::website_verifica_cadastro_vendedor($_POST['email']);
 
 				if($userAlreadyExists > 0){
-					echo "<div class='alert alert-danger'>Email já cadastrado! Por favor, tente outro!</div>";
+					$mensagemHtml = "Email já cadastrado! Por favor, tente outro!";
+					self::website_pop_up($mensagemHtml);
 				} else{
 					$pdo = db::pdo();
-
-                    $uploaddir = '../images/uploads/avataresVendedores/';
-					$uploaddirN = 'images/uploads/avataresVendedores/';
-					$uploadfile = $uploaddir . basename($_FILES['avatar']['name']);
-					$uploadfileN = $uploaddirN . basename($_FILES['avatar']['name']);
 
 					$stmt = $pdo->prepare(
                         "INSERT INTO vendedores (
@@ -798,7 +808,6 @@
                             email,
                             telefone,
                             bio,
-                            avatar,
                             genero,
                             cpf,
                             cep,
@@ -812,7 +821,6 @@
                             :email,
                             :telefone,
                             :bio,
-                            :avatar,
                             :genero,
                             :cpf,
                             :cep,
@@ -829,7 +837,6 @@
                         ':email' => $_POST['email'],
                         ':telefone' => $_POST['telefone'],
                         ':bio' => $_POST['bio'],
-                        ':avatar' => $uploadfileN,
                         ':genero' => $_POST['genero'],
                         ':cpf' => $_POST['cpf'],
                         ':cep' => $_POST['cep'],
@@ -842,14 +849,17 @@
 					$result = $stmt->rowCount();
 
 					if($result > 0){
-                        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-                        $_SESSION['userEmail'] = $dados['email'];
-                        $_SESSION['userId'] = $dados['id'];
-						echo "<div class='alert alert-success'>Cadastro Efetuado com sucesso!</div>";
-                        move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadfile);
-						self::website_direciona("dashboard");
+						$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+						$_SESSION['userEmail'] = $dados['email'];
+						$_SESSION['userId'] = $dados['id'];
+						$mensagemHtml = "Cadastro Efetuado com sucesso!";
+						self::website_pop_up($mensagemHtml);
+						self::website_direciona("inicio");
 					}
-
+					else {
+						$mensagemHtml = "Erro ao realizar cadastro!";
+						self::website_pop_up($mensagemHtml);
+					}
 				}
 			}
 		}

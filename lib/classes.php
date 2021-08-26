@@ -393,11 +393,7 @@
 				if($total > 0){
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
 
-					echo "<div class='r-title'>Eshop / SubCategoria / {$dados['subcategoria']}</div>
-					<br>
-					<div class='r-description'>
-					{$dados['descricao']}
-					</div>";
+					echo "<div class='r-title'>SubCategoria {$dados['subcategoria']}</div>";
 				}
 			}
 		}
@@ -482,25 +478,46 @@
 				if($total > 0){
 					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {	
 						echo "<div class='col-sm-4'>
-				  <div class='product'>
-				      <div class='p-title'>".self::website_limitaCaracteres($dados['nome'])."</div>
-				      <div class='p-content'>
-				        <img src='{$dados['foto']}'>
-				        <div class='price'>
-				          <span class='cf'>R$</span> 
-				          <span class='prc'>{$dados['preco']}";
-				          if($dados['tipo_fatura'] == 1){
-								echo "<small>/Mes</small>";
-							}
-				          echo "</span>
-				          </div>
-				      </div>
-				      <div class='p-footer'>
-				        <a href='comprar/{$dados['id']}'><i class='fas fa-shopping-cart'></i> Comprar</a>
-				        <span class='float-right'><a href='produto/{$dados['id']}'><i class='fas fa-plus'></i> Detalhes</a></span>
-				      </div>
-				    </div><br>
-				</div>";
+						<div class='product-image-wrapper'>
+							<form method='POST' autocomplete='off'>
+								<div class='single-products'>
+									<div class='productinfo text-center'>
+										<img src='{$dados['foto']}' alt='{$dados['nome']}' />
+										<h2>R$ {$dados['preco']}</h2>
+										<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+										<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+											<i class='fa fa-shopping-cart'></i>Comprar
+										</a>
+									</div>
+									<div class='product-overlay'>
+										<div class='overlay-content'>
+											<h2>R$ {$dados['preco']}</h2>
+											<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+											<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+												<i class='fa fa-shopping-cart'></i>Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+								<input type='hidden' name='id_produto' value='{$dados['id']}'>
+								<input type='hidden' name='env' value='adicionarAoCarrinho'>
+							</form>
+							<!--<div class='choose'>
+								<ul class='nav nav-pills nav-justified'>
+									<li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
+									
+										<li>
+											<form method='POST' autocomplete='off'>
+												<button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
+
+												<input type='hidden' name='id_produto' value='{$dados['id']}'>
+												<input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
+											</form>
+										</li>
+								</ul>
+							</div>-->
+						</div>
+					</div>";
 					}
 				}
 			}

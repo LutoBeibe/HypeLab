@@ -1,10 +1,19 @@
-  <div id="r-content">
-    <?php website::website_getInfosSubCategoria($explode[1]);?>
-  </div>
+<?php 
+    include('components/header-component.php');
+    include('components/slider-component.php');
+?>
 
-  <div id="products-list">
-    <div class="row">
-      <?php website::website_produtoFromSubCategoria($explode[1]);?>
+<section>
+    <div class="container">
+        <div class="row">
+
+            <?php
+                include('components/left-sidebar-component.php');
+                include('components/subcategory.php');
+            ?>
+
+        </div>
     </div>
-  </div>
-</div>
+</section>
+
+<?php include('components/footer-component.php'); ?>

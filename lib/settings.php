@@ -15,10 +15,10 @@
 	// define("db_senha", ""); #senha do banco
 
 	#DEFINIÇÕES NA HOSPEDAGEM
-	define("db_host", "fdb24.awardspace.net"); #host de conexão
-	define("db_nome", "3475289_eshop"); #nome do banco
-	define("db_usuario", "3475289_eshop"); #usuário do banco
-	define("db_senha", "hypelab_streetwear_2021"); #senha do banco
+	define("db_host", "localhost"); #host de conexão
+	define("db_nome", "eshop"); #nome do banco
+	define("db_usuario", "root"); #usuário do banco
+	define("db_senha", ""); #senha do banco
 
 	#Definições de contato
 	define("contato_email", "luto.beibe@gmail.com");

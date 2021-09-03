@@ -22,6 +22,7 @@
   $website->website_verficaFaturaCliente($explode['1']);
 ?>
 
+ <div class="container">
     <div id="invoice">
     <div class="color-invoice">
     <div class="col-sm-12">
@@ -117,16 +118,7 @@
                 <h5>Cartão/boleto/Transferência: </h5>
                 <hr>
                 <p>
-                <?php
-                $id_compra = website::website_getDetailsCompra($explode[1], "id");
-                $nome_produto = website::website_getDetailsCompra($explode[1], "nome_produto");
-                $preco = website::website_getDadosFatura(website::website_getDetailsCompra($explode[1], "id_fatura"), "preco");
-                $external_reference = website::website_getDetailsCompra($explode[1], "external_reference");
-                                   
-                website::website_getUniqPaymentMP([$explode[1],$nome_produto, $preco, $external_reference]);
-                ?>
-                  </p>
-              </div>
+                
 
               <div class="col-sm-4" align="left">
                 <h5>Depósito bancário: </h5>
@@ -149,6 +141,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 <?php include('components/footer-component.php'); ?>
 

@@ -4,6 +4,6 @@
 	include_once("classes.php");
 	include_once("vendor/autoload.php");
 	
-    MercadoPago\SDK::setClientId(clientID);
-    MercadoPago\SDK::setClientSecret(clientSecret);
+    // MercadoPago\SDK::setClientId(clientID);
+    // MercadoPago\SDK::setClientSecret(clientSecret);
 ?>

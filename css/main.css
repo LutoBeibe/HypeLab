@@ -535,6 +535,30 @@ ul.sub-menu {
 */
 
 /*************************
+*******Carousel CSS******
+**************************/
+
+.carousel-container {
+    margin-bottom: 4rem;
+    padding: 2rem 20rem;
+
+    border: 1px solid #F7F7F5;
+}
+
+.carousel-container .carousel .slick-arrow {
+    color: black !important;
+}
+
+.slick-prev:before, 
+.slick-next:before {
+    color: black !important;
+}
+
+.carousel-container .carousel .slick-list {
+    margin: 0 4rem;
+}
+
+/*************************
 *******Footer CSS******
 **************************/
 

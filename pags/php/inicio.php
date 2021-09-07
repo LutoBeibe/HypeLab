@@ -1,7 +1,11 @@
 <?php 
     include('components/header-component.php');
-    include('components/slider-component.php');
+    // include('components/slider-component.php');
 ?>
+
+<div class="container carousel-container">
+    <?php include('components/carousel-about-component.php'); ?>
+</div>
 
 <section>
     <div class="container">

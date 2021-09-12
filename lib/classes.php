@@ -81,27 +81,27 @@
 			}
 		}
 
-		public static function website_getUniqPaymentMP($pagamento){
-            $preference = new MercadoPago\Preference();
-            $preco = str_replace(',', '.', $pagamento[2]);
-            #item
-            $item = new MercadoPago\Item();
-            $item->id = $pagamento[0];
-            $item->title = $pagamento[1];
-            $item->quantity = 1;
-            $item->unit_price = $preco;
+		// public static function website_getUniqPaymentMP($pagamento){
+    //         $preference = new MercadoPago\Preference();
+    //         $preco = str_replace(',', '.', $pagamento[2]);
+    //         #item
+    //         $item = new MercadoPago\Item();
+    //         $item->id = $pagamento[0];
+    //         $item->title = $pagamento[1];
+    //         $item->quantity = 1;
+    //         $item->unit_price = $preco;
  
-            #preference
-            $preference->items = array($item);
+    //         #preference
+    //         $preference->items = array($item);
  
-            #Id de referencia
-            $preference->external_reference = $pagamento[3];
+    //         #Id de referencia
+    //         $preference->external_reference = $pagamento[3];
  
-            #salva a preferencia
-            $preference->save();
+    //         #salva a preferencia
+    //         $preference->save();
  
-            echo "<a href='{$preference->sandbox_init_point}' class='btn btn-outline-success'>Pagar Agora</a>";
-        }
+    //         echo "<a href='{$preference->sandbox_init_point}' class='btn btn-outline-success'>Pagar Agora</a>";
+    //     }
 
         public static function website_verificaIsLogado(){
         	if(!isset($_SESSION['userEmail'])){
@@ -233,7 +233,7 @@
 		public static function website_navLogin(){
 			if(isset($_SESSION['userEmail'])){
 				echo "
-					<li class='dropdown'><a href='#'><i class='fa fa-user'></i> Conta</a>
+					<li class='dropdown'><a href='#'>Conta</a>
 						<ul role='menu' class='sub-menu'>
 							<li><a href='me'>Dados Cadastrais</a></li>
 							<li><a href='pedidos'>Meus pedidos</a></li> 
@@ -241,15 +241,15 @@
 							<li><a href='sair'>Sair da Conta</a></li>
 						</ul>
 					</li> 
-                    <li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'><i class='fa fa-bell'></i>Rastrear Pedidos</a></li>
-                    <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li> 
-                ";
+					<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'>Rastrear Pedidos</a></li>
+					<li><a href=''>Favoritos</a></li> 
+				";
 			}else{
 				echo "
-                    <li><a href='enter'><i class='fa fa-user'></i> Login &bull; Cadastro</a></li>
-                    <li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'><i class='fa fa-bell'></i> Rastrear Pedidos</a></li>
-                    <li><a href=''><i class='fa fa-star'></i> Favoritos</a></li>
-                ";
+						<li><a href='enter'>Login | Cadastro</a></li>
+						<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'> Rastrear Pedidos</a></li>
+						<li><a href=''>Favoritos</a></li>
+				";
 			}
 		}
 
@@ -269,7 +269,7 @@
 					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
 					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
-                    $_SESSION['userId'] = $dados['id'];
+					$_SESSION['userId'] = $dados['id'];
 					self::website_direciona("inicio");
 				}
 			}
@@ -1664,7 +1664,8 @@
 
 	public static function produtos_vefica_login(){
 		if(!isset($_SESSION['userEmail'])){
-			echo "<div class='alert alert-danger'>Redirecionando para o login</div>";
+			$mensagemHtml = "<span class='text-danger'>Desculpe, você precisa entrar em sua conta. Redirecionando para o login...</span>";
+			website::website_pop_up($mensagemHtml);
 			website::website_direciona("enter");
 			exit();
 		}

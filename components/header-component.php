@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-4 clearfix">
                     <div class="logo pull-left">
-                        <a href="inicio"><img src="images/home/logo-secondary.png" alt="<?php echo titulo; ?> Logo" /></a>
+                        <a href="inicio"><img src="images/home/logo-black-2.png" alt="<?php echo titulo; ?> Logo" /></a>
                     </div>
                 </div>
                 <div class="clearfix">
@@ -39,9 +39,9 @@
                             <li class="dropdown"><a href="#">Confira<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="shop.html">Todos Produtos</a></li>
-                                    <li><a href="product-details.html">Produtos Recentes</a></li> 
-                                    <li><a href="product-details.html">Produtos Recomendados</a></li> 
-                                    <li><a href="">Produtos Exclusivos</a></li>
+                                    <li><a href="product-details.html">Recentes</a></li> 
+                                    <li><a href="product-details.html">Recomendados</a></li> 
+                                    <li><a href="">Exclusivos</a></li>
                                     <li><a href="">Tênis</a></li> 
                                 </ul>
                             </li> 

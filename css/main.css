@@ -203,7 +203,7 @@ a#scrollUp i {
 **************************/
 
 #header {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     
 }
 
@@ -296,7 +296,7 @@ a#scrollUp i {
     justify-content: space-between !important;
     align-items: center;
 
-    border-bottom: 1px solid #f5f5f5;
+    /* border-bottom: 1px solid #f5f5f5; */
     margin-left: 0;
     margin-right: 0;
     padding: 10px 0;
@@ -535,13 +535,30 @@ ul.sub-menu {
 **************************/
 
 .carousel-container {
-    margin-bottom: 4rem;
-    padding: 2rem 20rem;
+    margin-bottom: 5rem;
+
+    padding: 0 15px;
+}
+
+.carousel-container .carousel-wrapper {
+    padding: 2rem 19.1rem;
 
     border: 1px solid #F7F7F5;
 }
 
-.carousel-container .carousel .slick-arrow {
+@media (max-width: 990px) {
+    .carousel-container .carousel-wrapper {
+        padding: 2rem 8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-container .carousel-wrapper {
+        padding: 2rem 4rem;
+    }
+}
+
+.carousel-container .carousel-wrapper .carousel .slick-arrow {
     color: black !important;
 }
 
@@ -550,8 +567,9 @@ ul.sub-menu {
     color: black !important;
 }
 
-.carousel-container .carousel .slick-list {
-    margin: 0 4rem;
+.carousel-container .carousel-wrapper .carousel .slick-list {
+    margin: 0 3rem;
+    text-align: center;
 }
 
 /*************************
@@ -1155,6 +1173,14 @@ h2.title:before {
     margin-top: 30px;
 }
 
+.price-range .price-range-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
 .well {
     background-color: #FFFFFF;
     border: 1px solid #F7F7F0;
@@ -1186,6 +1212,12 @@ h2.title:before {
 
 .padding-right {
     padding-right: 0;
+}
+
+@media (max-width: 767px) {
+    .features-items-container {
+        padding-right: 15px !important;
+    }
 }
 
 .features_items {
@@ -1259,6 +1291,20 @@ h2.title {
     transition: height 500ms ease 0s;
     width: 100%;
     display: block;
+}
+
+.single-products .productinfo .favorite-item-button,
+.single-products .product-overlay .favorite-item-button {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: hidden;
+
+    font-size: 18px;
 }
 
 .single-products:hover .product-overlay {
@@ -1407,13 +1453,20 @@ h2.title {
     padding-left: 3rem;
 }
 
+@media (max-width: 767px) {
+    .recommended_items {
+        padding: 0 15px !important;
+    }
+}
+
 #recommended-item-carousel {
     padding-left: 0;
 }
 
 .recommended-item-control {
     position: absolute;
-    top: 41%;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 .recommended-item-control i {
@@ -1564,6 +1617,29 @@ h2.title {
 
 .carousel-inner .item img {
     display: inline-block;
+}
+
+.carousel-inner .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 3;
+
+    opacity: 0;
+    color: #FFFFFF;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: .4rem;
+}
+
+.carousel-inner .slick-arrow.slick-prev {
+    left: 0 !important;
+}
+
+.carousel-inner .slick-arrow.slick-next {
+    right: 0 !important;
 }
 
 .item-control {

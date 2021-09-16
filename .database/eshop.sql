@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Ago-2021 às 00:19
+-- Tempo de geração: 16-Set-2021 às 02:12
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 7.3.29
 
@@ -98,7 +98,11 @@ INSERT INTO `clientes` (`id`, `nome`, `email`, `telefone`, `senha`, `endereco`, 
 (5, 'Maria Silva ', 'mariasilva@gmail.com', '(11) 93583-23', '123', '', 0, '', '09320-305', 'Vila Vitória', 'Mauá', 'São Paulo', 0, 'feminino', NULL),
 (6, 'Felipe Pinto', 'felipepinto@gmail.com', '(11) 93482-49', '123', '', 0, '', '09320-305', 'Vila Vitória', 'Mauá', 'São Paulo', 1, 'masculino', '2021-05-19 22:52:18'),
 (7, 'Teste', 'teste@email.com', '(38) 94324-8234', '4535345345', '', 0, '', '34243-242', 'gfsdgsdfg', 'Mauá', 'SP', 0, 'masculino', '2021-08-24 18:40:17'),
-(8, 'Teste2', 'teste2@email.com', '(38) 94324-8234', 'fadsfsafsa', '', 0, '', '34243-242', 'gfsdgsdfg', 'Mauá', 'SP', 0, 'masculino', '2021-08-24 18:49:29');
+(8, 'Teste2', 'teste2@email.com', '(38) 94324-8234', 'fadsfsafsa', '', 0, '', '34243-242', 'gfsdgsdfg', 'Mauá', 'SP', 0, 'masculino', '2021-08-24 18:49:29'),
+(9, 'Teste232', 'teste232@email.com', '(54) 35345-4363', '1234', '', 0, '', '56363-735', 'gfsdgsdfg', 'Mauá', 'SP', 0, 'masculino', '2021-09-12 13:05:22'),
+(10, 'Teste34545', 'teste34545@email.com', '(38) 96545-3765', '123', '', 0, '', '42354-365', 'shgff', 'Mauá', 'SP', 0, 'masculino', '2021-09-15 17:32:51'),
+(11, 'Teste343', 'teste343@email.com', '(43) 95443-4325', '123', '', 0, '', '45634-756', 'fasdfasf', 'Santo André', 'SP', 0, 'masculino', '2021-09-15 17:37:42'),
+(12, 'Teste99', 'teste99@email.com', '(42) 95234-6553', '1234', '', 0, '', '53454-365', 'hgfhfgdh', 'Mauá', 'SP', 0, 'masculino', '2021-09-15 17:38:43');
 
 -- --------------------------------------------------------
 
@@ -169,20 +173,22 @@ CREATE TABLE `produtos` (
   `preco` varchar(200) NOT NULL,
   `categoria` varchar(200) NOT NULL,
   `detalhes` text NOT NULL,
-  `idVendedor` int(11) DEFAULT NULL
+  `idVendedor` int(11) DEFAULT NULL,
+  `publicado_em` datetime DEFAULT NULL,
+  `alterado_em` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `foto`, `tipo_fatura`, `estoque`, `preco`, `categoria`, `detalhes`, `idVendedor`) VALUES
-(12, 'Tênis Nike Air Max Genome Masculino', 'images/uploads/tenis-nike-air-max-genome-masculino-CW1648-004-1.jpg', 0, 45, '999,99', '10', 'Inspirado no visual do início dos anos 2000, o Air Max Genome reformula casa do Air Max. Seu cabedal tecnológico apresenta uma mistura de materiais, incluindo camadas sem costura, mesh arejado e detalhes em TPU durável. A unidade Air em toda a extensão, de baixo perfil acrescenta conforto para combinar com seu design elegante que com certeza se tornará seu novo Air Max favorito.', NULL),
-(13, 'Tênis Nike Air Zoom Pegasus 38 Masculino', 'images/uploads/tenis-nike-air-zoom-pegasus-38-masculino-CW7356-003-1.jpg', 0, 100, '699,99', '10', 'Seu cavalo de batalha alado está de volta. O Nike Air Zoom Pegasus 38 continua a oferecer elasticidade à sua passada, utilizando a mesma espuma ágil que seu antecessor. A tela ventilada na parte de cima combina o conforto e a durabilidade que você deseja com um ajuste mais amplo na ponta.', NULL),
-(14, 'Tênis Nike PG 5 Unissex', 'images/uploads/tenis-nike-pg-5-unissex-CW3143-400-1.jpg', 0, 57, '749,99', '10', 'Paul George tem um jogo estável e confiável sem esforço. Ele leva seu tempo, mas está sempre bem posicionado para fazer o passe extra, cortar a pista ou dar um salto. Uma evolução mais leve do 4, o PG 5 combina o perfil cano baixo ágil que o Paul gosta com amortecimento Nike Air Strobel flexível em toda a extensão. A unidade Air é costurada diretamente ao cabedal, ajudando a tornar todo o tênis mais leve e trazendo o amortecimento macio e flexível diretamente embaixo do pé—perfeito para manter PG andando com conforto.', NULL),
-(15, 'Tênis NikeCourt Air Vapor Pro Masculino', 'images/uploads/tenis-nikecourt-air-vapor-pro-masculino-CZ0220-124-1.jpg', 0, 10, '899,99', '10', 'O NikeCourt Air Zoom Vapor Pro pega tudo o que você adora no NikeCourt Air Zoom Vapor X e o torna mais leve e com mais suporte. O modelo com 3 camadas coloca respirabilidade, estabilidade e durabilidade onde você mais precisa, tudo isso enquanto mantém o mínimo de peso.', NULL),
-(16, 'Tênis Jordan MA2 Masculino', 'images/uploads/tenis-jordan-ma2-masculino-CV8122-006-1.jpg', 0, 12, '849,99', '10', 'Desafie o status quo com o Jordan MA2. Fabricado com uma mistura de suede, couro de grão integral e uma variedade de tecidos, o tênis apresenta etiquetas despojadas, estampas tecnológicas e espuma com arestas cruas para oferecer um equilíbrio entre o novo e o clássico. Fáceis de calçar e descalçar e naturalmente confortáveis, os tênis são um símbolo da elegância, atitude e inovação do Jordan.', NULL),
-(17, 'Tênis Nike Air Max 95 Masculino', 'images/uploads/tenis-nike-air-max-95-masculino-CZ0191-001-1.jpg', 0, 5, '999,99', '10', 'Inspirado no corpo humano e no DNA da corrida, o Nike Air Max 95 combina conforto inacreditável com estilo impressionante. Os icônicos painéis laterais representam força com cores vibrantes, enquanto o Nike Air visível no calcanhar e no antepé amortece cada passo.', NULL);
+INSERT INTO `produtos` (`id`, `nome`, `foto`, `tipo_fatura`, `estoque`, `preco`, `categoria`, `detalhes`, `idVendedor`, `publicado_em`, `alterado_em`) VALUES
+(12, 'Tênis Nike Air Max Genome Masculino', 'images/uploads/tenis-nike-air-max-genome-masculino-CW1648-004-1.jpg', 0, 45, '999,99', '10', 'Inspirado no visual do início dos anos 2000, o Air Max Genome reformula casa do Air Max. Seu cabedal tecnológico apresenta uma mistura de materiais, incluindo camadas sem costura, mesh arejado e detalhes em TPU durável. A unidade Air em toda a extensão, de baixo perfil acrescenta conforto para combinar com seu design elegante que com certeza se tornará seu novo Air Max favorito.', NULL, '2021-07-07 19:39:29', '2021-07-07 19:39:29'),
+(13, 'Tênis Nike Air Zoom Pegasus 38 Masculino', 'images/uploads/tenis-nike-air-zoom-pegasus-38-masculino-CW7356-003-1.jpg', 0, 100, '699,99', '10', 'Seu cavalo de batalha alado está de volta. O Nike Air Zoom Pegasus 38 continua a oferecer elasticidade à sua passada, utilizando a mesma espuma ágil que seu antecessor. A tela ventilada na parte de cima combina o conforto e a durabilidade que você deseja com um ajuste mais amplo na ponta.', NULL, '2021-09-01 19:39:29', '2021-09-01 19:39:29'),
+(14, 'Tênis Nike PG 5 Unissex', 'images/uploads/tenis-nike-pg-5-unissex-CW3143-400-1.jpg', 0, 57, '749,99', '10', 'Paul George tem um jogo estável e confiável sem esforço. Ele leva seu tempo, mas está sempre bem posicionado para fazer o passe extra, cortar a pista ou dar um salto. Uma evolução mais leve do 4, o PG 5 combina o perfil cano baixo ágil que o Paul gosta com amortecimento Nike Air Strobel flexível em toda a extensão. A unidade Air é costurada diretamente ao cabedal, ajudando a tornar todo o tênis mais leve e trazendo o amortecimento macio e flexível diretamente embaixo do pé—perfeito para manter PG andando com conforto.', NULL, '2021-09-14 19:39:29', '2021-09-14 19:39:29'),
+(15, 'Tênis NikeCourt Air Vapor Pro Masculino', 'images/uploads/tenis-nikecourt-air-vapor-pro-masculino-CZ0220-124-1.jpg', 0, 10, '899,99', '10', 'O NikeCourt Air Zoom Vapor Pro pega tudo o que você adora no NikeCourt Air Zoom Vapor X e o torna mais leve e com mais suporte. O modelo com 3 camadas coloca respirabilidade, estabilidade e durabilidade onde você mais precisa, tudo isso enquanto mantém o mínimo de peso.', NULL, '2021-07-04 19:39:29', '2021-07-04 19:39:29'),
+(16, 'Tênis Jordan MA2 Masculino', 'images/uploads/tenis-jordan-ma2-masculino-CV8122-006-1.jpg', 0, 12, '849,99', '10', 'Desafie o status quo com o Jordan MA2. Fabricado com uma mistura de suede, couro de grão integral e uma variedade de tecidos, o tênis apresenta etiquetas despojadas, estampas tecnológicas e espuma com arestas cruas para oferecer um equilíbrio entre o novo e o clássico. Fáceis de calçar e descalçar e naturalmente confortáveis, os tênis são um símbolo da elegância, atitude e inovação do Jordan.', NULL, '2021-09-10 19:39:29', '2021-09-10 19:39:29'),
+(17, 'Tênis Nike Air Max 95 Masculino', 'images/uploads/tenis-nike-air-max-95-masculino-CZ0191-001-1.jpg', 0, 5, '999,99', '10', 'Inspirado no corpo humano e no DNA da corrida, o Nike Air Max 95 combina conforto inacreditável com estilo impressionante. Os icônicos painéis laterais representam força com cores vibrantes, enquanto o Nike Air visível no calcanhar e no antepé amortece cada passo.', NULL, '2021-09-12 19:39:29', '2021-09-12 19:39:29');
 
 -- --------------------------------------------------------
 
@@ -253,7 +259,8 @@ CREATE TABLE `vendedores` (
 --
 
 INSERT INTO `vendedores` (`id`, `nome`, `email`, `telefone`, `bio`, `avatar`, `genero`, `cpf`, `cep`, `estado`, `cidade`, `bairro`, `avaliacao`, `created_at`, `senha`) VALUES
-(1, 'Teste', 'teste@email.com', '(38) 94324-8234', 'fasdasdfsaf', NULL, 'masculino', '347.482.074-93', '34243-242', 'SP', 'Mauá', 'gfsdgsdfg', NULL, '2021-08-24 19:16:09', '123');
+(1, 'Teste', 'teste@email.com', '(38) 94324-8234', 'fasdasdfsaf', NULL, 'masculino', '347.482.074-93', '34243-242', 'SP', 'Mauá', 'gfsdgsdfg', NULL, '2021-08-24 19:16:09', '123'),
+(2, 'Teste53', 'teste53@email.com', '(11) 94536-5464', 'teste teste teste', NULL, 'masculino', '656.537.537-65', '45536-545', 'SP', 'Mauá', 'gsfdsgdsf', NULL, '2021-09-15 17:40:02', '123');
 
 --
 -- Índices para tabelas despejadas
@@ -343,7 +350,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `compras`
@@ -379,7 +386,7 @@ ALTER TABLE `subcategorias`
 -- AUTO_INCREMENT de tabela `vendedores`
 --
 ALTER TABLE `vendedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas

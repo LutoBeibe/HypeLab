@@ -309,7 +309,7 @@
 		public static function website_produtos_home(){
 			$pdo = db::pdo();
 
-			$stmt = $pdo->prepare("SELECT * FROM produtos");
+			$stmt = $pdo->prepare("SELECT * FROM produtos WHERE estoque > 0 ORDER BY publicado_em DESC LIMIT 12");
 			$stmt->execute();
 			$total = $stmt->rowCount();
 
@@ -320,22 +320,31 @@
                             <div class='product-image-wrapper'>
                                 <form method='POST' autocomplete='off'>
                                     <div class='single-products'>
-                                        <div class='productinfo text-center'>
+																				<div class='productinfo text-center'>
+																						<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
+																							<i class='fa fa-star'></i>
+																						</button>-->
+
                                             <img src='{$dados['foto']}' alt='{$dados['nome']}' />
                                             <h2>R$ {$dados['preco']}</h2>
                                             <p>".self::website_limitaCaracteres($dados['nome'])."</p>
-											<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-												<i class='fa fa-shopping-cart'></i>Comprar
-											</a>
+																						<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+																							<i class='fa fa-shopping-cart'></i>Comprar
+																						</a>
                                         </div>
+
                                         <div class='product-overlay'>
-                                            <div class='overlay-content'>
-                                                <h2>R$ {$dados['preco']}</h2>
-                                                <p>".self::website_limitaCaracteres($dados['nome'])."</p>
-												<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-													<i class='fa fa-shopping-cart'></i>Comprar
-												</a>
-                                            </div>
+																					<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
+																						<i class='fa fa-star'></i>
+																					</button>-->
+
+																					<div class='overlay-content'>
+																							<h2>R$ {$dados['preco']}</h2>
+																							<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+																							<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+																								<i class='fa fa-shopping-cart'></i>Comprar
+																							</a>
+																					</div>
                                         </div>
                                     </div>
                                     <input type='hidden' name='id_produto' value='{$dados['id']}'>
@@ -944,7 +953,9 @@
 						estoque,
 						preco,
 						categoria,
-						detalhes) 
+						detalhes,
+						criado_em,
+						alterado_em) 
 
 						VALUES
 
@@ -954,7 +965,9 @@
 						:estoque, 
 						:preco,
 						:categoria,
-						:detalhes)");
+						:detalhes,
+						NOW(),
+						NOW())");
                         
 					$stmt->execute([
 						':nome' => $_POST['nome'],
@@ -1068,7 +1081,8 @@
 					preco = :preco,
 					tipo_fatura = :tipo_fatura,
 					categoria = :categoria,
-					detalhes = :detalhes WHERE id = :id");
+					detalhes = :detalhes,
+					alterado_em = NOW() WHERE id = :id");
 				$stmt->execute(
 					[':nome' => $_POST['nome'],
 					':estoque' => $_POST['estoque'],

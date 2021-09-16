@@ -6,6 +6,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
+.price-range h2:before {
+  width: 160px !important;
+  
+  left: 50%;
+	transform: translate(-50%, 0);
+  margin-left: 0 !important;
+}
 .slider {
   display: inline-block;
   vertical-align: middle;

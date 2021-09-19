@@ -197,11 +197,14 @@
 				$stmt = $pdo->prepare("SELECT * FROM subcategorias WHERE id_categoria = :id_categoria ORDER BY subcategoria ASC");
 				$stmt->execute([':id_categoria' => $id]);
 				$total = $stmt->rowCount();
+				$listaSubcategoriaHtml = "";
 
 				if($total > 0){
 					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						return "<li><a href='subcategoria/{$dados['id']}'>{$dados['subcategoria']}</a></li>";
+						$listaSubcategoriaHtml .= "<li><a href='subcategoria/{$dados['id']}'>{$dados['subcategoria']}</a></li>";
 					}
+
+					return $listaSubcategoriaHtml;
 				}
 			}catch(PDOException $e){
 				return $e->getMessage();
@@ -808,7 +811,7 @@
 						$_SESSION['userId'] = $dados['id'];
 						$mensagemHtml = "Cadastro Efetuado com sucesso!";
 						self::website_pop_up($mensagemHtml);
-						self::website_direciona("inicio");
+						self::website_direciona("enter");
 					}
 					else {
 						$mensagemHtml = "Erro ao realizar cadastro!";
@@ -880,7 +883,7 @@
 						$_SESSION['userId'] = $dados['id'];
 						$mensagemHtml = "Cadastro Efetuado com sucesso!";
 						self::website_pop_up($mensagemHtml);
-						self::website_direciona("inicio");
+						self::website_direciona("entrar-como-vendedor");
 					}
 					else {
 						$mensagemHtml = "Erro ao realizar cadastro!";

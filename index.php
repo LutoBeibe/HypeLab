@@ -1,4 +1,4 @@
-<?php include_once("lib/includes.php"); $website = new website(); // amanhã aulinha com o Branco e Baby Carlão?>
+<?php include_once("lib/includes.php"); $website = new website();?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,8 +9,6 @@
         <base href="<?php echo base_href;?>">
 
         <!-- STYLES -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
-        <!-- <link rel="stylesheet" href="css/style.scss"> -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -29,13 +27,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <!-- <script src="https://kit.fontawesome.com/97bdcc5c17.js"></script> -->
         <script src="js/script.js"></script>
-
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
 
         <!-- FAVICONS -->
         <link rel="shortcut icon" href="images/ico/favicon.png">

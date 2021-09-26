@@ -39,7 +39,7 @@
                             <li class="dropdown"><a href="#">Confira<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="shop.html">Todos Produtos</a></li>
-                                    <li><a href="product-details.html">Recentes</a></li> 
+                                    <li><a href="recentes">Recentes</a></li> 
                                     <li><a href="product-details.html">Recomendados</a></li> 
                                     <li><a href="">Exclusivos</a></li>
                                     <li><a href="">Tênis</a></li> 
@@ -53,7 +53,11 @@
 
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="O que deseja?"/>
+                        <form method="GET">
+                            <input type="text" name="searchString" placeholder="O que deseja?"/>
+                            <button type="submit" class="btn btn-default"></button>
+                            <input type="hidden" name="search" value="searchProduct">
+                        </form>
                     </div>
                 </div>
             </div>

@@ -64,21 +64,13 @@
                             <li><a href="#">Termos de uso</a></li>
                             <li><a href="#">Política de Privacidade</a></li>
                             <li><a href="#">Politica de Reembolso</a></li>
-                            <!-- <li><a href="#">Billing System</a></li> -->
                             <li><a href="#">Sistema de Ticket</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <!--<h2>About Shopper</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Company Information</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Store Location</a></li>
-                            <li><a href="#">Affillate Program</a></li>
-                            <li><a href="#">Copyright</a></li>
-                        </ul> -->
+                        
                     </div>
                 </div> 
                 <div class="col-sm-3 col-sm-offset-1">
@@ -100,7 +92,6 @@
         <div class="container">
             <div class="row">
                 <p class="pull-left">Copyright © 2021 HypeLab Inc. Todos os direitos reservados.</p>
-                <!-- <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> -->
             </div>
         </div>
     </div>

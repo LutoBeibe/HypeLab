@@ -409,7 +409,7 @@
 				if($total > 0){
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
 
-					echo "<div class='r-title'>SubCategoria {$dados['subcategoria']}</div>";
+					echo "<div class='r-title'>Produtos {$dados['subcategoria']}</div>";
 				}
 			}
 		}
@@ -535,6 +535,9 @@
 						</div>
 					</div>";
 					}
+				}
+				else {
+					echo "<p class='text-center'>Nenhum produto foi encontrado</p>";
 				}
 			}
 		}

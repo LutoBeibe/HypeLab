@@ -38,9 +38,8 @@
                             <li><a href="inicio">Página Inicial</a></li>
                             <li class="dropdown"><a href="#">Confira<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Todos Produtos</a></li>
                                     <li><a href="recentes">Recentes</a></li> 
-                                    <li><a href="product-details.html">Recomendados</a></li> 
+                                    <li><a href="recomendados">Recomendados</a></li> 
                                     <li><a href="">Exclusivos</a></li>
                                     <li><a href="">Tênis</a></li> 
                                 </ul>

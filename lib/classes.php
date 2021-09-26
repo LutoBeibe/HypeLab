@@ -309,7 +309,7 @@
 			self::website_direciona("enter");
 		}
 
-		public static function website_produtos_home(){
+		public static function website_produtos_recentes(){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("SELECT * FROM produtos WHERE estoque > 0 ORDER BY publicado_em DESC LIMIT 12");
@@ -372,6 +372,10 @@
                     ";
 				}
 			}
+		}
+
+		public static function website_produtos_pesquisa() {
+
 		}
 
 		public static function website_getInfosCategoria($id){

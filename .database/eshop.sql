@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Set-2021 às 02:12
--- Versão do servidor: 10.4.20-MariaDB
--- versão do PHP: 7.3.29
+-- Generation Time: Sep 29, 2021 at 02:54 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `eshop`
+-- Database: `eshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `carrinho`
+-- Table structure for table `carrinho`
 --
 
 CREATE TABLE `carrinho` (
@@ -34,7 +34,7 @@ CREATE TABLE `carrinho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `carrinho`
+-- Dumping data for table `carrinho`
 --
 
 INSERT INTO `carrinho` (`id`, `idProduto`, `idCliente`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `carrinho` (`id`, `idProduto`, `idCliente`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -57,16 +57,17 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `descricao`) VALUES
-(9, 'Tênis', 'Tênis Exclusivos');
+(9, 'Tênis', 'Tênis Exclusivos'),
+(10, 'Roupa', 'Roupas da melhor qualidade');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `clientes`
+-- Table structure for table `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -88,7 +89,7 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `clientes`
+-- Dumping data for table `clientes`
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `email`, `telefone`, `senha`, `endereco`, `numero`, `complemento`, `cep`, `bairro`, `cidade`, `estado`, `isadmin`, `genero`, `created_at`) VALUES
@@ -107,7 +108,7 @@ INSERT INTO `clientes` (`id`, `nome`, `email`, `telefone`, `senha`, `endereco`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `compras`
+-- Table structure for table `compras`
 --
 
 CREATE TABLE `compras` (
@@ -122,7 +123,7 @@ CREATE TABLE `compras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `compras`
+-- Dumping data for table `compras`
 --
 
 INSERT INTO `compras` (`id`, `id_comprador`, `id_fatura`, `nome_produto`, `data_compra`, `status`, `detalhes`, `external_reference`) VALUES
@@ -130,12 +131,15 @@ INSERT INTO `compras` (`id`, `id_comprador`, `id_fatura`, `nome_produto`, `data_
 (18, 4, 19, 'Tênis Nike Air Max Genome Masculino', '03/05/2021', 0, '', 'ID: 12728'),
 (19, 4, 20, 'Tênis Nike Air Max Genome Masculino', '03/05/2021', 0, '', 'ID: 56388'),
 (21, 6, 22, 'Tênis Nike Air Max Genome Masculino', '03/08/2021', 0, '', 'ID: 52505'),
-(22, 6, 23, 'Tênis Nike PG 5 Unissex', '18/08/2021', 0, '', 'ID: 39043');
+(22, 6, 23, 'Tênis Nike PG 5 Unissex', '18/08/2021', 0, '', 'ID: 39043'),
+(24, 4, 25, 'Tênis Nike Air Max Genome Masculino', '27/09/2021', 0, '', 'ID: 19917'),
+(25, 4, 26, 'Tênis Nike PG 5 Unissex', '27/09/2021', 0, '', 'ID: 84566'),
+(26, 4, 27, 'Tênis Nike PG 5 Unissex', '27/09/2021', 0, '', 'ID: 42199');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `faturas`
+-- Table structure for table `faturas`
 --
 
 CREATE TABLE `faturas` (
@@ -148,7 +152,7 @@ CREATE TABLE `faturas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `faturas`
+-- Dumping data for table `faturas`
 --
 
 INSERT INTO `faturas` (`id`, `id_cliente`, `preco`, `status`, `data`, `data_vencimento`) VALUES
@@ -156,12 +160,15 @@ INSERT INTO `faturas` (`id`, `id_cliente`, `preco`, `status`, `data`, `data_venc
 (19, 4, '999,99', 0, '03/05/2021', '08/05/2021'),
 (20, 4, '999,99', 0, '03/05/2021', '08/05/2021'),
 (22, 6, '999,99', 0, '03/08/2021', '08/08/2021'),
-(23, 6, '749,99', 1, '18/08/2021', '23/08/2021');
+(23, 6, '749,99', 1, '18/08/2021', '23/08/2021'),
+(25, 4, '999,99', 0, '27/09/2021', '02/10/2021'),
+(26, 4, '749,99', 0, '27/09/2021', '02/10/2021'),
+(27, 4, '749,99', 0, '27/09/2021', '02/10/2021');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos`
+-- Table structure for table `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -179,13 +186,13 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `produtos`
+-- Dumping data for table `produtos`
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `foto`, `tipo_fatura`, `estoque`, `preco`, `categoria`, `detalhes`, `idVendedor`, `publicado_em`, `alterado_em`) VALUES
-(12, 'Tênis Nike Air Max Genome Masculino', 'images/uploads/tenis-nike-air-max-genome-masculino-CW1648-004-1.jpg', 0, 45, '999,99', '10', 'Inspirado no visual do início dos anos 2000, o Air Max Genome reformula casa do Air Max. Seu cabedal tecnológico apresenta uma mistura de materiais, incluindo camadas sem costura, mesh arejado e detalhes em TPU durável. A unidade Air em toda a extensão, de baixo perfil acrescenta conforto para combinar com seu design elegante que com certeza se tornará seu novo Air Max favorito.', NULL, '2021-07-07 19:39:29', '2021-07-07 19:39:29'),
+(12, 'Tênis Nike Air Max Genome Masculino', 'images/uploads/tenis-nike-air-max-genome-masculino-CW1648-004-1.jpg', 0, 44, '999,99', '10', 'Inspirado no visual do início dos anos 2000, o Air Max Genome reformula casa do Air Max. Seu cabedal tecnológico apresenta uma mistura de materiais, incluindo camadas sem costura, mesh arejado e detalhes em TPU durável. A unidade Air em toda a extensão, de baixo perfil acrescenta conforto para combinar com seu design elegante que com certeza se tornará seu novo Air Max favorito.', NULL, '2021-07-07 19:39:29', '2021-07-07 19:39:29'),
 (13, 'Tênis Nike Air Zoom Pegasus 38 Masculino', 'images/uploads/tenis-nike-air-zoom-pegasus-38-masculino-CW7356-003-1.jpg', 0, 100, '699,99', '10', 'Seu cavalo de batalha alado está de volta. O Nike Air Zoom Pegasus 38 continua a oferecer elasticidade à sua passada, utilizando a mesma espuma ágil que seu antecessor. A tela ventilada na parte de cima combina o conforto e a durabilidade que você deseja com um ajuste mais amplo na ponta.', NULL, '2021-09-01 19:39:29', '2021-09-01 19:39:29'),
-(14, 'Tênis Nike PG 5 Unissex', 'images/uploads/tenis-nike-pg-5-unissex-CW3143-400-1.jpg', 0, 57, '749,99', '10', 'Paul George tem um jogo estável e confiável sem esforço. Ele leva seu tempo, mas está sempre bem posicionado para fazer o passe extra, cortar a pista ou dar um salto. Uma evolução mais leve do 4, o PG 5 combina o perfil cano baixo ágil que o Paul gosta com amortecimento Nike Air Strobel flexível em toda a extensão. A unidade Air é costurada diretamente ao cabedal, ajudando a tornar todo o tênis mais leve e trazendo o amortecimento macio e flexível diretamente embaixo do pé—perfeito para manter PG andando com conforto.', NULL, '2021-09-14 19:39:29', '2021-09-14 19:39:29'),
+(14, 'Tênis Nike PG 5 Unissex', 'images/uploads/tenis-nike-pg-5-unissex-CW3143-400-1.jpg', 0, 55, '749,99', '10', 'Paul George tem um jogo estável e confiável sem esforço. Ele leva seu tempo, mas está sempre bem posicionado para fazer o passe extra, cortar a pista ou dar um salto. Uma evolução mais leve do 4, o PG 5 combina o perfil cano baixo ágil que o Paul gosta com amortecimento Nike Air Strobel flexível em toda a extensão. A unidade Air é costurada diretamente ao cabedal, ajudando a tornar todo o tênis mais leve e trazendo o amortecimento macio e flexível diretamente embaixo do pé—perfeito para manter PG andando com conforto.', NULL, '2021-09-14 19:39:29', '2021-09-14 19:39:29'),
 (15, 'Tênis NikeCourt Air Vapor Pro Masculino', 'images/uploads/tenis-nikecourt-air-vapor-pro-masculino-CZ0220-124-1.jpg', 0, 10, '899,99', '10', 'O NikeCourt Air Zoom Vapor Pro pega tudo o que você adora no NikeCourt Air Zoom Vapor X e o torna mais leve e com mais suporte. O modelo com 3 camadas coloca respirabilidade, estabilidade e durabilidade onde você mais precisa, tudo isso enquanto mantém o mínimo de peso.', NULL, '2021-07-04 19:39:29', '2021-07-04 19:39:29'),
 (16, 'Tênis Jordan MA2 Masculino', 'images/uploads/tenis-jordan-ma2-masculino-CV8122-006-1.jpg', 0, 12, '849,99', '10', 'Desafie o status quo com o Jordan MA2. Fabricado com uma mistura de suede, couro de grão integral e uma variedade de tecidos, o tênis apresenta etiquetas despojadas, estampas tecnológicas e espuma com arestas cruas para oferecer um equilíbrio entre o novo e o clássico. Fáceis de calçar e descalçar e naturalmente confortáveis, os tênis são um símbolo da elegância, atitude e inovação do Jordan.', NULL, '2021-09-10 19:39:29', '2021-09-10 19:39:29'),
 (17, 'Tênis Nike Air Max 95 Masculino', 'images/uploads/tenis-nike-air-max-95-masculino-CZ0191-001-1.jpg', 0, 5, '999,99', '10', 'Inspirado no corpo humano e no DNA da corrida, o Nike Air Max 95 combina conforto inacreditável com estilo impressionante. Os icônicos painéis laterais representam força com cores vibrantes, enquanto o Nike Air visível no calcanhar e no antepé amortece cada passo.', NULL, '2021-09-12 19:39:29', '2021-09-12 19:39:29');
@@ -193,7 +200,7 @@ INSERT INTO `produtos` (`id`, `nome`, `foto`, `tipo_fatura`, `estoque`, `preco`,
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtosfavoritos`
+-- Table structure for table `produtosfavoritos`
 --
 
 CREATE TABLE `produtosfavoritos` (
@@ -203,7 +210,7 @@ CREATE TABLE `produtosfavoritos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtosfavoritos`
+-- Dumping data for table `produtosfavoritos`
 --
 
 INSERT INTO `produtosfavoritos` (`id`, `idProduto`, `idCliente`) VALUES
@@ -213,7 +220,7 @@ INSERT INTO `produtosfavoritos` (`id`, `idProduto`, `idCliente`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `subcategorias`
+-- Table structure for table `subcategorias`
 --
 
 CREATE TABLE `subcategorias` (
@@ -224,16 +231,32 @@ CREATE TABLE `subcategorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `subcategorias`
+-- Dumping data for table `subcategorias`
 --
 
 INSERT INTO `subcategorias` (`id`, `id_categoria`, `subcategoria`, `descricao`) VALUES
-(10, 9, 'Nike', 'Tênis Nike exclusivos');
+(10, 9, 'Nike', 'Tênis Nike exclusivos'),
+(11, 9, 'Adidas', 'Adidas'),
+(12, 10, 'Adidas', 'Adidas'),
+(13, 9, 'Puma', 'puma'),
+(14, 10, 'Nike', 'Nike'),
+(15, 9, 'New Balance', 'New Balance'),
+(16, 9, 'Jordan', 'Jordan'),
+(17, 9, 'Yeezy', 'Yeezy'),
+(18, 10, 'Anti Social  Social Club', 'ASSC'),
+(19, 10, 'Vlone', 'Vlone'),
+(20, 10, 'Louis Vuitton', 'Louis Vuitton'),
+(21, 10, 'Gucci', 'Gucci'),
+(22, 10, 'Prada', 'Prada'),
+(23, 10, 'Off White', 'Off White'),
+(24, 10, 'Lacoste', 'Lacoste'),
+(25, 9, 'Gucci', 'Gucci'),
+(26, 9, 'Lacoste', 'Lacoste');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `vendedores`
+-- Table structure for table `vendedores`
 --
 
 CREATE TABLE `vendedores` (
@@ -255,7 +278,7 @@ CREATE TABLE `vendedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `vendedores`
+-- Dumping data for table `vendedores`
 --
 
 INSERT INTO `vendedores` (`id`, `nome`, `email`, `telefone`, `bio`, `avatar`, `genero`, `cpf`, `cep`, `estado`, `cidade`, `bairro`, `avaliacao`, `created_at`, `senha`) VALUES
@@ -263,11 +286,11 @@ INSERT INTO `vendedores` (`id`, `nome`, `email`, `telefone`, `bio`, `avatar`, `g
 (2, 'Teste53', 'teste53@email.com', '(11) 94536-5464', 'teste teste teste', NULL, 'masculino', '656.537.537-65', '45536-545', 'SP', 'Mauá', 'gsfdsgdsf', NULL, '2021-09-15 17:40:02', '123');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `carrinho`
+-- Indexes for table `carrinho`
 --
 ALTER TABLE `carrinho`
   ADD PRIMARY KEY (`id`),
@@ -275,19 +298,19 @@ ALTER TABLE `carrinho`
   ADD KEY `fk_ClienteCarrinho` (`idCliente`);
 
 --
--- Índices para tabela `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `clientes`
+-- Indexes for table `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `compras`
+-- Indexes for table `compras`
 --
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`),
@@ -295,21 +318,21 @@ ALTER TABLE `compras`
   ADD KEY `fk_FaturasCompras` (`id_fatura`);
 
 --
--- Índices para tabela `faturas`
+-- Indexes for table `faturas`
 --
 ALTER TABLE `faturas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_ClientesFaturas` (`id_cliente`);
 
 --
--- Índices para tabela `produtos`
+-- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_VendedorProduto` (`idVendedor`);
 
 --
--- Índices para tabela `produtosfavoritos`
+-- Indexes for table `produtosfavoritos`
 --
 ALTER TABLE `produtosfavoritos`
   ADD PRIMARY KEY (`id`),
@@ -317,116 +340,116 @@ ALTER TABLE `produtosfavoritos`
   ADD KEY `fk_ClienteProdutosFavoritos` (`idCliente`);
 
 --
--- Índices para tabela `subcategorias`
+-- Indexes for table `subcategorias`
 --
 ALTER TABLE `subcategorias`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_SubcategoriasCategorias` (`id_categoria`);
 
 --
--- Índices para tabela `vendedores`
+-- Indexes for table `vendedores`
 --
 ALTER TABLE `vendedores`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `carrinho`
+-- AUTO_INCREMENT for table `carrinho`
 --
 ALTER TABLE `carrinho`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT de tabela `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de tabela `clientes`
+-- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de tabela `compras`
+-- AUTO_INCREMENT for table `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT de tabela `faturas`
+-- AUTO_INCREMENT for table `faturas`
 --
 ALTER TABLE `faturas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT de tabela `produtos`
+-- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de tabela `produtosfavoritos`
+-- AUTO_INCREMENT for table `produtosfavoritos`
 --
 ALTER TABLE `produtosfavoritos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de tabela `subcategorias`
+-- AUTO_INCREMENT for table `subcategorias`
 --
 ALTER TABLE `subcategorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT de tabela `vendedores`
+-- AUTO_INCREMENT for table `vendedores`
 --
 ALTER TABLE `vendedores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `carrinho`
+-- Constraints for table `carrinho`
 --
 ALTER TABLE `carrinho`
   ADD CONSTRAINT `fk_ClienteCarrinho` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`id`),
   ADD CONSTRAINT `fk_ProdutoCarrinho` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`id`);
 
 --
--- Limitadores para a tabela `compras`
+-- Constraints for table `compras`
 --
 ALTER TABLE `compras`
   ADD CONSTRAINT `fk_ClientesCompras` FOREIGN KEY (`id_comprador`) REFERENCES `clientes` (`id`),
   ADD CONSTRAINT `fk_FaturasCompras` FOREIGN KEY (`id_fatura`) REFERENCES `faturas` (`id`);
 
 --
--- Limitadores para a tabela `faturas`
+-- Constraints for table `faturas`
 --
 ALTER TABLE `faturas`
   ADD CONSTRAINT `fk_ClientesFaturas` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
 
 --
--- Limitadores para a tabela `produtos`
+-- Constraints for table `produtos`
 --
 ALTER TABLE `produtos`
   ADD CONSTRAINT `fk_VendedorProduto` FOREIGN KEY (`idVendedor`) REFERENCES `vendedores` (`id`);
 
 --
--- Limitadores para a tabela `produtosfavoritos`
+-- Constraints for table `produtosfavoritos`
 --
 ALTER TABLE `produtosfavoritos`
   ADD CONSTRAINT `fk_ClienteProdutosFavoritos` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`id`),
   ADD CONSTRAINT `fk_ProdutoProdutosFavoritos` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`id`);
 
 --
--- Limitadores para a tabela `subcategorias`
+-- Constraints for table `subcategorias`
 --
 ALTER TABLE `subcategorias`
   ADD CONSTRAINT `fk_SubcategoriasCategorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`);

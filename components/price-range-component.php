@@ -6,4 +6,14 @@
             <b class="pull-left">R$ 0</b> <b class="pull-right">R$ 600</b>
         </div>
     </div>
-</div><!--/price-range-->
+</div>
+<br>
+<br>
+<br>
+<br> <!--/price-range-->
+<br>
+<br>
+<br>
+<br>
+<br>
+

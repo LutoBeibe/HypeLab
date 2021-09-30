@@ -249,7 +249,7 @@
 				";
 			}else{
 				echo "
-						<li><a href='enter'>Login | Cadastro</a></li>
+						<li><a href='enter'>Entrar</a></li>
 						<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'> Rastrear Pedidos</a></li>
 						<li><a href=''>Favoritos</a></li>
 				";

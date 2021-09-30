@@ -1,19 +1,19 @@
 <div class="carousel-wrapper">
   <div class="carousel">
     <div>
-      <img src="https://s26.postimg.org/labezuy7d/image.jpg" alt="js" />
+    <label>Compre e venda seus tênis de StreetWear aqui!</label> 
     </div>
 
     <div>
-      <img src="https://s26.postimg.org/qzrnk64dl/image.jpg" alt="java" />
+    <label>    A confiança de sempre vender produtos originais </label>
     </div>
 
     <div>
-      <img src="https://s26.postimg.org/uxex9kr6x/image.jpg" alt="python"/>
+    <label>Feito para resellers </label>
     </div>
-    
+
     <div>
-      <img src="https://s26.postimg.org/oas9ge9ih/image.jpg" alt="kotlin" />
+    <label>Porque seu estilo é nossa prioridade</label>
     </div>
   </div>
 </div>

@@ -13,6 +13,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
+@import url(https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap);
 
 html {
     width: 100% !important;
@@ -556,6 +557,8 @@ ul.sub-menu {
     padding: 2rem 19.1rem;
 
     border: 1px solid #F7F7F5;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 2rem;
 }
 
 @media (max-width: 990px) {

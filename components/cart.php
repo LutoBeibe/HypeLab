@@ -6,7 +6,7 @@
                 <li class="active">Shopping Cart</li>
             </ol>
         </div>
-        <div class="table-responsive cart_info">
+        <div class="table-responsive cart_info" style="border: none;">
 <?php
   $produtos = new produtos($explode['1']);
   $produtos ->produtos_vefica_login();
@@ -17,12 +17,11 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table">
             <tr>
-                
-                <th>Produto</th>
-                <th width="20%">Quantidade</th>
-                <th>Preço</th>
+                <th id="remove">Produto</th>
+                <th id="remove" width="20%">Quantidade</th>
+                <th id="remove">Preço</th>
             </tr>
             <?php $produtos->produtos_verificaEstoque();?>
             <tr>
@@ -58,8 +57,8 @@
 <section id="do_action">
     <div class="container">
         <div class="heading">
-            <h3>What would you like to do next?</h3>
-            <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+            <h3>O que gostaria de fazer a seguir?</h3>
+            <p>Selecione se voce possui um desconto ou quer estimar seu custo de entrega.</p>
         </div>
         <div class="row">
             <div class="col-sm-6">
@@ -67,65 +66,72 @@
                     <ul class="user_option">
                         <li>
                             <input type="checkbox">
-                            <label>Use Coupon Code</label>
+                            <label>Use Cupons</label>
                         </li>
                         <li>
                             <input type="checkbox">
-                            <label>Use Gift Voucher</label>
+                            <label>Use cartões de presente</label>
                         </li>
                         <li>
                             <input type="checkbox">
-                            <label>Estimate Shipping & Taxes</label>
+                            <label>Métodos de entrega</label>
                         </li>
                     </ul>
                     <ul class="user_info">
                         <li class="single_field">
-                            <label>Country:</label>
+                            <label>País:</label>
                             <select>
-                                <option>United States</option>
-                                <option>Bangladesh</option>
-                                <option>UK</option>
+                                <option>Brasil</option>
+                                <!-- <option>Estados Unidos</option>
+                                <option>Reino Unido</option>
                                 <option>India</option>
-                                <option>Pakistan</option>
-                                <option>Ucrane</option>
+                                <option>Paquistão</option>
+                                <option>Ucrania</option>
                                 <option>Canada</option>
-                                <option>Dubai</option>
+                                <option>Dubai</option> -->
                             </select>
                             
                         </li>
                         <li class="single_field">
-                            <label>Region / State:</label>
+                            <label>Região / Estado:</label>
                             <select>
-                                <option>Select</option>
-                                <option>Dhaka</option>
-                                <option>London</option>
-                                <option>Dillih</option>
-                                <option>Lahore</option>
-                                <option>Alaska</option>
-                                <option>Canada</option>
-                                <option>Dubai</option>
+                                <option>Selecionar</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
                             </select>
                         
                         </li>
                         <li class="single_field zip-field">
-                            <label>Zip Code:</label>
+                            <label>CEP:</label>
                             <input type="text">
                         </li>
                     </ul>
-                    <a class="btn btn-default update" href="">Get Quotes</a>
-                    <a class="btn btn-default check_out" href="">Continue</a>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="total_area">
-                    <ul>
-                        <li>Cart Sub Total <span>$59</span></li>
-                        <li>Eco Tax <span>$2</span></li>
-                        <li>Shipping Cost <span>Free</span></li>
-                        <li>Total <span>$61</span></li>
-                    </ul>
-                        <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="">Check Out</a>
+                    <a class="btn btn-default check_out" href="">Continuar</a>
                 </div>
             </div>
         </div>

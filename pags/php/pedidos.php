@@ -1,7 +1,9 @@
+<?php 
+    include('components/header-component.php');
+?>
+<div class="container">
 <?php website::website_verificaIsLogado(); ?>
           <div id="r-content">
-            <div class="r-title">Central / Pedidos</div>
-            <br>
             <div class="r-description">Meus últimos pedidos</div>
           </div>
 
@@ -22,3 +24,6 @@
               </table>
             </div>
           </div>
+          </div>
+
+<?php include('components/footer-component.php'); ?>

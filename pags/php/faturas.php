@@ -1,7 +1,9 @@
+<?php 
+    include('components/header-component.php');
+?>
+<div class="container">
 <?php website::website_verificaIsLogado();?>
           <div id="r-content">
-            <div class="r-title">Central / Minhas Faturas</div>
-            <br>
             <div class="r-description">Minhas Faturas</div>
           </div>
 
@@ -21,3 +23,6 @@
               </table>
             </div>
           </div>
+          </div>
+
+<?php include('components/footer-component.php'); ?>

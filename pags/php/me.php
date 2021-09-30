@@ -1,7 +1,10 @@
+<?php 
+    include('components/header-component.php');
+?>
+<div class="container">
 <?php website::website_verificaIsLogado(); $clientes = new clientes();?>
+
           <div id="r-content">
-            <div class="r-title">Central / Meus dados</div>
-            <br>
             <div class="r-description">
              Confira ou edite seus dados cadastrais
             </div>
@@ -64,4 +67,7 @@
             <input type="hidden" name="alt" value="cad">
           </form>
           <?php website::website_alterarDadosCliente();?>
+          </div>
+
+          <?php include('components/footer-component.php'); ?>
           

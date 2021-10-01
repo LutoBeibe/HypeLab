@@ -295,7 +295,7 @@
 					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
                     $_SESSION['userId'] = $dados['id'];
-					self::website_direciona("inicio");
+					self::website_direciona("cadastrar-produto-vendedor");
 				}
 			}
 		}
@@ -950,7 +950,6 @@
 					echo "<div class='alert alert-danger'>Insira uma imagem para prosseguir</div>";
 				}else{
 					$pdo = db::pdo();
-
 					$uploaddir = '../images/uploads/';
 					$uploaddirN = 'images/uploads/';
 					$uploadfile = $uploaddir . basename($_FILES['produtofile']['name']);
@@ -964,7 +963,63 @@
 						preco,
 						categoria,
 						detalhes,
-						criado_em,
+						publicado_em,
+						alterado_em) 
+
+						VALUES
+
+						(:nome, 
+						:foto, 
+						:tipo_fatura, 
+						:estoque, 
+						:preco,
+						:categoria,
+						:detalhes,
+						NOW(),
+						NOW())");
+                        
+					$stmt->execute([
+						':nome' => $_POST['nome'],
+						':foto' => $uploadfileN,
+						':tipo_fatura' => $_POST['tipo_fatura'],
+						':estoque' => $_POST['estoque'],
+						':preco' => $_POST['valor'],
+						':categoria' => $_POST['categoria'],
+						':detalhes' => $_POST['detalhes']
+                    ]);
+
+					$result = $stmt->rowCount();
+
+					if($result > 0){
+						echo "<div class='alert alert-success'>produto cadastrado com sucesso!</div>";
+						move_uploaded_file($_FILES['produtofile']['tmp_name'], $uploadfile);
+					}else{
+						echo "<div class='alert alert-danger'>Erro ao cadastrar</div>";
+					}
+				}
+			}
+		}
+
+		public static function website_admin_cadastrarProdutoVendedor(){
+			if(isset($_POST['env']) && $_POST['env'] == "prod"){
+				if($_FILES['produtofile']['size'] <= 0){
+					echo "<div class='alert alert-danger'>Insira uma imagem para prosseguir</div>";
+				}else{
+					$pdo = db::pdo();
+					$uploaddir = 'images/uploads/';
+					$uploaddirN = 'images/uploads/';
+					$uploadfile = $uploaddir . basename($_FILES['produtofile']['name']);
+					$uploadfileN = $uploaddirN . basename($_FILES['produtofile']['name']);
+
+					$stmt = $pdo->prepare("INSERT INTO produtos 
+						(nome,
+						foto,
+						tipo_fatura,
+						estoque,
+						preco,
+						categoria,
+						detalhes,
+						publicado_em,
 						alterado_em) 
 
 						VALUES

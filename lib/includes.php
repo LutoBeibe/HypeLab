@@ -6,4 +6,5 @@
 	
     // MercadoPago\SDK::setClientId(clientID);
     // MercadoPago\SDK::setClientSecret(clientSecret);
+	//mp
 ?>

@@ -490,7 +490,7 @@ a#scrollUp i {
 
 ul.sub-menu {
     position: absolute;
-    top: 30px;
+    top: 21px;
     left: 0;
     background: rgba(0, 0, 0, 0.6);
     list-style: none;
@@ -517,11 +517,11 @@ ul.sub-menu {
 }
 
 .navbar-nav li ul.sub-menu li a {
-    color: #fff;
+    color: #ebebf0;
 }
 
 .navbar-nav li ul.sub-menu li a:hover {
-    color: #FDB45E;
+    color: #ffffff;
 }
 
 .fa-angle-down {
@@ -580,6 +580,7 @@ ul.sub-menu {
 .slick-prev:before, 
 .slick-next:before {
     color: black !important;
+    transition: .2s;
 }
 
 .carousel-container .carousel-wrapper .carousel .slick-list {
@@ -1485,18 +1486,19 @@ h2.title {
 }
 
 .recommended-item-control i {
-    background: none repeat scroll 0 0 #171225;
+    background: none repeat scroll 0 0 #000000;
+    opacity: .75;
     color: #FFFFFF;
     font-size: 20px;
     padding: 4px 10px;
 
-    border-radius: .4rem;
+    border-radius: 50%;
 
     transition: .3s;
 }
 
 .recommended-item-control i:hover {
-    background: #241d3a;
+    opacity: 1;
 }
 
 /*.recommended_items h2 {} */

@@ -40,20 +40,20 @@ $(document).ready(function() {
 	});
 
 	function calcula(){
-	var quant = document.getElementById("quantity").value;
-	var unidade = document.getElementById("valor_produto").value;
+        var quant = document.getElementById("quantity").value;
+        var unidade = document.getElementById("valor_produto").value;
 
-	if((quant == "" || quant == null) && (unidade == "" || unidade == null))
-		return false;
+        if((quant == "" || quant == null) && (unidade == "" || unidade == null))
+            return false;
 
-	while(quant.indexOf(',') != -1)
-		quant = quant.replace(',','.');
+        while(quant.indexOf(',') != -1)
+            quant = quant.replace(',','.');
 
-	while(unidade.indexOf(',') != -1)
-		unidade = unidade.replace(',','.');
+        while(unidade.indexOf(',') != -1)
+            unidade = unidade.replace(',','.');
 
-	var total = parseFloat(quant*unidade);   
-	document.getElementById("subtotal").value = total;   
+        var total = parseFloat(quant*unidade);   
+        document.getElementById("subtotal").value = total;   
 	}
 
 });

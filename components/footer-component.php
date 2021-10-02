@@ -14,11 +14,11 @@
                         <h2>Acompanhe-nos</h2>
 
                         <div class="social-networks-content">
-                            <a href="">
+                            <a href="<?php echo contato_instagram ?>" target="_blank">
                                 <i class="fa fa-instagram"></i>
                             </a>
 
-                            <a href="">
+                            <a href="<?php echo contato_facebook ?>" target="_blank">
                                 <i class="fa fa-facebook"></i>
                             </a>
 

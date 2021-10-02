@@ -90,12 +90,3 @@
         </a>			
     </div>
 </div><!--/recommended_items-->
-
-<script>
-  $('.carousel-inner').slick({
-    infinite: true,
-    speed: 500,
-    slidesToShow: screen.width < 600 ? 2 : 3,
-    slidesToScroll: screen.width < 600 ? 2 : 3
-  });
-</script>

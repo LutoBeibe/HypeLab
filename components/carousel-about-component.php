@@ -1,5 +1,5 @@
 <div class="carousel-wrapper">
-  <div class="carousel">
+  <div id="carousel-about" class="carousel">
     <div>
     <label>Compre e venda seus tênis de StreetWear aqui!</label> 
     </div>
@@ -17,12 +17,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  $('.carousel').slick({
-    infinite: true,
-    speed: 400,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  });
-</script>

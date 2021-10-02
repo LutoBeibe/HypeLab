@@ -4,8 +4,8 @@
 <html lang="pt-br">
     <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <base href="<?php echo base_href;?>">
 
         <!-- STYLES -->
@@ -42,6 +42,23 @@
 
     <body>
         <?php website::website_paginacao(); ?>
+
+        <script>
+            $('#carousel-about').slick({
+                dots: false,
+                infinite: true,
+                speed: 400,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+
+            $('.carousel-inner').slick({
+                infinite: true,
+                speed: 500,
+                slidesToShow: screen.width < 600 ? 2 : 3,
+                slidesToScroll: screen.width < 600 ? 2 : 3
+            });
+        </script>
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>

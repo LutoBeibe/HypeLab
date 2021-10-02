@@ -218,7 +218,7 @@
 				echo "
                     <div class='contactinfo'>
                         <ul class='nav nav-pills'>
-                            <li><a href='dashboard'>Olá, <b>". $clientes->nome ."</b></a></li>
+                            <li><a href='me'>Olá, <b>". $clientes->nome ."</b></a></li>
                         </ul>
                     </div>
                 ";
@@ -237,7 +237,7 @@
 			if(isset($_SESSION['userEmail'])){
 				echo "
 					<li class='dropdown'><a href='#'>Conta</a>
-						<ul role='menu' class='sub-menu'>
+						<ul role='menu' class='sub-menu account-menu'>
 							<li><a href='me'>Dados Cadastrais</a></li>
 							<li><a href='pedidos'>Meus pedidos</a></li> 
 							<li><a href='faturas'>Minhas Faturas</a></li> 

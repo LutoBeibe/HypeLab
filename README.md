@@ -71,11 +71,11 @@
 <p>Thanks to the Hypelab team :blush:</p>
 <table>
   <tr align="center">
-    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_felipepinto.jpg" width=116/> <br> <sub><a href="https://github.com/FelipePDS"><img src="https://img.shields.io/static/v1?label=+&message=Felipe+Pinto&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_gabrielfeitosa.jpg" width=115/> <br> <sub><a href="https://github.com/Gabrielphp"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Feitosa&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_gabrielfernando.jpg" width=105/> <br> <sub><a href="https://github.com/Gabriel-2470"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Fernando&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_giovanidosreis.jpg" width=118/> <br> <sub><a href="https://github.com/GiovaniReis157"><img src="https://img.shields.io/static/v1?label=+&message=Giovani+Dos+Reis&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
-    <td><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/images/contributors/contributor_guilhermemedeiros.jpg" width=115/> <br> <sub><a href="https://github.com/LutoBeibe"><img src="https://img.shields.io/static/v1?label=+&message=Guilherme+Medeiros&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/HypeLab/blob/main/.github/felipe.jpg" width=116/> <br> <sub><a href="https://github.com/FelipePDS"><img src="https://img.shields.io/static/v1?label=+&message=Felipe+Pinto&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/HypeLab/blob/main/.github/feitosa.jpg" width=115/> <br> <sub><a href="https://github.com/Gabrielphp"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Feitosa&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/HypeLab/blob/main/.github/fernando.jpg" width=105/> <br> <sub><a href="https://github.com/Gabriel-2470"><img src="https://img.shields.io/static/v1?label=+&message=Gabriel+Fernando&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/HypeLab/blob/main/.github/giovani.jpg" width=118/> <br> <sub><a href="https://github.com/GiovaniReis157"><img src="https://img.shields.io/static/v1?label=+&message=Giovani+Dos+Reis&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
+    <td><img src="https://github.com/LutoBeibe/HypeLab/blob/main/.github/guilherme.jpg" width=115/> <br> <sub><a href="https://github.com/LutoBeibe"><img src="https://img.shields.io/static/v1?label=+&message=Guilherme+Medeiros&color=161b22&style=flat&logo=github&logoColor=white"/></a></sub></td>
   </tr>
 </table>
 <br>

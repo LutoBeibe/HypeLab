@@ -56,6 +56,14 @@
             </div>
 
             <div class="col-sm-6">
+              <label>Gênero</label>
+              <select name="genero" class="form-control">
+                <?php website::website_admin_getGeneros();?>
+              </select>
+              <br>
+            </div>
+
+            <div class="col-sm-6">
               <label>Detalhes do produto</label>
               <textarea name="detalhes" class="form-control" rows="5" required></textarea>
               <br>

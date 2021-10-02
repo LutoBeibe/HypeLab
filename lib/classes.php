@@ -216,20 +216,20 @@
 				$clientes = new clientes();
 
 				echo "
-                    <div class='contactinfo'>
-                        <ul class='nav nav-pills'>
-                            <li><a href='me'>Olá, <b>". $clientes->nome ."</b></a></li>
-                        </ul>
-                    </div>
-                ";
+					<div class='contactinfo'>
+							<ul class='nav nav-pills'>
+									<li><a href='me'><span id='contact-message'>Olá</span>, ". $clientes->nome ."!</a></li>
+							</ul>
+					</div>
+				";
 			}else{
 				echo "
-                    <div class='contactinfo'>
-                        <ul class='nav nav-pills'>
-                            <li><a href='enter'>Faça parte da HypeLab</a></li>
-                        </ul>
-                    </div>
-                ";
+					<div class='contactinfo'>
+							<ul class='nav nav-pills'>
+									<li><a href='enter'>Faça parte da HypeLab</a></li>
+							</ul>
+					</div>
+				";
 			}
 		}
 
@@ -534,6 +534,96 @@
 							</div>-->
 						</div>
 					</div>";
+					}
+				}
+				else {
+					echo "<p class='text-center'>Nenhum produto foi encontrado</p>";
+				}
+			}
+		}
+
+		public static function website_getInfosGenero($id){
+			if(isset($id)){
+				$pdo = db::pdo();
+
+				$stmt = $pdo->prepare("SELECT * FROM generos WHERE id = :id");
+				$stmt->execute([':id' => $id]);
+				$total = $stmt->rowCount();
+
+				if($total > 0){
+					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+					echo "<div class='r-title'>Produtos {$dados['nome']}</div>";
+				}
+			}
+		}
+
+		public static function website_getIdFromGenero($id){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM generos WHERE id = :id");
+			$stmt->execute([':id' => $id]);
+			$total = $stmt->rowCount();
+
+			if($total > 0){
+				$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				return $dados["id"];
+			}
+		}
+
+		public static function website_produtoFromGenero($id){
+			if(isset($id)){
+				$pdo = db::pdo();
+				$id_genero = self::website_getIdFromGenero($id);
+
+				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE genero = :genero");
+				$stmt->execute([':genero' => $id_genero]);
+				$total = $stmt->rowCount();
+
+				if($total > 0){
+					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {	
+						echo "<div class='col-sm-4'>
+							<div class='product-image-wrapper'>
+								<form method='POST' autocomplete='off'>
+									<div class='single-products'>
+										<div class='productinfo text-center'>
+											<img src='{$dados['foto']}' alt='{$dados['nome']}' />
+											<h2>R$ {$dados['preco']}</h2>
+											<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+											<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+												<i class='fa fa-shopping-cart'></i>Comprar
+											</a>
+										</div>
+										<div class='product-overlay'>
+											<div class='overlay-content'>
+												<h2>R$ {$dados['preco']}</h2>
+												<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+												<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+													<i class='fa fa-shopping-cart'></i>Comprar
+												</a>
+											</div>
+										</div>
+									</div>
+									<input type='hidden' name='id_produto' value='{$dados['id']}'>
+									<input type='hidden' name='env' value='adicionarAoCarrinho'>
+								</form>
+								<!--<div class='choose'>
+									<ul class='nav nav-pills nav-justified'>
+										<li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
+										
+											<li>
+												<form method='POST' autocomplete='off'>
+													<button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
+
+													<input type='hidden' name='id_produto' value='{$dados['id']}'>
+													<input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
+												</form>
+											</li>
+									</ul>
+								</div>-->
+							</div>
+						</div>";
 					}
 				}
 				else {
@@ -937,9 +1027,27 @@
 			$stmt->execute([':id_categoria' => $id]);
 			$total = $stmt->rowCount();
 
+			$subcategoriasHtml = "";
+
 			if($total > 0){
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-					return "<option value='{$dados['id']}'>{$dados['subcategoria']}</option>";
+					$subcategoriasHtml .= "<option value='{$dados['id']}'>{$dados['subcategoria']}</option>";
+				}
+
+				return $subcategoriasHtml;
+			}
+		}
+
+		public static function website_admin_getGeneros(){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM generos ORDER BY nome ASC");
+			$stmt->execute();
+			$total = $stmt->rowCount();
+
+			if($total > 0){
+				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+					echo "<option value='{$dados['id']}'>{$dados['nome']}</option>";
 				}
 			}
 		}
@@ -962,6 +1070,7 @@
 						estoque,
 						preco,
 						categoria,
+						genero,
 						detalhes,
 						publicado_em,
 						alterado_em) 
@@ -974,6 +1083,7 @@
 						:estoque, 
 						:preco,
 						:categoria,
+						:genero,
 						:detalhes,
 						NOW(),
 						NOW())");
@@ -985,6 +1095,7 @@
 						':estoque' => $_POST['estoque'],
 						':preco' => $_POST['valor'],
 						':categoria' => $_POST['categoria'],
+						':genero' => $_POST['genero'],
 						':detalhes' => $_POST['detalhes']
                     ]);
 

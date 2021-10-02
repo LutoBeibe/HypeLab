@@ -44,8 +44,8 @@
                                     <li><a href="">Tênis</a></li> 
                                 </ul>
                             </li> 
-                            <li><a href="">Masculino</a></li>
-                            <li><a href="">Feminino</a></li>
+                            <li><a href="genero/m">Masculino</a></li>
+                            <li><a href="genero/f">Feminino</a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,3 +63,20 @@
         </div>
     </div><!--/header-middle-->
 </header><!--/header-->
+
+<script>
+    window.onload = setContactMessage();
+
+    function setContactMessage() {
+        const date = new Date();
+        const currentHour = date.getHours();
+
+        if (currentHour >= 5 && currentHour <= 11) {
+            $('#contact-message').html('Bom dia')
+        } else if (currentHour < 19) {
+            $('#contact-message').html('Boa tarde')
+        } else {
+            $('#contact-message').html('Boa noite')
+        }
+    }
+</script>

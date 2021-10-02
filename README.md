@@ -1,8 +1,8 @@
-# <h1 align="center"><a href=""><img src="https://github.com/LutoBeibe/hypelab/blob/main/github/icons/Hypelab_Logotipo_Secondary_Black.png" width=116/></a></h1>
+# <h1 align="center"><a href=""><img src="https://github.com/LutoBeibe/HypeLab/blob/main/images/home/logo-black-2.png" width=116/></a></h1>
 <p align="center"><kbd><a href="">Hypelab</a></kbd>'s<br>:stars: Store with exclusive products for Streetwear buyers and resellers. <a href="#about">Learn more</a></p>
 
 <p align="center">
-  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/hypelab?style=for-the-badge"/></a> 
+  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/lutoBeibe/hypelab?style=for-the-badge"/></a> 
   <img src="https://img.shields.io/github/last-commit/LutoBeibe/hypelab?style=for-the-badge"/>
   <br>
   <img src="https://img.shields.io/github/contributors/LutoBeibe/hypelab?style=for-the-badge"/> 
@@ -80,6 +80,5 @@
 </table>
 <br>
 
-<h2 id="license">:page_with_curl: License</h2>
-<!--<p>Repository made by :relaxed: <a href="https://felipepds.github.io/felipepds-resume/">FelipePDS</a></p>-->
+<h2 align="center" id="license">:page_with_curl: License</h2>
 <p align="center"><a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE">MIT License</a> &bull; &copy; <a href="">Hypelab</a></p>

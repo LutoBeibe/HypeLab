@@ -2,16 +2,14 @@
 <p align="center"><kbd><a href="">Hypelab</a></kbd>'s<br>:stars: Store with exclusive products for Streetwear buyers and resellers. <a href="#about">Learn more</a></p>
 
 <p align="center">
-  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/hypelab?style=for-the-badge"/></a> 
+  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/Hypelab?style=for-the-badge"/></a> 
   <img src="https://img.shields.io/github/last-commit/LutoBeibe/hypelab?style=for-the-badge"/>
   <br>
   <img src="https://img.shields.io/github/contributors/LutoBeibe/hypelab?style=for-the-badge"/> 
-  <img src="https://img.shields.io/github/issues/LutoBeibe/hypelab?style=for-the-badge"/> 
-  <img src="https://img.shields.io/github/forks/LutoBeibe/hypelab?style=for-the-badge"/> 
   <img src="https://img.shields.io/github/stars/LutoBeibe/hypelab?style=for-the-badge"/>
 </p>
 
-<blockquote>Status: :construction: Starting Project :construction:</blockquote>
+<blockquote>Status: :construction: Developing :construction:</blockquote>
 <br>
 
 <h2>Topics</h2>
@@ -19,21 +17,14 @@
   <ul>
     <li><a href="#about">:rocket: About</a></li>
     <li><a href="#objective">:dart: Hypelab Objective</a></li>
-    <li><a href="#features">:heavy_check_mark: Features</a></li>
-    <ul>
-      <li><a href="#frontend-feature">Frontend</a></li>
-      <li><a href="#backend-feature">Backend</a></li>
-    </ul>
-    <li><a href="#preview">:art: Preview</a></li>
+    <li><a href="#preview">:art: Layout</a></li>
     <ul>
       <li><a href="#web-layout">:computer: Web</a></li>
       <li><a href="#mobile-layout">:iphone: Mobile</a></li>
     </ul>
     <li><a href="#development-tools">:pushpin: Development Tools</a></li>
     <ul>
-      <li><a href="#web-frontend-development-tools-web">Frontend Web</a></li>
-      <li><a href="#mobile-frontend-development-tools-mobile">Frontend Mobile</a></li>
-      <li><a href="#backend-development-tools">Backend</a></li>
+      <li><a href="#web-development-tools-web">Web Technologies</a></li>
       <li><a href="#for-dev-development-tools">For Dev</a></li>
     </ul>
     <li><a href="#team">:dizzy: Team</a></li>
@@ -50,54 +41,7 @@
 <p>Objective</p>
 <br>
 
-<h2 id="features">:heavy_check_mark: Features</h2>
-<h4 id="frontend-feature">Frontend</h4>
-
-- [x] Layout
-- [x] Components
-  - [x] Menu Top
-  - [x] Footer
-  - [x] Sidebar
-- [ ] Pages
-  - [x] Home Page
-  - [x] About Us Page
-  - [x] Contact Us page
-  - [ ] Clients Page
-  - [ ] Cart Page
-  - [ ] Favorite Products Page
-    - [x] Clients Signup
-    - [x] Clients Signin
-    - [ ] Advertised Products
-  - [ ] Resellers Page
-    - [ ] Resellers Signup
-    - [ ] Resellers Signin
-    - [ ] Sell Products
-
-<h4 id="backend-feature">Backend</h4>
-
-- [ ] Diagrams
- - [ ] Database
- - [ ] Classes
-- [x] Database
-- [ ] Controllers
-  - [x] Clients Controller
-    - [x] Clients Create
-    - [x] Clients Login
-  - [ ] Resellers Controller
-    - [ ] Resellers Create
-    - [ ] Resellers Login
-  - [ ] Products Controller
-    - [x] Products Create
-  - [x] Categories Controller
-    - [x] Categories Create
-  - [x] Cart Products Controller
-    - [x] Cart Products Add
-  - [x] Favorite Products Controller
-    - [x] Favorite Products Add
-
-<br>
-
-<h2 id="preview">:art: Preview</h2>
+<h2 id="preview">:art: Layout</h2>
 <h4 id="web-layout">:computer: Web</h4>
   <p>Web layout</p>
 
@@ -106,26 +50,11 @@
 <br>
 
 <h2 id="development-tools">:pushpin: Development Tools</h2>
-<h4 id="web-frontend-development-tools-web">Web Frontend Technologies</h4>
+<h4 id="web-development-tools-web">Web Technologies</h4>
   <ul>
     <li>HTML5</li>
     <li>CSS3</li>
-    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
     <li>Javascript</li>
-    <li><a href="https://www.php.net/">PHP</a></li>
-  </ul>
-  
-<h4 id="mobile-frontend-development-tools-mobile">Mobile Frontend Technologies</h4>
-  <ul>
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-    <li>Javascript</li>
-    <li><a href="https://www.php.net/">PHP</a></li>
-  </ul>
-
-<h4 id="backend-development-tools">Backend Technologies</h4>
-  <ul>
     <li><a href="https://www.php.net/">PHP</a></li>
   </ul>
   

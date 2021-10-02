@@ -2,7 +2,7 @@
 <p align="center"><kbd><a href="">Hypelab</a></kbd>'s<br>:stars: Store with exclusive products for Streetwear buyers and resellers. <a href="#about">Learn more</a></p>
 
 <p align="center">
-  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/Hypelab?style=for-the-badge"/></a> 
+  <a href="https://github.com/LutoBeibe/hypelab/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LutoBeibe/hypelab?style=for-the-badge"/></a> 
   <img src="https://img.shields.io/github/last-commit/LutoBeibe/hypelab?style=for-the-badge"/>
   <br>
   <img src="https://img.shields.io/github/contributors/LutoBeibe/hypelab?style=for-the-badge"/> 

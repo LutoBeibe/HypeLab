@@ -250,11 +250,11 @@
 				
 				if (isset($_SESSION['isVendedor']) && $_SESSION['isVendedor']) {
 					$htmlNavLogin .= "
-						<li class='dropdown'><a href='#'>Gerenciar Vendas</a>
+						<li class='dropdown'><a href='#'>Gerenciar</a>
 							<ul role='menu' class='sub-menu account-menu'>
 								<li><a href='cadastrar-produto-vendedor'>Cadastrar Produto</a></li>
 								<li><a href='buscar-produto-vendedor'>Buscar</a></li> 
-								<li><a href='gerenciar-compras-vendedor'>Gerenciar Compras</a></li> 
+								<li><a href='gerenciar-vendas-vendedor'>Gerenciar Vendas</a></li> 
 								<li><a href='gerenciar-produtos-vendedor'>Gerenciar Produtos</a></li>
 							</ul>
 						</li> 

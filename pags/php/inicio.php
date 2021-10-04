@@ -1,6 +1,5 @@
 <?php 
     include('components/header-component.php');
-    // include('components/slider-component.php');
 ?>
 
 <div class="container carousel-container">
@@ -13,8 +12,13 @@
 
             <?php
                 include('components/left-sidebar-component.php');
-                include('components/recommended-items-component.php');
-                include('components/recents-items-component.php');
+
+                if ($_SESSION['searchString'] == '') {
+                    include('components/recommended-items-component.php');
+                    include('components/recents-items-component.php');
+                } else {
+                    include('components/produto-pesquisa-component.php');
+                }
             ?>
 
         </div>

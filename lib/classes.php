@@ -309,6 +309,61 @@
 			self::website_direciona("enter");
 		}
 
+		public static function website_card_produtos($dados) {
+			echo "
+				<div class='col-sm-4'>
+						<div class='product-image-wrapper'>
+								<form method='POST' autocomplete='off'>
+										<div class='single-products'>
+												<div class='productinfo text-center'>
+														<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
+															<i class='fa fa-star'></i>
+														</button>-->
+
+														<img src='{$dados['foto']}' alt='{$dados['nome']}' />
+														<h2>R$ {$dados['preco']}</h2>
+														<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+														<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+															<i class='fa fa-shopping-cart'></i>Comprar
+														</a>
+												</div>
+
+												<div class='product-overlay'>
+													<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
+														<i class='fa fa-star'></i>
+													</button>-->
+
+													<div class='overlay-content'>
+															<h2>R$ {$dados['preco']}</h2>
+															<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+															<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+																<i class='fa fa-shopping-cart'></i>Comprar
+															</a>
+													</div>
+												</div>
+										</div>
+										<input type='hidden' name='id_produto' value='{$dados['id']}'>
+										<input type='hidden' name='env' value='adicionarAoCarrinho'>
+								</form>
+								<!--<div class='choose'>
+										<ul class='nav nav-pills nav-justified'>
+												<li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
+												
+												<li>
+													<form method='POST' autocomplete='off'>
+															<button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
+
+															<input type='hidden' name='id_produto' value='{$dados['id']}'>
+															<input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
+													</form>
+												</li>
+										</ul>
+								</div>-->
+						</div>
+				</div>
+			";
+		}
+
 		public static function website_produtos_recentes(){
 			$pdo = db::pdo();
 
@@ -316,66 +371,33 @@
 			$stmt->execute();
 			$total = $stmt->rowCount();
 
-			if($total > 0){
+			if ($total > 0) {
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {	
-                    echo "
-                        <div class='col-sm-4'>
-                            <div class='product-image-wrapper'>
-                                <form method='POST' autocomplete='off'>
-                                    <div class='single-products'>
-																				<div class='productinfo text-center'>
-																						<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
-																							<i class='fa fa-star'></i>
-																						</button>-->
-
-                                            <img src='{$dados['foto']}' alt='{$dados['nome']}' />
-                                            <h2>R$ {$dados['preco']}</h2>
-                                            <p>".self::website_limitaCaracteres($dados['nome'])."</p>
-																						<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-																							<i class='fa fa-shopping-cart'></i>Comprar
-																						</a>
-                                        </div>
-
-                                        <div class='product-overlay'>
-																					<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
-																						<i class='fa fa-star'></i>
-																					</button>-->
-
-																					<div class='overlay-content'>
-																							<h2>R$ {$dados['preco']}</h2>
-																							<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-																							<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-																								<i class='fa fa-shopping-cart'></i>Comprar
-																							</a>
-																					</div>
-                                        </div>
-                                    </div>
-                                    <input type='hidden' name='id_produto' value='{$dados['id']}'>
-                                    <input type='hidden' name='env' value='adicionarAoCarrinho'>
-                                </form>
-                                <!--<div class='choose'>
-                                    <ul class='nav nav-pills nav-justified'>
-                                        <li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
-                                        
-                                            <li>
-                                                <form method='POST' autocomplete='off'>
-                                                    <button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
-
-                                                    <input type='hidden' name='id_produto' value='{$dados['id']}'>
-                                                    <input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
-                                                </form>
-                                            </li>
-                                    </ul>
-                                </div>-->
-                            </div>
-                        </div>
-                    ";
+					self::website_card_produtos($dados);
 				}
-			}
+			} 
 		}
 
-		public static function website_produtos_pesquisa() {
+		public static function website_pesquisa() {
+			$_SESSION['searchString'] = isset($_POST['searchString']) 
+				? urldecode($_POST['searchString']) 
+				: '';
+		}
 
+		public static function website_produtos_pesquisa($searchString) {
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM produtos WHERE estoque > 0 AND nome LIKE :searchString");
+			$stmt->execute([':searchString' => '%'.$searchString.'%']);
+			$total = $stmt->rowCount();
+
+			if ($total > 0) {
+				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {	
+					self::website_card_produtos($dados);
+				}
+			} else {
+				echo "<p class='text-center'>Nenhum produto foi encontrado</p>";
+			}
 		}
 
 		public static function website_getInfosCategoria($id){
@@ -493,47 +515,7 @@
 
 				if($total > 0){
 					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {	
-						echo "<div class='col-sm-4'>
-						<div class='product-image-wrapper'>
-							<form method='POST' autocomplete='off'>
-								<div class='single-products'>
-									<div class='productinfo text-center'>
-										<img src='{$dados['foto']}' alt='{$dados['nome']}' />
-										<h2>R$ {$dados['preco']}</h2>
-										<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-										<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-											<i class='fa fa-shopping-cart'></i>Comprar
-										</a>
-									</div>
-									<div class='product-overlay'>
-										<div class='overlay-content'>
-											<h2>R$ {$dados['preco']}</h2>
-											<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-											<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-												<i class='fa fa-shopping-cart'></i>Comprar
-											</a>
-										</div>
-									</div>
-								</div>
-								<input type='hidden' name='id_produto' value='{$dados['id']}'>
-								<input type='hidden' name='env' value='adicionarAoCarrinho'>
-							</form>
-							<!--<div class='choose'>
-								<ul class='nav nav-pills nav-justified'>
-									<li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
-									
-										<li>
-											<form method='POST' autocomplete='off'>
-												<button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
-
-												<input type='hidden' name='id_produto' value='{$dados['id']}'>
-												<input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
-											</form>
-										</li>
-								</ul>
-							</div>-->
-						</div>
-					</div>";
+						self::website_card_produtos($dados);
 					}
 				}
 				else {

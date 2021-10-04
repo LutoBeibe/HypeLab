@@ -52,11 +52,21 @@
 
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <form method="GET">
-                            <input type="text" name="searchString" placeholder="O que deseja?"/>
+                        <form method="POST" action="inicio">
+                            <input 
+                                type="text" 
+                                value="<?php 
+                                    echo isset($_POST['searchString']) 
+                                        ? urldecode($_POST['searchString']) 
+                                        : '';
+                                ?>" 
+                                name="searchString" 
+                                placeholder="O que deseja?"
+                            />
                             <button type="submit" class="btn btn-default"></button>
-                            <input type="hidden" name="search" value="searchProduct">
                         </form>
+
+                        <?php website::website_pesquisa();?>
                     </div>
                 </div>
             </div>

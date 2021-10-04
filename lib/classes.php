@@ -235,7 +235,7 @@
 
 		public static function website_navLogin(){
 			if(isset($_SESSION['userEmail'])){
-				echo "
+				$htmlNavLogin = "
 					<li class='dropdown'><a href='#'>Conta</a>
 						<ul role='menu' class='sub-menu account-menu'>
 							<li><a href='me'>Dados Cadastrais</a></li>
@@ -245,8 +245,23 @@
 						</ul>
 					</li> 
 					<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'>Rastrear Pedidos</a></li>
-					<li><a href=''>Favoritos</a></li> 
+					<li><a href=''>Favoritos</a></li>
 				";
+				
+				if (isset($_SESSION['isVendedor']) && $_SESSION['isVendedor']) {
+					$htmlNavLogin .= "
+						<li class='dropdown'><a href='#'>Gerenciar Vendas</a>
+							<ul role='menu' class='sub-menu account-menu'>
+								<li><a href='cadastrar-produto-vendedor'>Cadastrar Produto</a></li>
+								<li><a href='buscar-produto-vendedor'>Buscar</a></li> 
+								<li><a href='gerenciar-compras-vendedor'>Gerenciar Compras</a></li> 
+								<li><a href='gerenciar-produtos-vendedor'>Gerenciar Produtos</a></li>
+							</ul>
+						</li> 
+					";
+				}
+
+				echo $htmlNavLogin;
 			}else{
 				echo "
 						<li><a href='enter'>Entrar</a></li>
@@ -294,7 +309,8 @@
 					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
 					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
-                    $_SESSION['userId'] = $dados['id'];
+					$_SESSION['userId'] = $dados['id'];
+					$_SESSION['isVendedor'] = true;
 					self::website_direciona("cadastrar-produto-vendedor");
 				}
 			}
@@ -584,47 +600,7 @@
 
 				if($total > 0){
 					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {	
-						echo "<div class='col-sm-4'>
-							<div class='product-image-wrapper'>
-								<form method='POST' autocomplete='off'>
-									<div class='single-products'>
-										<div class='productinfo text-center'>
-											<img src='{$dados['foto']}' alt='{$dados['nome']}' />
-											<h2>R$ {$dados['preco']}</h2>
-											<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-											<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-												<i class='fa fa-shopping-cart'></i>Comprar
-											</a>
-										</div>
-										<div class='product-overlay'>
-											<div class='overlay-content'>
-												<h2>R$ {$dados['preco']}</h2>
-												<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-												<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-													<i class='fa fa-shopping-cart'></i>Comprar
-												</a>
-											</div>
-										</div>
-									</div>
-									<input type='hidden' name='id_produto' value='{$dados['id']}'>
-									<input type='hidden' name='env' value='adicionarAoCarrinho'>
-								</form>
-								<!--<div class='choose'>
-									<ul class='nav nav-pills nav-justified'>
-										<li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
-										
-											<li>
-												<form method='POST' autocomplete='off'>
-													<button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
-
-													<input type='hidden' name='id_produto' value='{$dados['id']}'>
-													<input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
-												</form>
-											</li>
-									</ul>
-								</div>-->
-							</div>
-						</div>";
+						self::website_card_produtos($dados);
 					}
 				}
 				else {

@@ -56,7 +56,7 @@
                             <input 
                                 type="text" 
                                 value="<?php 
-                                    echo isset($_POST['searchString']) 
+                                    echo isset($_POST['searchString']) && $_POST['typeSearch'] == 'productName'
                                         ? urldecode($_POST['searchString']) 
                                         : '';
                                 ?>" 
@@ -64,6 +64,8 @@
                                 placeholder="O que deseja?"
                             />
                             <button type="submit" class="btn btn-default"></button>
+
+                            <input type="hidden" name="typeSearch" value="productName">
                         </form>
 
                         <?php website::website_pesquisa();?>

@@ -3,7 +3,7 @@
         <h2 class="title text-center">Produtos Encontrados</h2>
 
         <?php 
-            website::website_produtos_pesquisa($_SESSION['searchString']);
+            website::website_produtos_pesquisa($_SESSION['searchString'], $_SESSION['typeSearch']);
         ?>
     </div>
 </div>

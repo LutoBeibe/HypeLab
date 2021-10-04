@@ -1216,6 +1216,29 @@ h2.title:before {
     padding: 35px;
 }
 
+.price-range .price-range-control .well .control-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.price-range .price-range-control .well .control-container .filter-button {
+    margin-top: 1.6rem;
+    padding: .75rem 2rem;
+
+    background-color: #F5F5ED;
+    color: #696763;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+
+    transition: .3s;
+}
+
+.price-range .price-range-control .well .control-container .filter-button:hover {
+    filter: brightness(.95);
+}
+
 .tooltip-inner {
     background-color: #38383a;
     border-radius: 4px;
@@ -1344,10 +1367,14 @@ h2.title {
     width: 100%;
 }
 
+.add-to-cart {
+    border-radius: 4px !important;
+}
+
 .product-overlay .add-to-cart {
     background: #fff;
     border: 0 none;
-    border-radius: 0;
+    border-radius: 6px;
     color: #38383a;
     font-family: 'Gemunu Libre', sans-serif;
     font-size: 16.5px;

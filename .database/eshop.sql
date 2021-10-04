@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Out-2021 às 00:46
+-- Tempo de geração: 04-Out-2021 às 13:43
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 7.3.29
 
@@ -197,7 +197,7 @@ CREATE TABLE `produtos` (
   `foto` varchar(200) NOT NULL,
   `tipo_fatura` int(11) NOT NULL,
   `estoque` int(11) NOT NULL,
-  `preco` varchar(200) NOT NULL,
+  `preco` decimal(10,2) NOT NULL,
   `categoria` varchar(200) NOT NULL,
   `detalhes` text NOT NULL,
   `idVendedor` int(11) DEFAULT NULL,
@@ -211,12 +211,12 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `foto`, `tipo_fatura`, `estoque`, `preco`, `categoria`, `detalhes`, `idVendedor`, `publicado_em`, `alterado_em`, `genero`) VALUES
-(12, 'Tênis Nike Air Max Genome Masculino', 'images/uploads/tenis-nike-air-max-genome-masculino-CW1648-004-1.jpg', 0, 44, '999,99', '10', 'Inspirado no visual do início dos anos 2000, o Air Max Genome reformula casa do Air Max. Seu cabedal tecnológico apresenta uma mistura de materiais, incluindo camadas sem costura, mesh arejado e detalhes em TPU durável. A unidade Air em toda a extensão, de baixo perfil acrescenta conforto para combinar com seu design elegante que com certeza se tornará seu novo Air Max favorito.', 1, '2021-07-07 19:39:29', '2021-07-07 19:39:29', 'M'),
-(13, 'Tênis Nike Air Zoom Pegasus 38 Masculino', 'images/uploads/tenis-nike-air-zoom-pegasus-38-masculino-CW7356-003-1.jpg', 0, 100, '699,99', '10', 'Seu cavalo de batalha alado está de volta. O Nike Air Zoom Pegasus 38 continua a oferecer elasticidade à sua passada, utilizando a mesma espuma ágil que seu antecessor. A tela ventilada na parte de cima combina o conforto e a durabilidade que você deseja com um ajuste mais amplo na ponta.', 2, '2021-09-01 19:39:29', '2021-09-01 19:39:29', 'M'),
-(14, 'Tênis Nike PG 5 Unissex', 'images/uploads/tenis-nike-pg-5-unissex-CW3143-400-1.jpg', 0, 55, '749,99', '10', 'Paul George tem um jogo estável e confiável sem esforço. Ele leva seu tempo, mas está sempre bem posicionado para fazer o passe extra, cortar a pista ou dar um salto. Uma evolução mais leve do 4, o PG 5 combina o perfil cano baixo ágil que o Paul gosta com amortecimento Nike Air Strobel flexível em toda a extensão. A unidade Air é costurada diretamente ao cabedal, ajudando a tornar todo o tênis mais leve e trazendo o amortecimento macio e flexível diretamente embaixo do pé—perfeito para manter PG andando com conforto.', 1, '2021-09-14 19:39:29', '2021-09-14 19:39:29', 'M'),
-(15, 'Tênis NikeCourt Air Vapor Pro Masculino', 'images/uploads/tenis-nikecourt-air-vapor-pro-masculino-CZ0220-124-1.jpg', 0, 10, '899,99', '10', 'O NikeCourt Air Zoom Vapor Pro pega tudo o que você adora no NikeCourt Air Zoom Vapor X e o torna mais leve e com mais suporte. O modelo com 3 camadas coloca respirabilidade, estabilidade e durabilidade onde você mais precisa, tudo isso enquanto mantém o mínimo de peso.', 2, '2021-07-04 19:39:29', '2021-07-04 19:39:29', 'M'),
-(16, 'Tênis Jordan MA2 Masculino', 'images/uploads/tenis-jordan-ma2-masculino-CV8122-006-1.jpg', 0, 12, '849,99', '10', 'Desafie o status quo com o Jordan MA2. Fabricado com uma mistura de suede, couro de grão integral e uma variedade de tecidos, o tênis apresenta etiquetas despojadas, estampas tecnológicas e espuma com arestas cruas para oferecer um equilíbrio entre o novo e o clássico. Fáceis de calçar e descalçar e naturalmente confortáveis, os tênis são um símbolo da elegância, atitude e inovação do Jordan.', 1, '2021-09-10 19:39:29', '2021-09-10 19:39:29', 'M'),
-(17, 'Tênis Nike Air Max 95 Masculino', 'images/uploads/tenis-nike-air-max-95-masculino-CZ0191-001-1.jpg', 0, 5, '999,99', '10', 'Inspirado no corpo humano e no DNA da corrida, o Nike Air Max 95 combina conforto inacreditável com estilo impressionante. Os icônicos painéis laterais representam força com cores vibrantes, enquanto o Nike Air visível no calcanhar e no antepé amortece cada passo.', 1, '2021-09-12 19:39:29', '2021-09-12 19:39:29', 'M');
+(12, 'Tênis Nike Air Max Genome Masculino', 'images/uploads/tenis-nike-air-max-genome-masculino-CW1648-004-1.jpg', 0, 44, '999.99', '10', 'Inspirado no visual do início dos anos 2000, o Air Max Genome reformula casa do Air Max. Seu cabedal tecnológico apresenta uma mistura de materiais, incluindo camadas sem costura, mesh arejado e detalhes em TPU durável. A unidade Air em toda a extensão, de baixo perfil acrescenta conforto para combinar com seu design elegante que com certeza se tornará seu novo Air Max favorito.', 1, '2021-07-07 19:39:29', '2021-07-07 19:39:29', 'M'),
+(13, 'Tênis Nike Air Zoom Pegasus 38 Masculino', 'images/uploads/tenis-nike-air-zoom-pegasus-38-masculino-CW7356-003-1.jpg', 0, 100, '699.99', '10', 'Seu cavalo de batalha alado está de volta. O Nike Air Zoom Pegasus 38 continua a oferecer elasticidade à sua passada, utilizando a mesma espuma ágil que seu antecessor. A tela ventilada na parte de cima combina o conforto e a durabilidade que você deseja com um ajuste mais amplo na ponta.', 2, '2021-09-01 19:39:29', '2021-09-01 19:39:29', 'M'),
+(14, 'Tênis Nike PG 5 Unissex', 'images/uploads/tenis-nike-pg-5-unissex-CW3143-400-1.jpg', 0, 55, '749.99', '10', 'Paul George tem um jogo estável e confiável sem esforço. Ele leva seu tempo, mas está sempre bem posicionado para fazer o passe extra, cortar a pista ou dar um salto. Uma evolução mais leve do 4, o PG 5 combina o perfil cano baixo ágil que o Paul gosta com amortecimento Nike Air Strobel flexível em toda a extensão. A unidade Air é costurada diretamente ao cabedal, ajudando a tornar todo o tênis mais leve e trazendo o amortecimento macio e flexível diretamente embaixo do pé—perfeito para manter PG andando com conforto.', 1, '2021-09-14 19:39:29', '2021-09-14 19:39:29', 'M'),
+(15, 'Tênis NikeCourt Air Vapor Pro Masculino', 'images/uploads/tenis-nikecourt-air-vapor-pro-masculino-CZ0220-124-1.jpg', 0, 10, '899.99', '10', 'O NikeCourt Air Zoom Vapor Pro pega tudo o que você adora no NikeCourt Air Zoom Vapor X e o torna mais leve e com mais suporte. O modelo com 3 camadas coloca respirabilidade, estabilidade e durabilidade onde você mais precisa, tudo isso enquanto mantém o mínimo de peso.', 2, '2021-07-04 19:39:29', '2021-07-04 19:39:29', 'M'),
+(16, 'Tênis Jordan MA2 Masculino', 'images/uploads/tenis-jordan-ma2-masculino-CV8122-006-1.jpg', 0, 12, '849.99', '10', 'Desafie o status quo com o Jordan MA2. Fabricado com uma mistura de suede, couro de grão integral e uma variedade de tecidos, o tênis apresenta etiquetas despojadas, estampas tecnológicas e espuma com arestas cruas para oferecer um equilíbrio entre o novo e o clássico. Fáceis de calçar e descalçar e naturalmente confortáveis, os tênis são um símbolo da elegância, atitude e inovação do Jordan.', 1, '2021-09-10 19:39:29', '2021-09-10 19:39:29', 'M'),
+(17, 'Tênis Nike Air Max 95 Masculino', 'images/uploads/tenis-nike-air-max-95-masculino-CZ0191-001-1.jpg', 0, 5, '999.99', '10', 'Inspirado no corpo humano e no DNA da corrida, o Nike Air Max 95 combina conforto inacreditável com estilo impressionante. Os icônicos painéis laterais representam força com cores vibrantes, enquanto o Nike Air visível no calcanhar e no antepé amortece cada passo.', 1, '2021-09-12 19:39:29', '2021-09-12 19:39:29', 'M');
 
 -- --------------------------------------------------------
 

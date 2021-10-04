@@ -382,13 +382,32 @@
 			$_SESSION['searchString'] = isset($_POST['searchString']) 
 				? urldecode($_POST['searchString']) 
 				: '';
+
+			$_SESSION['typeSearch'] = isset($_POST['typeSearch']) 
+				? urldecode($_POST['typeSearch']) 
+				: '';
 		}
 
-		public static function website_produtos_pesquisa($searchString) {
+		public static function website_produtos_pesquisa($searchString, $typeSearch) {
 			$pdo = db::pdo();
 
-			$stmt = $pdo->prepare("SELECT * FROM produtos WHERE estoque > 0 AND nome LIKE :searchString");
-			$stmt->execute([':searchString' => '%'.$searchString.'%']);
+			$stmt = false;
+
+			if ($typeSearch == 'productName') {
+				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE estoque > 0 AND nome LIKE :searchString");
+				$stmt->execute([':searchString' => '%'.$searchString.'%']);
+			}
+
+			if ($typeSearch == 'priceRange') {
+				$prices = explode(',', $searchString);
+
+				$minPrice = $prices[0];
+				$maxPrice = $prices[1];
+
+				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE estoque > 0 AND preco >= :minPrice AND preco <= :maxPrice");
+				$stmt->execute(array(':minPrice' => $minPrice, ':maxPrice' => $maxPrice));
+			}
+			
 			$total = $stmt->rowCount();
 
 			if ($total > 0) {

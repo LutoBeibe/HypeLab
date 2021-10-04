@@ -2,18 +2,45 @@
     <h2>Faixa de Preço</h2>
     <div class="price-range-control">
         <div class="well text-center">
-            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-            <b class="pull-left">R$ 0</b> <b class="pull-right">R$ 600</b>
+            <form method="POST" action="inicio">
+                <input 
+                    type="text" 
+                    name="searchString" 
+                    class="span2" 
+                    value="<?php 
+                        echo isset($_POST['searchString']) && $_POST['typeSearch'] == 'priceRange'
+                            ? urldecode($_POST['searchString']) 
+                            : '500,1675';
+                    ?>" 
+                    data-slider-min="0" 
+                    data-slider-max="3000" 
+                    data-slider-step="5" 
+                    data-slider-value="[<?php
+                        echo isset($_POST['searchString']) && $_POST['typeSearch'] == 'priceRange'
+                            ? urldecode($_POST['searchString']) 
+                            : '500,1675';
+                    ?>]" 
+                    id="sl2" 
+                ><br />
+                <b class="pull-left">R$ 0</b> <b class="pull-right">R$ 3000</b>
+                <div class="control-container">
+                    <button class="filter-button" type="submit"><i class="fa fa-filter"></i> Filtrar</button>
+                </div>
+
+                <input type="hidden" name="typeSearch" value="priceRange">
+            </form>
+
+            <?php website::website_pesquisa();?>
         </div>
     </div>
 </div>
 <br>
 <br>
 <br>
-<br> <!--/price-range-->
+<br> 
 <br>
 <br>
 <br>
 <br>
 <br>
-
+<!--/price-range-->

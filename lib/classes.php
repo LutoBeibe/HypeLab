@@ -287,6 +287,7 @@
 					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
 					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
+					$_SESSION['isVendedor'] = false;
 					$_SESSION['userId'] = $dados['id'];
 					self::website_direciona("inicio");
 				}

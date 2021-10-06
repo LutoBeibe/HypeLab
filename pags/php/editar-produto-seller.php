@@ -57,7 +57,7 @@
               <label>Categoria</label>
               <select name="categoria" class="form-control">
                 <option value="<?php echo $produtos->categoria;?>"><?php echo website::website_admin_getNomeCategoria($produtos->categoria);?>(Atual)</option>
-                <?php website::website_admin_getCategorias();?>
+                <?php website::website_admin_getCategoriaN();?>
               </select>
               <br>
             </div>

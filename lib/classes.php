@@ -343,38 +343,10 @@
 															<i class='fa fa-shopping-cart'></i>Comprar
 														</a>
 												</div>
-
-												<div class='product-overlay'>
-													<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
-														<i class='fa fa-star'></i>
-													</button>-->
-
-													<div class='overlay-content'>
-															<h2>R$ {$dados['preco']}</h2>
-															<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-															<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-																<i class='fa fa-shopping-cart'></i>Comprar
-															</a>
-													</div>
-												</div>
 										</div>
 										<input type='hidden' name='id_produto' value='{$dados['id']}'>
 										<input type='hidden' name='env' value='adicionarAoCarrinho'>
 								</form>
-								<!--<div class='choose'>
-										<ul class='nav nav-pills nav-justified'>
-												<li><a href='comprar/{$dados['id']}'><i class='fa fa-plus-square'></i>Comprar</a></li>
-												
-												<li>
-													<form method='POST' autocomplete='off'>
-															<button type='submit'><i class='fa fa-plus-square'></i>Add aos favoritos</button>
-
-															<input type='hidden' name='id_produto' value='{$dados['id']}'>
-															<input type='hidden' name='envFavoritos' value='adicionarAosFavoritos'>
-													</form>
-												</li>
-										</ul>
-								</div>-->
 						</div>
 				</div>
 			";
@@ -905,49 +877,66 @@
 				} else{
 					$pdo = db::pdo();
 
+					$uploaddir = 'images/uploads/seller-profile/';
+					$uploaddirN = 'images/uploads/seller-profile/';
+					$imagemPerfilGenerico = 'perfil-generico.png';
+
+					$uploadfile = "";
+					$uploadfileN = $uploaddirN . $imagemPerfilGenerico;
+
+					if ($_FILES['foto-vendedor']['size'] > 0) {
+						$nomePersonalizadoPerfilUpload = round(microtime(true) * 1000) . '-' . basename($_FILES['foto-vendedor']['name']);
+
+						$uploadfile = $uploaddir . $nomePersonalizadoPerfilUpload;
+						$uploadfileN = $uploaddirN . $nomePersonalizadoPerfilUpload;
+					}
+
 					$stmt = $pdo->prepare(
-                        "INSERT INTO vendedores (
-                            nome, 
-                            email,
-                            telefone,
-                            bio,
-                            genero,
-                            cpf,
-                            cep,
-                            estado,
-                            cidade,
-                            bairro,
-                            senha,
-                            created_at
+						"INSERT INTO vendedores (
+							nome, 
+							email,
+							telefone,
+							bio,
+							avatar,
+							genero,
+							cpf,
+							cep,
+							estado,
+							cidade,
+							bairro,
+							senha,
+							created_at
 						) VALUES (
-                            :nome, 
-                            :email,
-                            :telefone,
-                            :bio,
-                            :genero,
-                            :cpf,
-                            :cep,
-                            :estado,
-                            :cidade,
-                            :bairro,
-                            :senha,
-                            NOW()
-                        )
-                    ");
+							:nome, 
+							:email,
+							:telefone,
+							:bio,
+							:avatar,
+							:genero,
+							:cpf,
+							:cep,
+							:estado,
+							:cidade,
+							:bairro,
+							:senha,
+							NOW()
+						)
+					");
 
 					$stmt->execute([
-                        ':nome' => $_POST['nome'],
-                        ':email' => $_POST['email'],
-                        ':telefone' => $_POST['telefone'],
-                        ':bio' => $_POST['bio'],
-                        ':genero' => $_POST['genero'],
-                        ':cpf' => $_POST['cpf'],
-                        ':cep' => $_POST['cep'],
-                        ':estado' => $_POST['estado'],
-                        ':cidade' => $_POST['cidade'],
-                        ':bairro' => $_POST['bairro'],
-                        ':senha' => $_POST['senha'],
-                    ]);
+						':nome' => $_POST['nome'],
+						':email' => $_POST['email'],
+						':telefone' => $_POST['telefone'],
+						':bio' => $_POST['bio'],
+						':avatar' => $uploadfileN,
+						':genero' => $_POST['genero'],
+						':cpf' => $_POST['cpf'],
+						':cep' => $_POST['cep'],
+						':estado' => $_POST['estado'],
+						':cidade' => $_POST['cidade'],
+						':bairro' => $_POST['bairro'],
+						':senha' => $_POST['senha'],
+					]);
 
 					$result = $stmt->rowCount();
 
@@ -955,8 +944,14 @@
 						$dados = $stmt->fetch(PDO::FETCH_ASSOC);
 						$_SESSION['userEmail'] = $dados['email'];
 						$_SESSION['userId'] = $dados['id'];
+
+						if ($_FILES['foto-vendedor']['size'] > 0) {
+							move_uploaded_file($_FILES['foto-vendedor']['tmp_name'], $uploadfile);
+						}
+
 						$mensagemHtml = "Cadastro Efetuado com sucesso!";
 						self::website_pop_up($mensagemHtml);
+
 						self::website_direciona("entrar-como-vendedor");
 					}
 					else {
@@ -1037,8 +1032,10 @@
 					$pdo = db::pdo();
 					$uploaddir = '../images/uploads/';
 					$uploaddirN = 'images/uploads/';
-					$uploadfile = $uploaddir . basename($_FILES['produtofile']['name']);
-					$uploadfileN = $uploaddirN . basename($_FILES['produtofile']['name']);
+
+					$nomePersonalizadoFileUpload = round(microtime(true) * 1000) . '-' . basename($_FILES['produtofile']['name']);
+					$uploadfile = $uploaddir . $nomePersonalizadoFileUpload;
+					$uploadfileN = $uploaddirN . $nomePersonalizadoFileUpload;
 
 					$stmt = $pdo->prepare("INSERT INTO produtos 
 						(nome,
@@ -1096,8 +1093,10 @@
 					$pdo = db::pdo();
 					$uploaddir = 'images/uploads/';
 					$uploaddirN = 'images/uploads/';
-					$uploadfile = $uploaddir . basename($_FILES['produtofile']['name']);
-					$uploadfileN = $uploaddirN . basename($_FILES['produtofile']['name']);
+
+					$nomePersonalizadoFileUpload = round(microtime(true) * 1000) . '-' . basename($_FILES['produtofile']['name']);					
+					$uploadfile = $uploaddir . $nomePersonalizadoFileUpload;
+					$uploadfileN = $uploaddirN . $nomePersonalizadoFileUpload;
 
 					$stmt = $pdo->prepare("INSERT INTO produtos 
 						(nome,

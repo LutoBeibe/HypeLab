@@ -1199,6 +1199,32 @@
 				}
 			}
 		}
+		public static function website_seller_buscarproduto(){
+			if(isset($_POST['env']) && $_POST['env'] == "busca"){
+				$busca = "%{$_POST['resultado']}%";
+
+				$pdo = db::pdo();
+
+				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE nome LIKE :nome OR preco LIKE :preco");
+				$stmt->execute([':nome' => $busca, ':preco' => $busca]);
+				$result = $stmt->rowCount();
+
+				if($result > 0){
+					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						echo "<tr>
+				  <td><img src='{$dados['foto']}' width='30'></td>
+				  <td>{$dados['nome']}</td>
+				  <td>{$dados['preco']}</td>
+				  <td><span class='badge badge-dark'>".self::website_admin_getNomeCategoria($dados['categoria'])."</span></td>
+				  <td>
+				    <a href='editar-produto-seller/{$dados['id']}' class='btn btn-outline-primary btn-sm'>Editar</a>
+				    <a href='deletar-produto-seller/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar</a>
+				  </td>
+				</tr>";
+					}
+				}
+			}
+		}
 
 		public static function website_admin_getProdutos(){
 				$pdo = db::pdo();
@@ -1222,6 +1248,28 @@
 					}
 				}
 		}
+		public static function website_seller_getProdutos(){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM produtos ORDER BY id DESC");
+			$stmt->execute();
+			$total = $stmt->rowCount();
+
+			if($total > 0){
+				while($dados = $stmt->fetch(PDO::FETCH_ASSOC)){
+					echo "<tr>
+			  <td><img src='{$dados['foto']}' width='30'></td>
+			  <td>{$dados['nome']}</td>
+			  <td>R$ {$dados['preco']}</td>
+			  <td><span class='badge badge-dark'>".self::website_admin_getNomeCategoria($dados['categoria'])."</span></td>
+			  <td>
+				<a href='editar-produto-seller/{$dados['id']}' class='btn btn-outline-primary btn-sm'>Editar</a>
+				<a href='deletar-produto-seller/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar</a>
+			  </td>
+			</tr>";
+				}
+			}
+	}
 
 		public static function website_admin_altProduto($id){
 			if(isset($_POST['alt']) && $_POST['alt'] == "prod"){
@@ -1253,8 +1301,53 @@
 				}
 			}
 		}
+		public static function website_seller_altProduto($id){
+			if(isset($_POST['alt']) && $_POST['alt'] == "prod"){
+				$pdo = db::pdo();
+
+				$stmt = $pdo->prepare("UPDATE produtos SET 
+					nome = :nome,
+					estoque = :estoque,
+					preco = :preco,
+					tipo_fatura = :tipo_fatura,
+					categoria = :categoria,
+					detalhes = :detalhes,
+					alterado_em = NOW() WHERE id = :id");
+				$stmt->execute(
+					[':nome' => $_POST['nome'],
+					':estoque' => $_POST['estoque'],
+					':preco' => $_POST['valor'],
+					':tipo_fatura' => $_POST['tipo_fatura'],
+					':categoria' => $_POST['categoria'],
+					':detalhes' => $_POST['detalhes'],
+					':id' => $id]);
+				$total = $stmt->rowCount();
+
+				if($total > 0){
+					echo "<div class='alert alert-success'>Dados Alterados com sucesso!</div>";
+					self::website_direciona("editar-produto-seller/{$id}");
+				}else{
+					echo "<div class='alert alert-danger'>Erro ao alterar</div>";
+				}
+			}
+		}
 
 		public static function website_admin_delete($tabela, $coluna, $id, $backpage){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("DELETE FROM {$tabela} WHERE {$coluna} = :id");
+			$stmt->execute([':id' => $id]);
+			$count = $stmt->rowCount();
+
+			if($count > 0){
+				if($backpage != false){
+					self::website_direciona($backpage);	
+				}
+			}else{
+				echo "<div class='alert alert-danger'>Erro ao alterar</div>";
+			}
+		}
+		public static function website_seller_delete($tabela, $coluna, $id, $backpage){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("DELETE FROM {$tabela} WHERE {$coluna} = :id");

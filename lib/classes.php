@@ -672,7 +672,7 @@
 					$stmt = $pdo->prepare("UPDATE clientes SET 
 						nome = :nome, 
 						endereco = :endereco, 
-						complemento = :complemento, 
+						numero = :numero, 
 						senha = :senha, 
 						cep = :cep, 
 						telefone = :telefone, 
@@ -683,9 +683,50 @@
 
 					$stmt->execute([':nome' => $_POST['nome'],
 								':endereco' => $_POST['endereco'],
-								':complemento' => $_POST['complemento'],
+								':numero' => $_POST['numero'],
 								':senha' => $_POST['senha'],
 								':cep' => $_POST['cep'],
+								':telefone' => $_POST['telefone'],
+								':bairro' => $_POST['bairro'],
+								':cidade' => $_POST['cidade'],
+								':estado' => $_POST['estado'],
+								':email' => $_SESSION['userEmail']]);
+
+					$total = $stmt->rowCount();
+
+					if($total > 0){
+						echo "<br><br><div class='alert alert-succes'> Dados Alterados com sucesso!</div>";
+						self::website_direciona("me");
+					}
+
+				}catch(PDOException $e){
+					$e->getMessage();
+				}
+			}
+		}
+		public static function website_alterarDadosSeller(){
+			if(isset($_POST['alt']) && $_POST['alt'] == "cad"){
+
+				try{
+					$pdo = db::pdo();
+					$stmt = $pdo->prepare("UPDATE vendedores SET 
+						nome = :nome, 
+						senha = :senha, 
+						cep = :cep,
+						cpf = :cpf, 
+						bio = :bio,
+						telefone = :telefone, 
+						bairro = :bairro, 
+						cidade = :cidade,
+						estado = :estado 
+						WHERE email = :email");
+
+					$stmt->execute([':nome' => $_POST['nome'],
+						
+								':senha' => $_POST['senha'],
+								':cep' => $_POST['cep'],
+								':cpf' => $_POST['cpf'],
+								':bio' => $_POST['bio'],
 								':telefone' => $_POST['telefone'],
 								':bairro' => $_POST['bairro'],
 								':cidade' => $_POST['cidade'],
@@ -1860,6 +1901,61 @@
 				$this->cidade = $dados['cidade'];
 				$this->estado = $dados['estado'];
 				$this->isadmin = $dados['isadmin'];
+			
+			}catch(PDOException $e){
+				return $e->getMessage();
+			}
+		}
+	}
+	class vendedores{
+		private $id;
+		public $nome;
+		public $email;
+		public $telefone;
+		public $senha;
+		public $endereco;
+		public $numero;
+		public $cpf;
+		public $bio;
+		public $cep;
+		public $cidade;
+		public $estado;
+		public $bairro;
+		public $isadmin;
+
+        public function getId() {
+            return $this->id;
+        }
+
+		public function __construct(){
+			if(isset($_SESSION['userEmail'])){
+				$this->vendedores_updatesInfos();
+			}
+		}
+
+		public function vendedores_updatesInfos(){
+			$email = $_SESSION['userEmail'];
+
+			try{
+				$pdo = db::pdo();
+
+				$stmt = $pdo->prepare("SELECT * FROM vendedores WHERE email = :email");
+				$stmt->execute([':email' => $email]);
+
+				$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				$this->id = $dados['id'];
+				$this->nome = $dados['nome'];
+				$this->email = $dados['email'];
+				$this->telefone = $dados['telefone'];
+				$this->senha = $dados['senha'];
+				$this->cpf = $dados['cpf'];
+				$this->bio = $dados['bio'];
+				$this->cep = $dados['cep'];
+				$this->bairro = $dados['bairro'];
+				$this->cidade = $dados['cidade'];
+				$this->estado = $dados['estado'];
+				
 			
 			}catch(PDOException $e){
 				return $e->getMessage();

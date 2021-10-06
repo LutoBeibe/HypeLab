@@ -4,11 +4,7 @@
 <div class="container">
 <?php $produtos = new produtos($explode['1']);?>
           <div id="r-content">
-            <div class="r-title">Admin / Editar Produto</div>
-            <br>
-            <div class="r-description">
-             Editar Produto
-            </div>
+            <div class="r-title"> Editar Produto</div>
           </div>
           
           <form method="POST" autocomplete="off" enctype="multipart/form-data">

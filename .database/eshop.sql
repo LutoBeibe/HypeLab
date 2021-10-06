@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2021 às 13:43
+-- Tempo de geração: 07-Out-2021 às 01:25
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 7.3.29
 
@@ -103,7 +103,8 @@ INSERT INTO `clientes` (`id`, `nome`, `email`, `telefone`, `senha`, `endereco`, 
 (9, 'Teste232', 'teste232@email.com', '(54) 35345-4363', '1234', '', 0, '', '56363-735', 'gfsdgsdfg', 'Mauá', 'SP', 0, 'masculino', '2021-09-12 13:05:22'),
 (10, 'Teste34545', 'teste34545@email.com', '(38) 96545-3765', '123', '', 0, '', '42354-365', 'shgff', 'Mauá', 'SP', 0, 'masculino', '2021-09-15 17:32:51'),
 (11, 'Teste343', 'teste343@email.com', '(43) 95443-4325', '123', '', 0, '', '45634-756', 'fasdfasf', 'Santo André', 'SP', 0, 'masculino', '2021-09-15 17:37:42'),
-(12, 'Teste99', 'teste99@email.com', '(42) 95234-6553', '1234', '', 0, '', '53454-365', 'hgfhfgdh', 'Mauá', 'SP', 0, 'masculino', '2021-09-15 17:38:43');
+(12, 'Teste99', 'teste99@email.com', '(42) 95234-6553', '1234', '', 0, '', '53454-365', 'hgfhfgdh', 'Mauá', 'SP', 0, 'masculino', '2021-09-15 17:38:43'),
+(13, 'sdgfdsg', 'gdfsagfds@gfgfd', '(53) 45345-3453', '123', 'gsdfgsfd', 75, '', '43242-342', 'gfdgfdsgsd', 'gfgds', 'gfdg', 0, 'feminino', '2021-10-06 20:20:08');
 
 -- --------------------------------------------------------
 
@@ -295,16 +296,20 @@ CREATE TABLE `vendedores` (
   `bairro` varchar(40) DEFAULT NULL,
   `avaliacao` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `senha` varchar(250) DEFAULT NULL
+  `senha` varchar(250) DEFAULT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `numero` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `vendedores`
 --
 
-INSERT INTO `vendedores` (`id`, `nome`, `email`, `telefone`, `bio`, `avatar`, `genero`, `cpf`, `cep`, `estado`, `cidade`, `bairro`, `avaliacao`, `created_at`, `senha`) VALUES
-(1, 'Teste', 'teste@email.com', '(38) 94324-8234', 'fasdasdfsaf', NULL, 'masculino', '347.482.074-93', '34243-242', 'SP', 'Mauá', 'gfsdgsdfg', NULL, '2021-08-24 19:16:09', '123'),
-(2, 'Teste53', 'teste53@email.com', '(11) 94536-5464', 'teste teste teste', NULL, 'masculino', '656.537.537-65', '45536-545', 'SP', 'Mauá', 'gsfdsgdsf', NULL, '2021-09-15 17:40:02', '123');
+INSERT INTO `vendedores` (`id`, `nome`, `email`, `telefone`, `bio`, `avatar`, `genero`, `cpf`, `cep`, `estado`, `cidade`, `bairro`, `avaliacao`, `created_at`, `senha`, `endereco`, `numero`) VALUES
+(1, 'Teste', 'teste@email.com', '(38) 94324-8234', 'fasdasdfsaf', NULL, 'masculino', '347.482.074-93', '34243-242', 'SP', 'Mauá', 'gfsdgsdfg', NULL, '2021-08-24 19:16:09', '123', 'toma no sua gu', '21'),
+(2, 'Teste53', 'teste53@email.com', '(11) 94536-5464', 'teste teste teste', NULL, 'masculino', '656.537.537-65', '45536-545', 'SP', 'Mauá', 'gsfdsgdsf', NULL, '2021-09-15 17:40:02', '123', '', ''),
+(11, 'Teste', 'gfds@fgsgf', '(53) 45345-3453', 'gdfsgsdf', 'images/uploads/seller-profile/1633479749665--vlznbql.jpg', 'masculino', '347.482.074-93', '43242-342', 'SP', 'Mauá', 'gfsdgsdfg', NULL, '2021-10-05 21:22:29', '3432', '', ''),
+(12, 'sdgfdsg', 'gdfsagfds@gfgfd', '(53) 45345-3453', 'sgfdgsdfgsfdg', 'images/uploads/seller-profile/perfil-generico.png', 'masculino', '347.482.074-93', '43242-342', 'gfdg', 'gfgds', 'gfgf', NULL, '2021-10-06 20:16:54', '6546', 'gsdfgsfd', '34');
 
 --
 -- Índices para tabelas despejadas
@@ -401,7 +406,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `compras`
@@ -419,7 +424,7 @@ ALTER TABLE `faturas`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `produtosfavoritos`
@@ -437,7 +442,7 @@ ALTER TABLE `subcategorias`
 -- AUTO_INCREMENT de tabela `vendedores`
 --
 ALTER TABLE `vendedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para despejos de tabelas

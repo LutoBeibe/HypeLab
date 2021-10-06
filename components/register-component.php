@@ -26,6 +26,11 @@
             
             <h5>Endereço</h5>
             <div class="form-content-row">
+                <input type="text" name="endereco" placeholder="Nome Endereço" required/>
+                <input type="text" name="numero" id="numero" placeholder="Número" required/>
+            </div>
+
+            <div class="form-content-row">
                 <input type="text" name="cep" id="cep" placeholder="CEP" required/>
                 <input type="text" name="estado" placeholder="Estado" required/>
             </div>

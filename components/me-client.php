@@ -14,18 +14,8 @@
               </div>
 
               <div class="col-sm-6">
-                <label>Endereço</label>
-                <input type="text" name="endereco" value="<?php echo $clientes->endereco;?>" class="form-control" required><br>
-              </div>
-
-              <div class="col-sm-6">
                 <label>Email</label>
                 <input type="email" name="email" value="<?php echo $clientes->email;?>" class="form-control" disabled><br>
-              </div>
-
-              <div class="col-sm-6">
-                <label>Numero</label>
-                <input type="text" name="numero" value="<?php echo $clientes->numero;?>" class="form-control" required><br>
               </div>
 
               <div class="col-sm-6">
@@ -34,29 +24,39 @@
               </div>
 
               <div class="col-sm-6">
-                <label>CEP</label>
-                <input type="text" name="cep" value="<?php echo $clientes->cep;?>" class="form-control" required><br>
-              </div>
-
-              <div class="col-sm-6">
                 <label>Telefone de contato</label>
                 <input type="text" name="telefone" id="telefone" value="<?php echo $clientes->telefone;?>" class="form-control" required><br>
               </div>
 
               <div class="col-sm-6">
+                <label>Endereço</label>
+                <input type="text" name="endereco" value="<?php echo $clientes->endereco;?>" class="form-control" required><br>
+              </div>
+
+              <div class="col-sm-6">
+                <label>Numero</label>
+                <input type="text" name="numero" value="<?php echo $clientes->numero;?>" class="form-control" required><br>
+              </div>
+
+              <div class="col-sm-6">
+                <label>CEP</label>
+                <input type="text" name="cep" value="<?php echo $clientes->cep;?>" class="form-control" required><br>
+              </div>
+
+              <div class="col-sm-6">
                 <label>Bairro</label>
                 <input type="text" name="bairro" value="<?php echo $clientes->bairro;?>" class="form-control" placeholder="Casa x" required><br>
-            </div>
+              </div>
 
-            <div class="col-sm-6">
-                <label>Cidade</label>
-                <input type="text" name="cidade" value="<?php echo $clientes->cidade;?>"  class="form-control" placeholder="Casa x" required><br>
-            </div>
+              <div class="col-sm-6">
+                  <label>Cidade</label>
+                  <input type="text" name="cidade" value="<?php echo $clientes->cidade;?>"  class="form-control" placeholder="Casa x" required><br>
+              </div>
 
-            <div class="col-sm-6">
-                <label>Estado</label>
-                <input type="text" name="estado" value="<?php echo $clientes->estado;?>" class="form-control" placeholder="Casa x" required><br>
-            </div>
+              <div class="col-sm-6">
+                  <label>Estado</label>
+                  <input type="text" name="estado" value="<?php echo $clientes->estado;?>" class="form-control" placeholder="Casa x" required><br>
+              </div>
             </div>
 
             <input type="submit" value="Alterar Dados" class="btn btn-outline-success btn-lg btn-block">

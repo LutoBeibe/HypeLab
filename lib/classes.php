@@ -696,7 +696,8 @@
 					$total = $stmt->rowCount();
 
 					if($total > 0){
-						echo "<br><br><div class='alert alert-succes'> Dados Alterados com sucesso!</div>";
+						$mensagemHtml = "Dados Alterados com sucesso!";
+						self::website_pop_up($mensagemHtml);
 						self::website_direciona("me");
 					}
 
@@ -717,6 +718,8 @@
 						cpf = :cpf, 
 						bio = :bio,
 						telefone = :telefone, 
+						endereco = :endereco, 
+						numero = :numero, 
 						bairro = :bairro, 
 						cidade = :cidade,
 						estado = :estado 
@@ -729,6 +732,8 @@
 								':cpf' => $_POST['cpf'],
 								':bio' => $_POST['bio'],
 								':telefone' => $_POST['telefone'],
+								':endereco' => $_POST['endereco'],
+								':numero' => $_POST['numero'],
 								':bairro' => $_POST['bairro'],
 								':cidade' => $_POST['cidade'],
 								':estado' => $_POST['estado'],
@@ -737,7 +742,8 @@
 					$total = $stmt->rowCount();
 
 					if($total > 0){
-						echo "<br><br><div class='alert alert-succes'> Dados Alterados com sucesso!</div>";
+						$mensagemHtml = "Dados Alterados com sucesso!";
+						self::website_pop_up($mensagemHtml);
 						self::website_direciona("me");
 					}
 
@@ -859,6 +865,8 @@
                             email,
                             telefone,                            
                             senha,
+														endereco,
+														numero,
                             cep,
                             bairro,
                             cidade,
@@ -870,6 +878,8 @@
                             :email,
                             :telefone,                            
                             :senha,
+														:endereco,
+														:numero,
                             :cep,
                             :bairro,
                             :cidade,
@@ -884,7 +894,9 @@
                         ':email' => $_POST['email'],
                         ':telefone' => $_POST['telefone'],
                         ':senha' => $_POST['senha'],
-                        ':cep' => $_POST['cep'],
+												':endereco' => $_POST['endereco'],
+												':cep' => $_POST['cep'],
+                        ':numero' => $_POST['numero'],
                         ':bairro' => $_POST['bairro'],
                         ':cidade' => $_POST['cidade'],
                         ':estado' => $_POST['estado'],
@@ -942,6 +954,8 @@
 							avatar,
 							genero,
 							cpf,
+							endereco,
+							numero,
 							cep,
 							estado,
 							cidade,
@@ -956,6 +970,8 @@
 							:avatar,
 							:genero,
 							:cpf,
+							:endereco,
+							:numero,
 							:cep,
 							:estado,
 							:cidade,
@@ -973,6 +989,8 @@
 						':avatar' => $uploadfileN,
 						':genero' => $_POST['genero'],
 						':cpf' => $_POST['cpf'],
+						':endereco' => $_POST['endereco'],
+						':numero' => $_POST['numero'],
 						':cep' => $_POST['cep'],
 						':estado' => $_POST['estado'],
 						':cidade' => $_POST['cidade'],
@@ -1951,6 +1969,8 @@
 				$this->telefone = $dados['telefone'];
 				$this->senha = $dados['senha'];
 				$this->cpf = $dados['cpf'];
+				$this->endereco = $dados['endereco'];
+				$this->numero = $dados['numero'];
 				$this->bio = $dados['bio'];
 				$this->cep = $dados['cep'];
 				$this->bairro = $dados['bairro'];

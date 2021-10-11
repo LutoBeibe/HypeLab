@@ -121,14 +121,14 @@
                 
 
               <div class="col-sm-4" align="left">
-                <h5>Depósito bancário: </h5>
-                <p align="left">
-                  <?php website::website_selectBanco(banco);?><br>
-                  <span>Agência: <b><?php echo banco_ag;?></b></span><br>
-                  <span>Conta: <b><?php echo banco_conta;?></b></span><br>
-                  <span>Tipo: <b><?php echo banco_tipo;?></b></span><br>
-                  <span>Favorecido: <b><?php echo banco_favorecido;?></b></span><br>
-                </p>
+                <h4>Depósito bancário: </h4>
+                <div class="batatinha-frita-123" align="left">
+                  <span><?php website::website_selectBanco(banco);?></span>
+                  <span>Agência: <b><?php echo banco_ag;?></b></span>
+                  <span>Conta: <b><?php echo banco_conta;?></b></span>
+                  <span>Tipo: <b><?php echo banco_tipo;?></b></span>
+                  <span>Favorecido: <b><?php echo banco_favorecido;?></b></span>
+                </div>
               </div>
             </div>
             <hr>

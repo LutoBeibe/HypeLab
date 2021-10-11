@@ -459,6 +459,9 @@ a#scrollUp i {
 
     transition: .3s;
 }
+.search_box input:hover{
+    filter: brightness(.95);
+}
 
 /* .search_box input:focus {
     width: 185px;
@@ -475,6 +478,10 @@ a#scrollUp i {
     border-radius: 4px;
     
     opacity: 0;
+}
+
+.search_box button:hover{
+    filter: brightness(.15) !important;
 }
 
 
@@ -1153,6 +1160,21 @@ h2.title:before {
     white-space: nowrap;
 }
 
+.badge-fix{
+    /* display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;*/
+    font-size: 14px;
+    font-weight: normal !important;
+    /*line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;*/
+    background-color: #95a5a6 !important;
+    /*border-radius: 10px */
+}
+
 .panel-body ul {
     padding-left: 20px;
 }
@@ -1216,6 +1238,17 @@ h2.title:before {
     padding: 35px;
 }
 
+.batatinha-frita-123{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.batatinha-frita-123 span{
+    margin-top: 4px !important;
+}
+
 .price-range .price-range-control .well .control-container {
     display: flex;
     justify-content: center;
@@ -1226,17 +1259,17 @@ h2.title:before {
     margin-top: 1.6rem;
     padding: .75rem 2rem;
 
-    background-color: #F5F5ED;
-    color: #696763;
+    background-color: #27ae60;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     outline: none;
 
     transition: .3s;
 }
 
 .price-range .price-range-control .well .control-container .filter-button:hover {
-    filter: brightness(.95);
+    filter: brightness(.80);
 }
 
 .tooltip-inner {
@@ -1394,17 +1427,17 @@ h2.title {
 }
 
 .add-to-cart {
-    background: #F5F5ED;
-    border: 0 none;
+    background: aliceblue;
+    border: 0.5px solid #27ae60;
     border-radius: 0;
-    color: #696763;
+    color: #27ae60;
     font-family: 'Gemunu Libre', sans-serif;
     font-size: 16.5px;
     margin-bottom: 25px;
 }
 
 .add-to-cart:hover {
-    background: #38383a;
+    background: #27ae60;
     border: 0 none;
     border-radius: 0;
     color: #FFFFFF;
@@ -1419,7 +1452,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-    background: #38383a;
+    background: #27ae60;
     color: #FFFFFF;
 }
 
@@ -2189,7 +2222,15 @@ h2.title {
 }
 
 #remove{
-    border: none;
+    border: none !important;
+}
+
+.table-unboders,
+.table-unboders tr,
+.table-unboders th,
+.table-unboders td{
+border: none !important;
+vertical-align: middle !important;
 }
 
 .cart_quantity_button a {
@@ -2902,7 +2943,18 @@ textarea {
     background: #38383a;
     border: 0 none;
     border-radius: 0;
-    margin-top: 16px;
+    font-size: 14px !important;
+    /* margin-top: 16px; */
+}
+
+.btn.btn-primary:hover {
+    filter: brightness(.75);
+}
+
+.acount-option-title{
+font-size: 25px;
+padding-bottom: 25px;
+font-weight: bold;
 }
 
 .blank-arrow {

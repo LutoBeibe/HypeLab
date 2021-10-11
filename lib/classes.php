@@ -631,7 +631,7 @@
 
 				switch ($status_fatura) {
 					case 0:
-						$statusN = "<span class='badge badge-danger'>Aguardando Pagamento</span>";
+						$statusN = "<span class='badge badge-danger badge-fix'>Aguardando Pagamento</span>";
 						break;
 					
 					case 1:
@@ -767,7 +767,7 @@
 				switch($dados['status']){
 
 					case 0:
-						$msgCompra = "<span class='badge badge-warning'>Processando</span>";
+						$msgCompra = "<span class='badge badge-warning badge-fix'>Processando</span>";
 					break;
 
 					case 1:
@@ -779,7 +779,7 @@
 				switch($this->website_getDadosFatura($dados['id_fatura'], "status")){
 
 					case 0:
-						$msgFatura = "<span class='badge badge-danger'>Aguardando Pagamento</span>";
+						$msgFatura = "<span class='badge badge-danger badge-fix'>Aguardando Pagamento</span>";
 					break;
 
 					case 1:
@@ -812,7 +812,7 @@
 				switch($dados['status']){
 
 					case 0:
-						$msgFatura = "<span class='badge badge-danger'>Aguardando Pagamento</span>";
+						$msgFatura = "<span class='badge badge-danger badge-fix'>Aguardando Pagamento</span>";
 					break;
 					
 					case 1:

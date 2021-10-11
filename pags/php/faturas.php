@@ -4,12 +4,12 @@
 <div class="container">
 <?php website::website_verificaIsLogado();?>
           <div id="r-content">
-            <div class="r-description">Minhas Faturas</div>
+            <div class="r-description acount-option-title">Minhas Faturas</div>
           </div>
 
           <div id="menu-buys">
             <div class="table-responsive">
-              <table class="table table-bordered">
+              <table class="table table-unboders">
                 <tr>
                   <th>#</th>
                   <th width="40%">Pedido</th>

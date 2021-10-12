@@ -15,11 +15,9 @@
         </div>
 
         <div class="seller-buttom" >
-            
                 <a href="entrar-como-vendedor">
                     <button type="submit" class="btn btn-default">Entrar Como Vendedor</button>
                 </a>
-            
         </div>
 
     </div>

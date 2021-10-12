@@ -2,11 +2,11 @@
           
           <div id="r-content">
             <div class="r-description">
-             Confira ou edite seus dados cadastrais
+             <h4>Confira ou edite seus dados cadastrais</h4>
             </div>
           </div>
           
-          <form method="POST" autocomplete="off">
+          <form class="me-form" method="POST" autocomplete="off">
             <div class="row">
               <div class="col-sm-6">
                 <label>Nome</label>
@@ -59,7 +59,9 @@
               </div>
             </div>
 
-            <input type="submit" value="Alterar Dados" class="btn btn-outline-success btn-lg btn-block">
+            <div class="change-data">
+              <input type="submit" value="Alterar Dados" class="btn btn-outline-success btn-lg btn-block">
+            </div>
             <input type="hidden" name="alt" value="cad">
           </form>
           <?php website::website_alterarDadosCliente();?>

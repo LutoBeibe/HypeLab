@@ -180,7 +180,7 @@ a#scrollUp i {
     height: 100px;
     border-radius: 50%;
     border: 5px solid transparent;
-    border-left-color: black;
+    border-left-color: #2f2f31;
     animation: spin 1s linear infinite;
 }
 
@@ -218,8 +218,8 @@ a#scrollUp i {
 }
 
 .contactinfo ul li a {
-    font-size: 15px;
-    color: #e0e7f5;
+    font-size: 14px;
+    color: #ffffff;
     font-family: 'Gemunu Libre', sans-serif;
 
     letter-spacing: 1.1px;
@@ -462,6 +462,9 @@ a#scrollUp i {
 .search_box input:hover{
     filter: brightness(.95);
 }
+.search_box input:focus{
+    filter: brightness(.95);
+}
 
 /* .search_box input:focus {
     width: 185px;
@@ -475,13 +478,18 @@ a#scrollUp i {
 
     width: 3.3rem;
     height: 100%;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
+
+    background-color: white;
     
-    opacity: 0;
+    opacity: .4;
+    z-index: 99;
+
+    transition: .2s;
 }
 
 .search_box button:hover{
-    filter: brightness(.15) !important;
+    filter: brightness(.9) !important;
 }
 
 
@@ -1317,6 +1325,7 @@ h2.title {
 
 .product-image-wrapper {
     border: 1px solid #F7F7F5;
+    border-radius: 4px;
     overflow: hidden;
     margin-bottom: 30px;
 }
@@ -1402,6 +1411,7 @@ h2.title {
 
 .add-to-cart {
     border-radius: 4px !important;
+    box-sizing: border-box;
 }
 
 .product-overlay .add-to-cart {
@@ -1438,7 +1448,7 @@ h2.title {
 
 .add-to-cart:hover {
     background: #27ae60;
-    border: 0 none;
+    border: 0.5px solid #27ae60;
     border-radius: 0;
     color: #FFFFFF;
 }
@@ -1981,6 +1991,10 @@ h2.title {
 
 /*.login-form {}*/
 
+.r-description {
+    margin-bottom: 14px;
+}
+
 .signup-form .register-user-form-container .form-content-row {
     display: flex;
     justify-content: left;
@@ -2049,10 +2063,12 @@ h2.title {
     margin-bottom: 30px;
 }
 
-.login-form form input,
-.signup-form form input {
-    background: #F0F0E9;
-    border: medium none;
+.login-form form input, .login-form form textarea,
+.signup-form form input, .signup-form form textarea,
+.me-form input, .me-form textarea {
+    background: #ffffff;
+    border: 1px solid #afb0b6;
+    border-radius: 3px;
     color: #696763;
     display: block;
     font-family: 'Gemunu Libre', sans-serif;
@@ -2063,6 +2079,32 @@ h2.title {
     outline: medium none;
     padding-left: 10px;
     width: 100%;
+    filter: brightness(.98);
+    transition: .2s;
+}
+
+.login-form form input:hover, 
+.login-form form input:focus,
+.signup-form form input:hover, 
+.signup-form form input:focus,
+.me-form input:hover, 
+.me-form input:focus {
+    filter: brightness(.93);
+}
+
+.login-form form textarea:hover, 
+.login-form form textarea:focus,
+.signup-form form textarea:hover, 
+.signup-form form textarea:focus,
+.me-form textarea:hover, 
+.me-form textarea:focus {
+    filter: brightness(.93);
+}
+
+.login-form form textarea,
+.signup-form form textarea,
+.me-form textarea {
+    height: 120px;
 }
 
 .login-form form span {
@@ -2082,13 +2124,46 @@ h2.title {
 
 .login-form form button,
 .signup-form form button {
-    background: #38383a;
-    border: medium none;
-    border-radius: 0;
+    background: #2f2f31;
+    border: 1px solid #202022;
+    border-radius: 4px;
     color: #FFFFFF;
     display: block;
     font-family: 'Gemunu Libre', sans-serif;
     padding: 6px 25px;
+    transition: .3s;
+}
+
+.login-form form button:hover,
+.signup-form form button:hover {
+    background: #272729;
+    border: 1px solid #202022;
+    color: #FFFFFF;
+}
+
+.me-form .change-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.me-form .change-data .btn-outline-success {
+    background: #2f2f31;
+    border: 1px solid #202022;
+    border-radius: 4px;
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Gemunu Libre', sans-serif;
+    padding: 6px 25px;
+    transition: .3s;
+    width: 15% !important;
+}
+
+.me-form .change-data .btn-outline-success:hover {
+    background: #272729;
+    border: 1px solid #202022;
+    color: #FFFFFF;
 }
 
 /*.login-form label {}*/
@@ -2103,14 +2178,14 @@ h2.title {
 }
 
 .or {
-    background: #38383a;
-    border-radius: 40px;
+    background: #2f2f31;
+    border-radius: 50%;
     color: #FFFFFF;
     font-family: 'Gemunu Libre', sans-serif;
     font-size: 16px;
     height: 50px;
     line-height: 50px;
-    margin-top: 75px;
+    margin: 75px 0 0 9px !important;
     text-align: center;
     width: 50px;
 }
@@ -3082,19 +3157,25 @@ font-weight: bold;
     color: #38383a;
 }
 
+.seller-buttom a {
+    width: min-content;
+    display: flex;
+    margin-left: 9.755rem;
+}
 
 .seller-buttom button {
-    background: black;
-    border: medium none;
-    border-radius: 0;
+    background: #2f2f31;
+    border: 1px solid #202022;
+    border-radius: 4px;
     color: #FFFFFF;
     display: block;
     font-family: 'Gemunu Libre', sans-serif;
-    padding: 6px 25px;
-    margin-left: 9.755rem;
+    padding: 10px 25px;
+    transition: .2s;
 }
-.seller-buttom button:hover{
-    background: #FFFFFF;
-    color: black;
 
+.seller-buttom button:hover{
+    background: #272729;
+    border: 1px solid #202022;
+    color: #FFFFFF;
 }

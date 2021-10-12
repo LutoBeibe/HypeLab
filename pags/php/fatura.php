@@ -1,21 +1,6 @@
-<header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <?php website::website_navTop() ?>
-                </div>
-                <div class="col-sm-6">
-                    <div class="shop-menu clearfix pull-right">
-                        <ul class="nav navbar-nav">
-                            <?php website::website_navLogin(); ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/header_top-->
 <?php
+  include('components/header-component.php');
+
   website::website_verificaIsLogado(); 
   $clientes = new clientes();
   $website = new website();
@@ -28,17 +13,12 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-6">
-        <br /> 
         <div class="logo pull-left">
-          <a href="inicio"><img src="images/home/logo-secondary.png" alt="<?php echo titulo; ?> Logo" /></a>
            </div>
-           <br /> <br /> <br /> <br />
-           <hr>
           <h1>Fatura Nº<?php echo $explode['1'];?></h1>
           <strong>Email: </strong> Hypelab@vendas.com
           <br />
           <strong>Telefone: </strong> +55 (11) 98012-7711
-          <br><br>
         </div>
         <div class="col-sm-6">
           <h3> HypeLab </h3> 1941 Av. Paulista - Bela Vista

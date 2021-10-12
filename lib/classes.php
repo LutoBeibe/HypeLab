@@ -635,7 +635,7 @@
 						break;
 					
 					case 1:
-						$statusN = "<span class='badge badge-success'>Pago</span>";
+						$statusN = "<span class='badge badge-success badge-fix'>Pago</span>";
 						break;
 				}
 
@@ -771,7 +771,7 @@
 					break;
 
 					case 1:
-						$msgCompra = "<span class='badge badge-success'>Entregue</span>";
+						$msgCompra = "<span class='badge badge-success badge-fix'>Entregue</span>";
 					break;
 
 				}
@@ -783,7 +783,7 @@
 					break;
 
 					case 1:
-						$msgFatura = "<span class='badge badge-success'>Pago</span>";
+						$msgFatura = "<span class='badge badge-success badge-fix'>Pago</span>";
 					break;
 
 				}
@@ -793,7 +793,7 @@
 			<td>{$dados['nome_produto']}</td>
 			<td>{$msgCompra}</td>
 			<td>{$msgFatura}</td>
-			<td><a href='fatura/{$dados['id_fatura']}' class='btn btn-primary btn-sm'>Ver Detalhes</a></td>
+			<td><a href='fatura/{$dados['id_fatura']}' class='btn btn-primary btn-sm btn-default'>Ver Detalhes</a></td>
 		</tr>";
 				}
 			}
@@ -806,27 +806,25 @@
 
 			$total = $stmt->rowCount();
 			if($total > 0){
-			while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				// $msgFatura;
+				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+					switch($dados['status']){
+						case 0:
+							$msgFatura = "<span class='badge badge-danger badge-fix'>Aguardando Pagamento</span>";
+						break;
+						
+						case 1:
+							$msgFatura = "<span class='badge badge-success badge-fix'>Pago</span>";
+						break;
+					}
 
-				switch($dados['status']){
-
-					case 0:
-						$msgFatura = "<span class='badge badge-danger badge-fix'>Aguardando Pagamento</span>";
-					break;
-					
-					case 1:
-						$msgFatura = "<span class='badge badge-success'>Pago</span>";
-					break;
-
-				}
-
-				echo "<tr>
-		  <td>{$dados['id']}</td>
-		  <td>{$this->website_getDetailsCompra($dados['id'], "nome_produto")}</td>
-		  <td>{$msgFatura}</td>
-		  <td><a href='fatura/{$dados['id']}' class='btn btn-primary btn-sm'>Pagar</a></td>
-		</tr>";
+					echo "
+						<tr>
+							<td>{$dados['id']}</td>
+							<td>{$this->website_getDetailsCompra($dados['id'], "nome_produto")}</td>
+							<td>{$msgFatura}</td>
+							<td><a href='fatura/{$dados['id']}' class='btn btn-primary btn-sm btn-default'>Ver Detalhes</a></td>
+						</tr>
+					";
 				}
 			}
 		}
@@ -1647,11 +1645,11 @@
 
 				switch($dados['status']){
 					case 0:
-						$statusF = "<span class='badge badge-danger'>Aguardando Pagamento</span>";
+						$statusF = "<span class='badge badge-danger badge-fix'>Aguardando Pagamento</span>";
 					break;
 
 					case 1:
-						$statusF = "<span class='badge badge-success'>Pago</span>";
+						$statusF = "<span class='badge badge-success badge-fix'>Pago</span>";
 					break;
 				}
 			echo "<tr>

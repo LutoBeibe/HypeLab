@@ -36,19 +36,8 @@
             <div class="col-sm-6">
               <label>Tipo de fatura</label>
               <select name="tipo_fatura" value="" class="form-control">
-                <?php
-                  switch($produtos->tipo_fatura){
-                    case 0:
-                    echo "<option value='0'>Pagamento Único(Atual)</option>";
-                    break;
-
-                    case 1:
-                    echo "<option value='1'>Mensal(Atual)</option>";
-                    break;
-                  }
-                ?>
-                <option value='0'>Pagamento Único</option>
-                <option value="1">Mensal</option>
+                <option value="0" <?php echo $produtos->tipo_fatura === "0" ? "selected" : "" ?>>Pagamento Único</option>
+                <option value="1" <?php echo $produtos->tipo_fatura === "1" ? "selected" : "" ?>>Mensal</option>
               </select>
               <br>
             </div>
@@ -56,8 +45,15 @@
             <div class="col-sm-6">
               <label>Categoria</label>
               <select name="categoria" class="form-control">
-                <option value="<?php echo $produtos->categoria;?>"><?php echo website::website_admin_getNomeCategoria($produtos->categoria);?>(Atual)</option>
-                <?php website::website_admin_getCategorias();?>
+                <?php website::website_admin_getCategoriaN($produtos->categoria);?>
+              </select>
+              <br>
+            </div>
+
+            <div class="col-sm-6">
+              <label>Gênero</label>
+              <select name="genero" class="form-control">
+                <?php website::website_admin_getGeneros($produtos->genero);?>
               </select>
               <br>
             </div>

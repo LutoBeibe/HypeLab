@@ -252,10 +252,10 @@
 					$htmlNavLogin .= "
 						<li class='dropdown'><a href='#'>Gerenciar</a>
 							<ul role='menu' class='sub-menu account-menu'>
-								<li><a href='cadastrar-produto-vendedor'>Cadastrar Produto</a></li>
 								<li><a href='buscar-produto-vendedor'>Buscar</a></li> 
-								<li><a href='gerenciar-vendas-vendedor'>Gerenciar Vendas</a></li> 
+								<li><a href='cadastrar-produto-vendedor'>Cadastrar Produto</a></li>
 								<li><a href='gerenciar-produtos-vendedor'>Gerenciar Produtos</a></li>
+								<li><a href='gerenciar-vendas-vendedor'>Gerenciar Vendas</a></li> 
 							</ul>
 						</li> 
 					";
@@ -284,7 +284,7 @@
 					self::website_pop_up($mensagemHtml);
 				}else{
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
-					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
+					$mensagemHtml = "<span class='text-success'>Bem vindo de volta {$dados['nome']}!</span>";
 					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
 					$_SESSION['isVendedor'] = false;
@@ -294,7 +294,7 @@
 			}
 		}
 
-        public static function website_autenticaLoginVendedor(){
+		public static function website_autenticaLoginVendedor(){
 			if(isset($_POST['log']) && $_POST['log'] == "inVendedor"){
 				$pdo = db::pdo();
 
@@ -307,7 +307,7 @@
 					self::website_pop_up($mensagemHtml);
 				}else{
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
-					$mensagemHtml = "<span class='text-success'>Logado com sucesso! Entrando...</span>";
+					$mensagemHtml = "<span class='text-success'>Bem vindo de volta {$dados['nome']}!</span>";
 					self::website_pop_up($mensagemHtml);
 					$_SESSION['userEmail'] = $dados['email'];
 					$_SESSION['userId'] = $dados['id'];
@@ -1034,7 +1034,7 @@
 			}
 		}
 
-		public static function website_admin_getCategoriaN(){
+		public static function website_admin_getCategoriaN($idSubcategoriaSelecionada = ''){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("SELECT * FROM categorias ORDER BY categoria ASC");
@@ -1044,31 +1044,33 @@
 			if($total > 0){
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 					echo "<optgroup label='{$dados['categoria']}'>".
-					self::website_admin_getSubCategorias($dados['id'])."
+						self::website_admin_getSubCategorias($dados['id'], $idSubcategoriaSelecionada)."
 					</optgroup>";
 				}
 			}
 		}
 
-		public static function website_admin_getSubCategorias($id){
+		public static function website_admin_getSubCategorias($idCategoria, $idSubcategoriaSelecionada = ''){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("SELECT * FROM subcategorias WHERE id_categoria = :id_categoria ORDER BY subcategoria ASC");
-			$stmt->execute([':id_categoria' => $id]);
+			$stmt->execute([':id_categoria' => $idCategoria]);
 			$total = $stmt->rowCount();
 
 			$subcategoriasHtml = "";
 
 			if($total > 0){
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-					$subcategoriasHtml .= "<option value='{$dados['id']}'>{$dados['subcategoria']}</option>";
+					$subcategoriasHtml .= $dados['id'] == $idSubcategoriaSelecionada
+						? "<option value='{$dados['id']}' selected>{$dados['subcategoria']}</option>"
+						: "<option value='{$dados['id']}'>{$dados['subcategoria']}</option>";
 				}
 
 				return $subcategoriasHtml;
 			}
 		}
 
-		public static function website_admin_getGeneros(){
+		public static function website_admin_getGeneros($id = ''){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("SELECT * FROM generos ORDER BY nome ASC");
@@ -1077,8 +1079,25 @@
 
 			if($total > 0){
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-					echo "<option value='{$dados['id']}'>{$dados['nome']}</option>";
+					if ($dados['id'] === $id) {
+						echo "<option value='{$dados['id']}' selected>{$dados['nome']}</option>";
+					} else {
+						echo "<option value='{$dados['id']}'>{$dados['nome']}</option>";
+					}
 				}
+			}
+		}
+
+		public static function website_admin_getNomeGenero($id) {
+			$pdo = db::pdo();
+			$stmt = $pdo->prepare("SELECT nome FROM generos WHERE id = :id");
+			$stmt->execute([':id' => $id]);
+			$result = $stmt->rowCount();
+			
+			if ($result > 0) {
+				$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				return $dados['nome'];
 			}
 		}
 
@@ -1163,6 +1182,7 @@
 						estoque,
 						preco,
 						categoria,
+						genero,
 						detalhes,
 						publicado_em,
 						alterado_em) 
@@ -1175,6 +1195,7 @@
 						:estoque, 
 						:preco,
 						:categoria,
+						:genero,
 						:detalhes,
 						NOW(),
 						NOW())");
@@ -1186,16 +1207,19 @@
 						':estoque' => $_POST['estoque'],
 						':preco' => $_POST['valor'],
 						':categoria' => $_POST['categoria'],
+						':genero' => $_POST['genero'],
 						':detalhes' => $_POST['detalhes']
                     ]);
 
 					$result = $stmt->rowCount();
 
 					if($result > 0){
-						echo "<div class='alert alert-success'>produto cadastrado com sucesso!</div>";
+						$mensagemHtml = "Produto cadastrado com sucesso!";
+						website::website_pop_up($mensagemHtml);
 						move_uploaded_file($_FILES['produtofile']['tmp_name'], $uploadfile);
 					}else{
-						echo "<div class='alert alert-danger'>Erro ao cadastrar</div>";
+						$mensagemHtml = "Erro ao cadastrar!";
+						website::website_pop_up($mensagemHtml);
 					}
 				}
 			}
@@ -1315,16 +1339,27 @@
 
 			if($total > 0){
 				while($dados = $stmt->fetch(PDO::FETCH_ASSOC)){
-					echo "<tr>
-			  <td><img src='{$dados['foto']}' width='30'></td>
-			  <td>{$dados['nome']}</td>
-			  <td>R$ {$dados['preco']}</td>
-			  <td><span class='badge badge-dark'>".self::website_admin_getNomeCategoria($dados['categoria'])."</span></td>
-			  <td>
-				<a href='editar-produto-seller/{$dados['id']}' class='btn btn-outline-primary btn-sm'>Editar</a>
-				<a href='deletar-produto-seller/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar</a>
-			  </td>
-			</tr>";
+					$htmlDadosProdutos = "
+						<tr>
+							<td><img src='{$dados['foto']}' width='30'></td>
+							<td>{$dados['nome']}</td>
+							<td>R$ {$dados['preco']}</td>
+					";
+
+					$htmlDadosProdutos .= $dados['estoque'] <= 0  
+						? "<td><span style='min-width: 40px !important;' class='badge badge-fix badge-danger'>{$dados['estoque']}</span></td>" 
+						: "<td><span style='min-width: 40px !important;' class='badge badge-fix badge-success'>{$dados['estoque']}</span></td>";
+					
+					$htmlDadosProdutos .= "
+							<td><span class='badge badge-fix'>".self::website_admin_getNomeCategoria($dados['categoria'])."</span></td>
+							<td>
+								<a href='editar-produto-seller/{$dados['id']}' class='btn btn-outline-primary btn-sm'>Editar</a>
+								<a href='deletar-produto-seller/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar</a>
+							</td>
+						</tr>
+					";
+
+					echo $htmlDadosProdutos;
 				}
 			}
 	}
@@ -1339,6 +1374,7 @@
 					preco = :preco,
 					tipo_fatura = :tipo_fatura,
 					categoria = :categoria,
+					genero = :genero,
 					detalhes = :detalhes,
 					alterado_em = NOW() WHERE id = :id");
 				$stmt->execute(
@@ -1347,6 +1383,7 @@
 					':preco' => $_POST['valor'],
 					':tipo_fatura' => $_POST['tipo_fatura'],
 					':categoria' => $_POST['categoria'],
+					':genero' => $_POST['genero'],
 					':detalhes' => $_POST['detalhes'],
 					':id' => $id]);
 				$total = $stmt->rowCount();
@@ -1359,6 +1396,7 @@
 				}
 			}
 		}
+
 		public static function website_seller_altProduto($id){
 			if(isset($_POST['alt']) && $_POST['alt'] == "prod"){
 				$pdo = db::pdo();
@@ -1369,6 +1407,7 @@
 					preco = :preco,
 					tipo_fatura = :tipo_fatura,
 					categoria = :categoria,
+					genero = :genero,
 					detalhes = :detalhes,
 					alterado_em = NOW() WHERE id = :id");
 				$stmt->execute(
@@ -1377,15 +1416,18 @@
 					':preco' => $_POST['valor'],
 					':tipo_fatura' => $_POST['tipo_fatura'],
 					':categoria' => $_POST['categoria'],
+					':genero' => $_POST['genero'],
 					':detalhes' => $_POST['detalhes'],
 					':id' => $id]);
 				$total = $stmt->rowCount();
 
 				if($total > 0){
-					echo "<div class='alert alert-success'>Dados Alterados com sucesso!</div>";
+					$mensagemHtml = "Dados alterados com sucesso!";
+					website::website_pop_up($mensagemHtml);
 					self::website_direciona("editar-produto-seller/{$id}");
 				}else{
-					echo "<div class='alert alert-danger'>Erro ao alterar</div>";
+					$mensagemHtml = "Erro ao alterar!";
+					website::website_pop_up($mensagemHtml);
 				}
 			}
 		}
@@ -1413,11 +1455,15 @@
 			$count = $stmt->rowCount();
 
 			if($count > 0){
-				if($backpage != false){
-					self::website_direciona($backpage);	
-				}
+				$mensagemHtml = "Deletado com sucesso!";
+				website::website_pop_up($mensagemHtml);
 			}else{
-				echo "<div class='alert alert-danger'>Erro ao alterar</div>";
+				$mensagemHtml = "Erro ao deletar!";
+				website::website_pop_up($mensagemHtml);
+			}
+
+			if($backpage != false){
+				self::website_direciona($backpage);	
 			}
 		}
 
@@ -1990,6 +2036,7 @@
 		public $estoque;
 		public $preco;
 		public $categoria;
+		public $genero;
 		public $detalhes;
 
 
@@ -2015,6 +2062,7 @@
 				$this->estoque = $dados['estoque'];
 				$this->preco = $dados['preco'];
 				$this->categoria = $dados['categoria'];
+				$this->genero = $dados['genero'];
 				$this->detalhes = $dados['detalhes'];
 			}
 		}

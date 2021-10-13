@@ -14,6 +14,7 @@
                   <th width="2%">#</th>
                   <th width="40%">Nome</th>
                   <th>Preço</th>
+                  <th>Estoque</th>
                   <th>Categoria</th>
                   <th>Gerenciar</th>
                 </tr>

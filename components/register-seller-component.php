@@ -1,6 +1,6 @@
 <div class="col-sm-4">
     <div class="signup-form"><!--sign up form-->
-        <h2>Novo vendedor? Cadaste-se</h2>
+        <h2>Novo vendedor? Cadastre-se</h2>
         <form method="POST" autocomplete="center" enctype="multipart/form-data" class="register-user-form-container">
             <div class="form-content-row">
                 <input type="text" name="nome" placeholder="Nome" required/>

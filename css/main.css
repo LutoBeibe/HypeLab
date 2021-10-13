@@ -2191,6 +2191,12 @@ h2.title {
     color: #FFFFFF;
 }
 
+@media (max-width: 800px) {
+    .me-form .change-data .btn-outline-success {
+        width: 50% !important;
+    }
+}
+
 /*.login-form label {}*/
 
 .login-form label input {

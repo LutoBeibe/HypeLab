@@ -574,6 +574,7 @@ ul.account-menu {
 }
 
 .carousel-container .carousel-wrapper {
+    position: relative;
     padding: 2rem 19.1rem;
 
     color: #464649;
@@ -586,21 +587,37 @@ ul.account-menu {
     .carousel-container .carousel-wrapper {
         padding: 2rem 8rem;
     }
+
+    .carousel-container .carousel-wrapper .button-prev-icon {
+        left: 56px !important;
+    }
+    
+    .carousel-container .carousel-wrapper .button-next-icon {
+        right: 56px !important;
+    }
 }
 
 @media (max-width: 600px) {
     .carousel-container .carousel-wrapper {
         padding: 2rem 4rem;
     }
+
+    .carousel-container .carousel-wrapper .button-prev-icon {
+        left: 16px !important;
+    }
+    
+    .carousel-container .carousel-wrapper .button-next-icon {
+        right: 16px !important;
+    }
 }
 
 .carousel-container .carousel-wrapper .carousel .slick-arrow {
-    color: black !important;
+    color: #00000000 !important;
 }
 
 .slick-prev:before, 
 .slick-next:before {
-    color: black !important;
+    color: #00000000 !important;
     opacity: .70;
     transition: .2s;
 }
@@ -608,6 +625,39 @@ ul.account-menu {
 .carousel-container .carousel-wrapper .carousel .slick-list {
     margin: 0 3rem;
     text-align: center;
+}
+
+.carousel-container .carousel-wrapper .button-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+
+    color: #555558;
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+    font-weight: 100;
+}
+
+.carousel-container .carousel-wrapper .button-prev-icon {
+    left: 166px;
+}
+
+.carousel-container .carousel-wrapper .button-next-icon {
+    right: 166px;
+}
+
+#carousel-about label {
+    text-transform: uppercase;
+    font-size: 17px;
 }
 
 /*************************
@@ -1143,6 +1193,7 @@ h2.title:before {
 }
 
 .category-products .panel-default .panel-heading .panel-title a {
+    display: block;
     color: #696763;
     font-family: 'Gemunu Libre', sans-serif;
     font-size: 16px;
@@ -1157,7 +1208,7 @@ h2.title:before {
 .category-products .badge {
     background: none;
     border-radius: 10px !important;
-    color: #ffffff;
+    color: #72706b;
     display: inline-block;
     font-size: 12px;
     font-weight: bold;

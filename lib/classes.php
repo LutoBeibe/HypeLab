@@ -1235,6 +1235,72 @@
 			}
 		}
 
+		public static function website_cadastrarProdutoVendedor(){
+			if(isset($_POST['env']) && $_POST['env'] == "prodVendedor"){
+				if($_FILES['produtofile']['size'] <= 0){
+					echo "<div class='alert alert-danger'>Insira uma imagem para prosseguir</div>";
+				} else{
+					$pdo = db::pdo();
+					$uploaddir = 'images/uploads/';
+					$uploaddirN = 'images/uploads/';
+
+					$nomePersonalizadoFileUpload = round(microtime(true) * 1000) . '-' . basename($_FILES['produtofile']['name']);					
+					$uploadfile = $uploaddir . $nomePersonalizadoFileUpload;
+					$uploadfileN = $uploaddirN . $nomePersonalizadoFileUpload;
+
+					$stmt = $pdo->prepare("INSERT INTO produtos 
+						(nome,
+						foto,
+						tipo_fatura,
+						estoque,
+						preco,
+						categoria,
+						genero,
+						detalhes,
+						idVendedor,
+						publicado_em,
+						alterado_em) 
+
+						VALUES
+
+						(:nome, 
+						:foto, 
+						:tipo_fatura, 
+						:estoque, 
+						:preco,
+						:categoria,
+						:genero,
+						:detalhes,
+						:idVendedor,
+						NOW(),
+						NOW())");
+                        
+					$stmt->execute([
+						':nome' => $_POST['nome'],
+						':foto' => $uploadfileN,
+						':tipo_fatura' => $_POST['tipo_fatura'],
+						':estoque' => $_POST['estoque'],
+						':preco' => $_POST['valor'],
+						':categoria' => $_POST['categoria'],
+						':genero' => $_POST['genero'],
+						':detalhes' => $_POST['detalhes'],
+						':idVendedor' => $_SESSION['userId']
+					]);
+
+					$result = $stmt->rowCount();
+
+					if($result > 0){
+						$mensagemHtml = "Produto cadastrado com sucesso!";
+						website::website_pop_up($mensagemHtml);
+						move_uploaded_file($_FILES['produtofile']['tmp_name'], $uploadfile);
+					}else{
+						$mensagemHtml = "Erro ao cadastrar!";
+						website::website_pop_up($mensagemHtml);
+					}
+				}
+			}
+		}
+
 		public static function website_admin_getNomeCategoria($id){
 			$pdo = db::pdo();
 			$stmt = $pdo->prepare("SELECT subcategoria FROM subcategorias WHERE id = :id");
@@ -1641,6 +1707,37 @@
 			}
 		}
 
+		public static function website_geComprasVendedor(){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM compras WHERE idVendedor = :idVendedor ORDER BY id DESC");
+			$stmt->execute([':idVendedor' => $_SESSION['userId']]);
+			$total = $stmt->rowCount();
+
+			if($total > 0){
+				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+					$status = self::website_getDadosFatura($dados['id_fatura'], "status");
+
+					if($status == 1 && $dados['status'] == 0){
+						echo "
+							<tr>
+								<td>1</td>
+								<td><a href='ver-cliente/{$dados['id_comprador']}' target='_blank'>".self::website_admin_getDadosCliente($dados['id_comprador'], "nome")."</a></td>
+								<td>R$ ".self::website_getDadosFatura($dados['id_fatura'], "preco")."</td>
+								<td>{$dados['external_reference']}</td>
+								<td>
+									<a class='btn btn-outline-primary btn-sm' data-toggle='modal' data-target='#exampleModal{$dados['id']}'>Ver detalhes</a>
+									<a href='marcar-entregue/{$dados['id_fatura']}' class='btn btn-outline-success btn-sm'>Entregue</a>
+									<a href='deletar-venda/{$dados['id_fatura']}' class='btn btn-outline-danger btn-sm'>Deletar</a>
+								</td>
+							</tr>
+						";
+				self::website_admin_modalDetailProduto($dados['id'], $dados['detalhes']);
+					}
+				}
+			}
+		}
+
 
 		public static function website_admin_geComprasCliente($cliente){
 			$pdo = db::pdo();
@@ -1723,6 +1820,33 @@
 				  </td>
 				</tr>";
 				self::website_admin_modalDetailProduto($dados['id'], $dados['detalhes']);
+				}
+			}
+		}
+
+		public static function website_geComprasConcluidas(){
+			$pdo = db::pdo();
+
+			$stmt = $pdo->prepare("SELECT * FROM compras WHERE idVendedor = :idVendedor status = :status ORDER BY id DESC");
+			$stmt->execute([':idVendedor' => $_SESSION['userId'], ':status' => 1]);
+			$total = $stmt->rowCount();
+
+			if($total > 0){
+				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+					$status = self::website_getDadosFatura($dados['id_fatura'], "status");
+
+					echo "
+						<tr>
+							<td>1</td>
+							<td><a href='ver-cliente/{$dados['id_comprador']}' target='_blank'>".self::website_admin_getDadosCliente($dados['id_comprador'], "nome")."</a></td>
+							<td>R$ ".self::website_getDadosFatura($dados['id_fatura'], "preco")."</td>
+							<td>
+								<a class='btn btn-outline-primary btn-sm' data-toggle='modal' data-target='#exampleModal{$dados['id']}'>Ver detalhes</a>
+							</td>
+						</tr>
+					";
+
+					self::website_admin_modalDetailProduto($dados['id'], $dados['detalhes']);
 				}
 			}
 		}

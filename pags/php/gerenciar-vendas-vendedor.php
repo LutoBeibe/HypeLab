@@ -18,7 +18,7 @@
                   <th>Gerenciar</th>
                 </tr>
 
-                <?php website::website_admin_geCompras();?>
+                <?php website::website_geComprasVendedor();?>
               </table>
             </div>
           </div>
@@ -40,7 +40,7 @@
                   <th>Detalhes</th>
                 </tr>
 
-                <?php website::website_admin_geComprasConcluidas();?>
+                <?php website::website_geComprasConcluidas();?>
               </table>
             </div>
           </div>

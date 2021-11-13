@@ -65,10 +65,10 @@
     <div class="embeded-buttons">
       <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Cadastrar">
     </div>
-    <input type="hidden" name="env" value="prod">
+    <input type="hidden" name="env" value="prodVendedor">
   </form>
 
-  <?php website::website_admin_cadastrarProdutoVendedor();?>
+  <?php website::website_cadastrarProdutoVendedor();?>
 </div> 
           
 <?php include('components/footer-component.php'); ?>

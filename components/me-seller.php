@@ -69,7 +69,7 @@
               </div>
             </div>
 
-            <div class="change-data">
+            <div class="embeded-buttons">
               <input type="submit" value="Alterar Dados" class="btn btn-outline-success btn-lg btn-block">
             </div>
             <input type="hidden" name="alt" value="cad">

@@ -2130,6 +2130,13 @@ h2.title {
     margin-top: 2rem;
 }
 
+.form-busca-produto-vendedor {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
 .login-form h2,
 .signup-form h2 {
     color: #696763;
@@ -2139,9 +2146,11 @@ h2.title {
     margin-bottom: 30px;
 }
 
-.login-form form input, .login-form form textarea,
-.signup-form form input, .signup-form form textarea,
-.me-form input, .me-form textarea {
+.login-form form input, .login-form form textarea, .login-form form select,
+.signup-form form input, .signup-form form textarea, .signup-form form select,
+.me-form input, .me-form textarea, .me-form select,
+.form-busca-produto-vendedor input, .form-busca-produto-vendedor textarea, .form-busca-produto-vendedor select,
+.form-dados-produto-vendedor input, .form-dados-produto-vendedor textarea, .form-dados-produto-vendedor select {
     background: #ffffff;
     border: 1px solid #afb0b6;
     border-radius: 3px;
@@ -2159,13 +2168,41 @@ h2.title {
     transition: .2s;
 }
 
+.login-form form select,
+.me-form select,
+.form-busca-produto-vendedor select,
+.form-dados-produto-vendedor select {
+    cursor: pointer;
+}
+
 .login-form form input:hover, 
 .login-form form input:focus,
 .signup-form form input:hover, 
 .signup-form form input:focus,
 .me-form input:hover, 
-.me-form input:focus {
+.me-form input:focus,
+.form-busca-produto-vendedor input:hover,
+.form-busca-produto-vendedor input:focus,
+.form-dados-produto-vendedor input:hover,
+.form-dados-produto-vendedor input:focus {
     filter: brightness(.93);
+}
+
+.login-form form select:hover, 
+.login-form form select:focus,
+.signup-form form select:hover, 
+.signup-form form select:focus,
+.me-form select:hover, 
+.me-form select:focus,
+.form-busca-produto-vendedor select:hover,
+.form-busca-produto-vendedor select:focus,
+.form-dados-produto-vendedor select:hover,
+.form-dados-produto-vendedor select:focus {
+    filter: brightness(.93);
+}
+
+.form-busca-produto-vendedor input {
+    max-width: 350px;
 }
 
 .login-form form textarea:hover, 
@@ -2173,13 +2210,19 @@ h2.title {
 .signup-form form textarea:hover, 
 .signup-form form textarea:focus,
 .me-form textarea:hover, 
-.me-form textarea:focus {
+.me-form textarea:focus,
+.form-busca-produto-vendedor textarea:hover,
+.form-busca-produto-vendedor textarea:focus,
+.form-dados-produto-vendedor textarea:hover,
+.form-dados-produto-vendedor textarea:focus {
     filter: brightness(.93);
 }
 
 .login-form form textarea,
 .signup-form form textarea,
-.me-form textarea {
+.me-form textarea,
+.form-busca-produto-vendedor textarea,
+.form-dados-produto-vendedor textarea {
     height: 120px;
 }
 
@@ -2199,7 +2242,9 @@ h2.title {
 }
 
 .login-form form button,
-.signup-form form button {
+.signup-form form button,
+.form-busca-produto-vendedor button,
+.form-dados-produto-vendedor button {
     background: #2f2f31;
     border: 1px solid #202022;
     border-radius: 4px;
@@ -2210,21 +2255,36 @@ h2.title {
     transition: .3s;
 }
 
+.form-busca-produto-vendedor button {
+    margin-bottom: 10px;
+}
+
 .login-form form button:hover,
-.signup-form form button:hover {
+.signup-form form button:hover,
+.form-busca-produto-vendedor button:hover,
+.form-dados-produto-vendedor button:hover {
     background: #272729;
     border: 1px solid #202022;
     color: #FFFFFF;
 }
 
-.me-form .change-data {
+.form-busca-produto-vendedor button:focus,
+.form-dados-produto-vendedor button:focus {
+    background: #272729;
+    border: 1px solid #202022;
+    color: #FFFFFF;
+}
+
+.embeded-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 100%;
+    margin-top: 12px;
 }
 
-.me-form .change-data .btn-outline-success {
+.embeded-buttons .btn-outline-success {
     background: #2f2f31;
     border: 1px solid #202022;
     border-radius: 4px;
@@ -2236,14 +2296,14 @@ h2.title {
     width: 15% !important;
 }
 
-.me-form .change-data .btn-outline-success:hover {
+.embeded-buttons .btn-outline-success:hover {
     background: #272729;
     border: 1px solid #202022;
     color: #FFFFFF;
 }
 
 @media (max-width: 800px) {
-    .me-form .change-data .btn-outline-success {
+    .embeded-buttons .btn-outline-success {
         width: 50% !important;
     }
 }
@@ -3260,4 +3320,8 @@ font-weight: bold;
     background: #272729;
     border: 1px solid #202022;
     color: #FFFFFF;
+}
+
+.r-content {
+    margin-bottom: 10px;
 }

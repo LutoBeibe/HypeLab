@@ -222,7 +222,7 @@
 							</ul>
 					</div>
 				";
-			}else{
+			} else {
 				echo "
 					<div class='contactinfo'>
 							<ul class='nav nav-pills'>
@@ -245,28 +245,28 @@
 						</ul>
 					</li> 
 					<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'>Rastrear Pedidos</a></li>
-					<li><a href=''>Favoritos</a></li>
 				";
 				
 				if (isset($_SESSION['isVendedor']) && $_SESSION['isVendedor']) {
 					$htmlNavLogin .= "
 						<li class='dropdown'><a href='#'>Gerenciar</a>
 							<ul role='menu' class='sub-menu account-menu'>
-								<li><a href='buscar-produto-vendedor'>Buscar</a></li> 
 								<li><a href='cadastrar-produto-vendedor'>Cadastrar Produto</a></li>
 								<li><a href='gerenciar-produtos-vendedor'>Gerenciar Produtos</a></li>
 								<li><a href='gerenciar-vendas-vendedor'>Gerenciar Vendas</a></li> 
 							</ul>
 						</li> 
 					";
+				} else {
+					$htmlNavLogin .= "<li><a href='entrar-como-vendedor'>Vender</a></li>";
 				}
 
 				echo $htmlNavLogin;
-			}else{
+			} else {
 				echo "
 						<li><a href='enter'>Entrar</a></li>
-						<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'> Rastrear Pedidos</a></li>
-						<li><a href=''>Favoritos</a></li>
+						<li><a href='https://www2.correios.com.br/sistemas/rastreamento/default.cfm'>Rastrear Pedidos</a></li>
+						<li><a href='entrar-como-vendedor'>Vender</a></li>
 				";
 			}
 		}
@@ -432,14 +432,24 @@
 			if(isset($id)){
 				$pdo = db::pdo();
 
-				$stmt = $pdo->prepare("SELECT * FROM subcategorias WHERE id = :id");
+				$stmt = $pdo->prepare(
+					"SELECT 
+						s.*,
+						c.categoria
+					FROM 
+						subcategorias s
+						INNER JOIN categorias c
+							ON c.id = s.id_categoria
+					WHERE 
+						s.id = :id"
+				);
 				$stmt->execute([':id' => $id]);
 				$total = $stmt->rowCount();
 
 				if($total > 0){
 					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
 
-					echo "<div class='r-title'>Produtos {$dados['subcategoria']}</div>";
+					echo "<div class='r-title'>{$dados['categoria']} - {$dados['subcategoria']}</div>";
 				}
 			}
 		}
@@ -1281,32 +1291,6 @@
 				}
 			}
 		}
-		public static function website_seller_buscarproduto(){
-			if(isset($_POST['env']) && $_POST['env'] == "busca"){
-				$busca = "%{$_POST['resultado']}%";
-
-				$pdo = db::pdo();
-
-				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE nome LIKE :nome OR preco LIKE :preco");
-				$stmt->execute([':nome' => $busca, ':preco' => $busca]);
-				$result = $stmt->rowCount();
-
-				if($result > 0){
-					while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						echo "<tr>
-				  <td><img src='{$dados['foto']}' width='30'></td>
-				  <td>{$dados['nome']}</td>
-				  <td>{$dados['preco']}</td>
-				  <td><span class='badge badge-dark'>".self::website_admin_getNomeCategoria($dados['categoria'])."</span></td>
-				  <td>
-				    <a href='editar-produto-seller/{$dados['id']}' class='btn btn-outline-primary btn-sm'>Editar</a>
-				    <a href='deletar-produto-seller/{$dados['id']}' class='btn btn-outline-danger btn-sm'>Deletar</a>
-				  </td>
-				</tr>";
-					}
-				}
-			}
-		}
 
 		public static function website_admin_getProdutos(){
 				$pdo = db::pdo();
@@ -1330,10 +1314,20 @@
 					}
 				}
 		}
+
 		public static function website_seller_getProdutos(){
 			$pdo = db::pdo();
 
-			$stmt = $pdo->prepare("SELECT * FROM produtos ORDER BY id DESC");
+			if (isset($_POST['resultado'])) {
+				$busca = "%{$_POST['resultado']}%";
+
+				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE idVendedor = :idVendedor AND (nome LIKE :nome OR preco LIKE :preco)");
+				$stmt->execute([':nome' => $busca, ':preco' => $busca, ':idVendedor' => $_SESSION['userId']]);
+			} else {
+				$stmt = $pdo->prepare("SELECT * FROM produtos WHERE idVendedor = :idVendedor ORDER BY id DESC");
+				$stmt->execute([':idVendedor' => $_SESSION['userId']]);
+			}
+
 			$stmt->execute();
 			$total = $stmt->rowCount();
 
@@ -1362,7 +1356,7 @@
 					echo $htmlDadosProdutos;
 				}
 			}
-	}
+		}
 
 		public static function website_admin_altProduto($id){
 			if(isset($_POST['alt']) && $_POST['alt'] == "prod"){
@@ -1454,10 +1448,10 @@
 			$stmt->execute([':id' => $id]);
 			$count = $stmt->rowCount();
 
-			if($count > 0){
+			if ($count > 0){
 				$mensagemHtml = "Deletado com sucesso!";
 				website::website_pop_up($mensagemHtml);
-			}else{
+			} else{
 				$mensagemHtml = "Erro ao deletar!";
 				website::website_pop_up($mensagemHtml);
 			}

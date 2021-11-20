@@ -622,9 +622,15 @@
 				$stmt = $pdo->prepare("SELECT * FROM compras WHERE id_fatura = :id_fatura");
 				$stmt->execute([':id_fatura' => $id_fatura]);
 
-				$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+				$total = $stmt->rowCount();
 
-				return $dados[$val];
+				if ($total > 0) {
+					$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+					return $dados[$val];
+				} else {
+					return "Nenhuma pedido encontrado.";
+				}
 		}
 
 		public function website_getDadosCompra($explode){
@@ -903,8 +909,8 @@
                         ':telefone' => $_POST['telefone'],
                         ':senha' => $_POST['senha'],
 												':endereco' => $_POST['endereco'],
-												':cep' => $_POST['cep'],
                         ':numero' => $_POST['numero'],
+												':cep' => $_POST['cep'],
                         ':bairro' => $_POST['bairro'],
                         ':cidade' => $_POST['cidade'],
                         ':estado' => $_POST['estado'],
@@ -914,9 +920,9 @@
 					$result = $stmt->rowCount();
 
 					if($result > 0){
-						$dados = $stmt->fetch(PDO::FETCH_ASSOC);
-						$_SESSION['userEmail'] = $dados['email'];
-						$_SESSION['userId'] = $dados['id'];
+						// $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+						// $_SESSION['userEmail'] = $dados['email'];
+						// $_SESSION['userId'] = $dados['id'];
 						$mensagemHtml = "Cadastro Efetuado com sucesso!";
 						self::website_pop_up($mensagemHtml);
 						self::website_direciona("enter");
@@ -1009,9 +1015,9 @@
 					$result = $stmt->rowCount();
 
 					if($result > 0){
-						$dados = $stmt->fetch(PDO::FETCH_ASSOC);
-						$_SESSION['userEmail'] = $dados['email'];
-						$_SESSION['userId'] = $dados['id'];
+						// $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+						// $_SESSION['userEmail'] = $dados['email'];
+						// $_SESSION['userId'] = $dados['id'];
 
 						if ($_FILES['foto-vendedor']['size'] > 0) {
 							move_uploaded_file($_FILES['foto-vendedor']['tmp_name'], $uploadfile);
@@ -1609,12 +1615,17 @@
 		public static function website_admin_getDadosCliente($id, $val){
 			$pdo = db::pdo();
 
-			$stmt = $pdo->prepare("SELECT * FROM clientes WHERE email = :email");
-			$stmt->execute([':email' => $id]);
+			$stmt = $pdo->prepare("SELECT * FROM clientes WHERE id = :id");
+			$stmt->execute([':id' => $id]);
 
-			$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+			$total = $stmt->rowCount();
 
-			return $dados[$val];
+			if ($total > 0) {
+				$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+				return $dados[$val];
+			} else {
+				return "Nenhum cliente encontrado.";
+			}
 		}
 
 		public static function website_pop_up($html) {
@@ -1707,7 +1718,7 @@
 			}
 		}
 
-		public static function website_geComprasVendedor(){
+		public static function website_getComprasVendedor(){
 			$pdo = db::pdo();
 
 			$stmt = $pdo->prepare("SELECT * FROM compras WHERE idVendedor = :idVendedor ORDER BY id DESC");
@@ -1803,7 +1814,7 @@
 		public static function website_admin_geComprasConcluidas(){
 			$pdo = db::pdo();
 
-			$stmt = $pdo->prepare("SELECT * FROM compras WHERE status = :status ORDER BY id DESC");
+			$stmt = $pdo->prepare("SELECT * FROM compras WHERE status = 1 ORDER BY id DESC");
 			$stmt->execute([':status' => 1]);
 			$total = $stmt->rowCount();
 
@@ -1827,14 +1838,12 @@
 		public static function website_geComprasConcluidas(){
 			$pdo = db::pdo();
 
-			$stmt = $pdo->prepare("SELECT * FROM compras WHERE idVendedor = :idVendedor status = :status ORDER BY id DESC");
+			$stmt = $pdo->prepare("SELECT * FROM compras WHERE idVendedor = :idVendedor AND status = :status ORDER BY id DESC");
 			$stmt->execute([':idVendedor' => $_SESSION['userId'], ':status' => 1]);
 			$total = $stmt->rowCount();
 
 			if($total > 0){
 				while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-					$status = self::website_getDadosFatura($dados['id_fatura'], "status");
-
 					echo "
 						<tr>
 							<td>1</td>

@@ -764,6 +764,7 @@ ul.account-menu {
     font-size: 42px;
     text-transform: uppercase;
     text-shadow: rgb(0 255 255) 1.60771px -0.371169px 0px, rgb(255 0 0) -1.60771px 0.371169px 0px;
+    /* text-shadow: #ebebe0 1.60771px -0.371169px 0px, #b9b9b0 -1.60771px 0.371169px 0px; */
 }
 
 .companyinfo p {
@@ -2089,6 +2090,50 @@ h2.title {
     margin-right: 0;
 }
 
+.seller-avatar-container .seller-avatar-file,
+.product-image-container .product-image-file {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.seller-avatar-container .seller-avatar-file input,
+.product-image-container .product-image-file input {
+    display: none;
+}
+
+.seller-avatar-container .seller-avatar-file label,
+.product-image-container .product-image-file label {
+    display: flex;        
+    justify-content: center;
+    align-items: center;
+
+    padding: 6px 25px;
+    
+    filter: brightness(.98);
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #afb0b6;
+    color: #696763;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+.seller-avatar-container .seller-avatar-file label:hover,
+.product-image-container .product-image-file label:hover {
+    filter: brightness(.93);
+}
+
+.seller-avatar-container .seller-avatar-file span,
+.product-image-container .product-image-file span {
+    color: #27ae60;
+}
+
 .signup-form .register-user-form-container .form-content-row .gender-radio-content {
     display: flex;
     justify-content: center;
@@ -2101,21 +2146,33 @@ h2.title {
 }
 
 .signup-form .register-user-form-container .form-content-row .gender-radio-content label {
+    padding: 5px;
+
+    background-color: #ffffff;
     color: #97938b;
+    filter: brightness(.98);
+    transition: .2s;
+    border-radius: 2px;
+    border: 1px solid #afb0b6;
+
     font-weight: 400;
 
+    user-select: none;
     cursor: pointer;
+    transition: .2s;
+}
+
+.signup-form .register-user-form-container .form-content-row .gender-radio-content label:hover {
+    filter: brightness(.92);
+}
+
+.signup-form .register-user-form-container .form-content-row .gender-radio-content input[type="radio"]:checked + label {
+    color: #44433e;
+    border: 1px solid #5d5e64;
 }
 
 .signup-form .register-user-form-container .form-content-row .gender-radio-content input {
-    width: 1.3rem;
-    height: 1.3rem;
-    margin-left: .5rem;
-    margin-top: 0 !important;
-
-    color: #c7c1b7;
-
-    cursor: pointer;
+    display: none;
 }
 
 .signup-form .register-user-form-container h5 {

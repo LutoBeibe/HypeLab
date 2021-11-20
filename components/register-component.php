@@ -15,12 +15,13 @@
             <h5>Genêro</h5>
             <div class="form-content-row">
                 <div class="gender-radio-content">
-                    <label for="generoMasculino">Masculino</label>
                     <input type="radio" name="genero" value="masculino" id="generoMasculino" checked required />
+                    <label for="generoMasculino">Masculino</label>
                 </div>
+                
                 <div class="gender-radio-content">
-                    <label for="generoFeminino">Feminino</label>
                     <input type="radio" name="genero" value="feminino" id="generoFeminino" required />
+                    <label for="generoFeminino">Feminino</label>
                 </div>
             </div>
             

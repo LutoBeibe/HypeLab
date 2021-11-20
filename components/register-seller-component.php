@@ -17,18 +17,29 @@
             <h5>Biografia</h5>
             <textarea name="bio" id="bio" cols="30" rows="5" placeholder="Conte um pouco sobre você..." required></textarea>
 
-            <h5>Foto de Perfil</h5>
-            <input type="file" class="foto-vendedor" name="foto-vendedor" />
+            <div class="form-content-row">
+                <div class="seller-avatar-container">
+                    <h5>Foto de Perfil</h5>
+
+                    <div class="seller-avatar-file">
+                        <label for="foto-vendedor">Escolher arquivo</label>
+                        <span id="seller-avatar-filename"></span>
+
+                        <input type="file" class="foto-vendedor" name="foto-vendedor" id="foto-vendedor" />
+                    </div>
+                </div>
+            </div>
 
             <h5>Genêro</h5>
             <div class="form-content-row">
                 <div class="gender-radio-content">
-                    <label for="generoMasculino">Masculino</label>
                     <input type="radio" name="genero" value="masculino" id="generoMasculino" checked required />
+                    <label for="generoMasculino">Masculino</label>
                 </div>
+
                 <div class="gender-radio-content">
-                    <label for="generoFeminino">Feminino</label>
                     <input type="radio" name="genero" value="feminino" id="generoFeminino" required />
+                    <label for="generoFeminino">Feminino</label>
                 </div>
             </div>
             
@@ -56,3 +67,15 @@
 
     </div><!--/sign up form-->
 </div>
+
+<script>
+    const avatarFile = document.querySelector('#foto-vendedor');
+    const avatarFileNameContainer = document.querySelector('#seller-avatar-filename');
+
+    avatarFile.addEventListener('change', () => {
+        const avatarFilePath = avatarFile.value.split('\\');
+        const avatarFileName = avatarFilePath[avatarFilePath.length - 1];
+
+        avatarFileNameContainer.innerHTML = avatarFileName;
+    });
+</script>

@@ -7,9 +7,9 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="images/home/img1.jpg" alt="" />
-                            <h2>R$ 899,99</h2>
-                            <p>AIR MAX 97 PERSIAN VIOLET</p>
+                            <img src="images/home/img4.jpg" alt="" />
+                            <h2>R$ 849,99</h2>
+                            <p>NIKE DUNK HI COLLEGE NAVY</p>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Comprar</a>
                         </div>
                         
@@ -46,9 +46,9 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="images/home/img4.jpg" alt="" />
-                            <h2>R$ 849,99</h2>
-                            <p>NIKE DUNK HI COLLEGE NAVY</p>
+                            <img src="images/home/img1.jpg" alt="" />
+                            <h2>R$ 899,99</h2>
+                            <p>AIR MAX 97 PERSIAN VIOLET</p>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Comprar</a>
                         </div>
                         

@@ -1,8 +1,10 @@
 <?php
+	header("Content-type: text/html; charset=utf-8");
+
 	#Definições do Site
 	define("titulo", "HypeLab"); #Titulo do site
-	// define("base_href", "http://localhost/eshop/"); #url do site 
-    define("base_href", "http://localhost/eshop/"); #url do site 
+	define("base_href", "http://localhost/eshop/"); #url do site 
+	// define("base_href", "http://hypelab.epizy.com/"); #url do site 
 				#OBS: inclua a barra no final  ↑							
 	define("base_href_admin", base_href."admin"); #NÃO MEXER!!
 
@@ -15,10 +17,10 @@
 	define("db_senha", ""); #senha do banco
 
 	#DEFINIÇÕES NA HOSPEDAGEM
-	// define("db_host", "fdb24.awardspace.net"); #host de conexão
-	// define("db_nome", "3475289_eshop"); #nome do banco
-	// define("db_usuario", "3475289_eshop"); #usuário do banco
-	// define("db_senha", "hypelab_streetwear_2021"); #senha do banco
+	// define("db_host", "sql204.epizy.com"); #host de conexão
+	// define("db_nome", "epiz_30368765_eshop"); #nome do banco
+	// define("db_usuario", "epiz_30368765"); #usuário do banco
+	// define("db_senha", "Gx5ioOcesvqv"); #senha do banco
 
 	#Definições de contato
 	define("contato_email", "luto.beibe@gmail.com");

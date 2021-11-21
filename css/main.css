@@ -763,8 +763,8 @@ ul.account-menu {
     letter-spacing: 0.071em;
     font-size: 42px;
     text-transform: uppercase;
-    text-shadow: rgb(0 255 255) 1.60771px -0.371169px 0px, rgb(255 0 0) -1.60771px 0.371169px 0px;
-    /* text-shadow: #ebebe0 1.60771px -0.371169px 0px, #b9b9b0 -1.60771px 0.371169px 0px; */
+    /* text-shadow: rgb(0 255 255) 1.60771px -0.371169px 0px, rgb(255 0 0) -1.60771px 0.371169px 0px; */
+    text-shadow: #d1d3db 1.60771px -0.371169px 0px, #b3b5bd -1.60771px 0.371169px 0px;
 }
 
 .companyinfo p {

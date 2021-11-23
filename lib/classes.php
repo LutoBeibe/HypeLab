@@ -48,6 +48,14 @@
 				return mb_substr($titulo, 0, 27, 'UTF-8' )."...";
 			}
 		}
+		
+		public static function website_limitaCaracteresPersonalizado($titulo, $quantidadeCaracteres){
+			if(strlen($titulo) <= $quantidadeCaracteres){
+				return $titulo;
+			}else{
+				return mb_substr($titulo, 0, $quantidadeCaracteres, 'UTF-8' )."...";
+			}
+		}
 
 		public static function website_selectBanco($banco){
 			$bancos = [
@@ -213,12 +221,22 @@
 
         public static function website_navTop(){
 			if(isset($_SESSION['userEmail'])){
-				$clientes = new clientes();
+				$nomeCliente = '';
+
+				if (isset($_SESSION['isVendedor']) && $_SESSION['isVendedor']) {
+					$vendedores = new vendedores();
+
+					$nomeCliente = $vendedores->nome;
+				} else {
+					$clientes = new clientes();
+
+					$nomeCliente = $clientes->nome;
+				}
 
 				echo "
 					<div class='contactinfo'>
 							<ul class='nav nav-pills'>
-									<li><a href='me'><span id='contact-message'>Olá</span>, ". $clientes->nome ."!</a></li>
+									<li><a href='me'><span id='contact-message'>Olá</span>, ". $nomeCliente ."!</a></li>
 							</ul>
 					</div>
 				";
@@ -330,24 +348,22 @@
 			echo "
 				<div class='col-sm-4'>
 						<div class='product-image-wrapper'>
-								<form method='POST' autocomplete='off'>
-										<div class='single-products'>
-												<div class='productinfo text-center'>
-														<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
-															<i class='fa fa-star'></i>
-														</button>-->
+							<div class='single-products'>
+								<a href='cart/{$dados['id']}' class='buy-product-card'>
+									<div class='productinfo text-center'>
+											<!--<button class='favorite-item-button' onclick='handleFavoriteItem()'>
+												<i class='fa fa-star'></i>
+											</button>-->
 
-														<img src='{$dados['foto']}' alt='{$dados['nome']}' />
-														<h2>R$ {$dados['preco']}</h2>
-														<p>".self::website_limitaCaracteres($dados['nome'])."</p>
-														<a class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
-															<i class='fa fa-shopping-cart'></i>Comprar
-														</a>
-												</div>
-										</div>
-										<input type='hidden' name='id_produto' value='{$dados['id']}'>
-										<input type='hidden' name='env' value='adicionarAoCarrinho'>
-								</form>
+											<img src='{$dados['foto']}' alt='{$dados['nome']}' />
+											<h2>R$ {$dados['preco']}</h2>
+											<p>".self::website_limitaCaracteres($dados['nome'])."</p>
+											<button class='btn btn-default add-to-cart' href='cart/{$dados['id']}'>
+												<i class='fa fa-shopping-cart'></i>Comprar
+											</button>
+									</div>
+								</a>
+							</div>
 						</div>
 				</div>
 			";

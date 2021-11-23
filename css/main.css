@@ -1405,10 +1405,26 @@ h2.title {
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 30px;
+    box-shadow: rgba(0 0 0 / 15%) 0 1px 1px;
+    
+    transition: max-height .1s ease-out,height .1s ease-out;
+}
+
+.product-image-wrapper:hover {
+    box-shadow: rgba(0 0 0 / 15%) 0 3px 10px;
+}
+
+.product-image-wrapper a {
+    text-decoration: none !important;
 }
 
 .single-products {
     position: relative;
+}
+
+.single-products .buy-product-card {
+    width: 100%;
+    height: 100%;
 }
 
 .new,
@@ -1441,6 +1457,7 @@ h2.title {
 
 .productinfo img {
     width: 100%;
+    border-bottom: 1px solid #F7F7F5;
 }
 
 .productinfo {
@@ -1489,6 +1506,27 @@ h2.title {
 .add-to-cart {
     border-radius: 4px !important;
     box-sizing: border-box;
+    
+    background: aliceblue;
+    border: 0.5px solid #27ae60;
+    border-radius: 0;
+    color: #27ae60;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 16.5px;
+    margin-bottom: 25px;
+
+    transition: 300ms;
+}
+
+.add-to-cart:hover {
+    background: #27ae60;
+    border: 0.5px solid #27ae60;
+    border-radius: 0;
+    color: #FFFFFF;
+}
+
+.add-to-cart i {
+    margin-right: 5px;
 }
 
 .product-overlay .add-to-cart {
@@ -1513,34 +1551,8 @@ h2.title {
     color: #fff;
 }
 
-.add-to-cart {
-    background: aliceblue;
-    border: 0.5px solid #27ae60;
-    border-radius: 0;
-    color: #27ae60;
-    font-family: 'Gemunu Libre', sans-serif;
-    font-size: 16.5px;
-    margin-bottom: 25px;
-}
-
-.add-to-cart:hover {
-    background: #27ae60;
-    border: 0.5px solid #27ae60;
-    border-radius: 0;
-    color: #FFFFFF;
-}
-
 .add-to {
     margin-bottom: 10px;
-}
-
-.add-to-cart i {
-    margin-right: 5px;
-}
-
-.add-to-cart:hover {
-    background: #27ae60;
-    color: #FFFFFF;
 }
 
 .choose {

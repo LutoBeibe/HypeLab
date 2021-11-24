@@ -34,7 +34,9 @@ var RGBChange = function () {
 window.onload = loadWindow();
 
 function loadWindow() {
-    loadProductCardDimensions();
+    setTimeout(() => {
+        loadProductCardDimensions();
+    }, 100);
 }
 
 function loadProductCardDimensions() {

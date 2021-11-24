@@ -30,3 +30,20 @@ var RGBChange = function () {
 //         });
 //     });
 // });
+
+window.onload = loadWindow();
+
+function loadWindow() {
+    loadProductCardDimensions();
+}
+
+function loadProductCardDimensions() {
+    const allProductCard = document.querySelectorAll('.product-card-container');
+    const firsProductCardWith = allProductCard[0].clientWidth;
+    const firsProductCardHeight = allProductCard[0].clientHeight;
+
+    allProductCard.forEach(productCard => {
+        productCard.style.width = `${firsProductCardWith}px`;
+        productCard.style.height = `${firsProductCardHeight}px`;
+    });
+};

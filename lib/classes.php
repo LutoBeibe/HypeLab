@@ -347,7 +347,7 @@
 		public static function website_card_produtos($dados) {
 			echo "
 				<div class='col-sm-4'>
-						<div class='product-image-wrapper'>
+						<div class='product-image-wrapper product-card-container'>
 							<div class='single-products'>
 								<a href='cart/{$dados['id']}' class='buy-product-card'>
 									<div class='productinfo text-center'>

@@ -31,13 +31,25 @@ var RGBChange = function () {
 //     });
 // });
 
-window.onload = loadWindow();
+// window.onload = loadWindow();
 
-function loadWindow() {
+// function loadWindow() {
+//     setTimeout(() => {
+//         loadProductCardDimensions();
+//     }, 100);
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     setTimeout(() => {
+//         loadProductCardDimensions();
+//     }, 200);
+// });
+
+$(window).on('load', () => {
     setTimeout(() => {
         loadProductCardDimensions();
-    }, 100);
-}
+    }, 200);
+})
 
 function loadProductCardDimensions() {
     const allProductCard = document.querySelectorAll('.product-card-container');

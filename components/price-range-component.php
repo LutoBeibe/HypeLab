@@ -10,19 +10,19 @@
                     value="<?php 
                         echo isset($_POST['searchString']) && $_POST['typeSearch'] == 'priceRange'
                             ? urldecode($_POST['searchString']) 
-                            : '500,1675';
+                            : '800,3550';
                     ?>" 
                     data-slider-min="0" 
-                    data-slider-max="3000" 
-                    data-slider-step="5" 
+                    data-slider-max="10000" 
+                    data-slider-step="50" 
                     data-slider-value="[<?php
                         echo isset($_POST['searchString']) && $_POST['typeSearch'] == 'priceRange'
                             ? urldecode($_POST['searchString']) 
-                            : '500,1675';
+                            : '800,3550';
                     ?>]" 
                     id="sl2" 
                 ><br />
-                <b class="pull-left">R$ 0</b> <b class="pull-right">R$ 3000</b>
+                <b class="pull-left">R$ 0</b> <b class="pull-right">R$ 10000</b>
                 <div class="control-container">
                     <button class="filter-button" type="submit"><i class="fa fa-filter"></i> Filtrar</button>
                 </div>
